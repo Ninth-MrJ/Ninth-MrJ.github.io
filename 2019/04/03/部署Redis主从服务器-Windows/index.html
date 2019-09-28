@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "a32dba06"
+    });
+  daovoice('update');
+  </script>
+
+
+  <meta name="description" content="Redis主服务器Redis 服务安装  记下安装路径，之后的安装服务等需要用到相关路径 安装Redis服务的端口，默认为6379   Redis安装文件下载 安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置Redis 配置文件修改需要修改一下几个参数设置  –文件 redis.windows.conf1234bind">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部署Redis主从服务器--Windows篇">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/部署Redis主从服务器-Windows/index.html">
+<meta property="og:site_name" content="Jam&#39;s blog">
+<meta property="og:description" content="Redis主服务器Redis 服务安装  记下安装路径，之后的安装服务等需要用到相关路径 安装Redis服务的端口，默认为6379   Redis安装文件下载 安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置Redis 配置文件修改需要修改一下几个参数设置  –文件 redis.windows.conf1234bind">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://hemrj.cn/static/images/redis1.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/redis2.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/redis3.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/redis4.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/redis5.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/redis6.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/redis7.jpg">
+<meta property="og:image" content="http://hemrj.cn/static/images/clipboard.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/clipboard2.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/clipboard3.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/clipboard4.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/RedisHome.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/redismanager.png">
+<meta property="og:image" content="http://hemrj.cn/static/images/redisreadwrite.png">
+<meta property="og:updated_time" content="2019-09-26T15:38:47.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="部署Redis主从服务器--Windows篇">
+<meta name="twitter:description" content="Redis主服务器Redis 服务安装  记下安装路径，之后的安装服务等需要用到相关路径 安装Redis服务的端口，默认为6379   Redis安装文件下载 安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置Redis 配置文件修改需要修改一下几个参数设置  –文件 redis.windows.conf1234bind">
+<meta name="twitter:image" content="http://hemrj.cn/static/images/redis1.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/04/03/部署Redis主从服务器-Windows/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>部署Redis主从服务器--Windows篇 | Jam's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jam's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">为什么要努力，为了自己吹下的牛逼</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/部署Redis主从服务器-Windows/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jam He">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://hemrj.cn/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jam's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">部署Redis主从服务器--Windows篇
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-03 12:58:37" itemprop="dateCreated datePublished" datetime="2019-04-03T12:58:37+08:00">2019-04-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-26 23:38:47" itemprop="dateModified" datetime="2019-09-26T23:38:47+08:00">2019-09-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Redis主服务器"><a href="#Redis主服务器" class="headerlink" title="Redis主服务器"></a>Redis主服务器</h2><h3 id="Redis-服务安装"><a href="#Redis-服务安装" class="headerlink" title="Redis 服务安装"></a>Redis 服务安装</h3><img src="http://hemrj.cn/static/images/redis1.png">
+<img src="http://hemrj.cn/static/images/redis2.png">
+<h4 id="记下安装路径，之后的安装服务等需要用到相关路径"><a href="#记下安装路径，之后的安装服务等需要用到相关路径" class="headerlink" title="记下安装路径，之后的安装服务等需要用到相关路径"></a>记下安装路径，之后的安装服务等需要用到相关路径</h4><img src="http://hemrj.cn/static/images/redis3.png">
+<h4 id="安装Redis服务的端口，默认为6379"><a href="#安装Redis服务的端口，默认为6379" class="headerlink" title="安装Redis服务的端口，默认为6379"></a>安装Redis服务的端口，默认为6379</h4><img src="http://hemrj.cn/static/images/redis4.png">
+<img src="http://hemrj.cn/static/images/redis5.png">
+<img src="http://hemrj.cn/static/images/redis6.png">
+<h4 id="Redis安装文件下载"><a href="#Redis安装文件下载" class="headerlink" title="Redis安装文件下载"></a>Redis安装文件下载</h4><img src="http://hemrj.cn/static/images/redis7.jpg">
+<h4 id="安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置"><a href="#安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置" class="headerlink" title="安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置"></a>安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置</h4><h3 id="Redis-配置文件修改"><a href="#Redis-配置文件修改" class="headerlink" title="Redis 配置文件修改"></a>Redis 配置文件修改</h3><h4 id="需要修改一下几个参数设置-–文件-redis-windows-conf"><a href="#需要修改一下几个参数设置-–文件-redis-windows-conf" class="headerlink" title="需要修改一下几个参数设置  –文件 redis.windows.conf"></a>需要修改一下几个参数设置  –文件 redis.windows.conf</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">bind</span> <span class="selector-tag">114</span><span class="selector-class">.114</span><span class="selector-class">.114</span><span class="selector-class">.114</span>(服务器地址)</span><br><span class="line"><span class="selector-tag">dir</span> ./</span><br><span class="line"><span class="selector-tag">dbfilename</span> <span class="selector-tag">dump</span><span class="selector-class">.rdb</span> (缓存文件地址)</span><br><span class="line"><span class="selector-tag">requirepass</span> <span class="selector-tag">Xyhis</span>@<span class="selector-id">#Xyhis</span> (Redis密码)</span><br></pre></td></tr></table></figure>
+<h4 id="更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务"><a href="#更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务" class="headerlink" title="更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务"></a>更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务</h4><h3 id="安装Redis-Windows服务"><a href="#安装Redis-Windows服务" class="headerlink" title="安装Redis Windows服务"></a>安装Redis Windows服务</h3><h4 id="Win-R-打开命令行"><a href="#Win-R-打开命令行" class="headerlink" title="Win+R 打开命令行"></a>Win+R 打开命令行</h4><h4 id="cd-到安装Redis目录下-以默认安装路径为例"><a href="#cd-到安装Redis目录下-以默认安装路径为例" class="headerlink" title="cd 到安装Redis目录下,以默认安装路径为例"></a>cd 到安装Redis目录下,以默认安装路径为例</h4><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd C:\<span class="function"><span class="keyword">Program</span></span> Files\Redis</span><br></pre></td></tr></table></figure>
+<h4 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Redis&gt;redis-server --service-install redis<span class="selector-class">.windows</span><span class="selector-class">.conf</span> --loglevel verbose</span><br></pre></td></tr></table></figure>
+<img src="http://hemrj.cn/static/images/clipboard.png">
+<p>意思是已存在服务，接下来先要卸载原来的redis服务</p>
+<h4 id="卸载服务"><a href="#卸载服务" class="headerlink" title="卸载服务"></a>卸载服务</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server <span class="comment">--service-uninstall</span></span><br></pre></td></tr></table></figure>
+<img src="http://hemrj.cn/static/images/clipboard2.png">
+<p>显示已经卸载成功，继续安装<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Redis&gt;redis-server --service-install redis.windows.<span class="keyword">conf</span> --loglevel <span class="keyword">verbose</span></span><br><span class="line">[<span class="number">11696</span>] <span class="number">15</span> Nov <span class="number">14</span>:<span class="number">24</span>:<span class="number">35.534</span> # Granting <span class="keyword">read</span>/<span class="keyword">write</span> access <span class="keyword">to</span> <span class="string">'NT AUTHORITY\NetworkService'</span> <span class="keyword">on</span>: <span class="string">"C:\Program Files\Redis"</span> <span class="string">"C:\Program Files\Redis\"</span></span><br><span class="line">[<span class="number">11696</span>] <span class="number">15</span> Nov <span class="number">14</span>:<span class="number">24</span>:<span class="number">35.535</span> # Redis successfully installed <span class="keyword">as</span> <span class="keyword">a</span> service.</span><br></pre></td></tr></table></figure></p>
+<p>启动Redis服务<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server <span class="comment">--service-start</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="安装成功"><a href="#安装成功" class="headerlink" title="安装成功"></a>安装成功</h4><h4 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h4><p>报错，卸载后安装还是报错<br><img src="http://hemrj.cn/static/images/clipboard3.png"><br>这是因为redis-cli还在启动导致不能安装<br><img src="http://hemrj.cn/static/images/clipboard4.png"><br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>）redis-cli.exe  启动cli</span><br><span class="line"><span class="number">2</span>）shutdown   关闭</span><br><span class="line"><span class="number">3</span>）<span class="keyword">exit</span> 离开，返回上一层</span><br><span class="line"><span class="number">4</span>）重新安装</span><br></pre></td></tr></table></figure></p>
+<p>以上全部无效<br>1.使用Redis自带命令登录关闭Redis服务<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> -p <span class="number">6379</span> shutdown</span><br></pre></td></tr></table></figure></p>
+<p>2.bat，创建bat命令结束进程<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> <span class="attribute">p</span>=redis-cli.exe</span><br><span class="line">taskkill /f /im %p%</span><br></pre></td></tr></table></figure></p>
+<p>3.使用完整路径安装(部分老系统电脑使用这个方法)<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server --service-install redis<span class="selector-class">.windows</span><span class="selector-class">.conf</span> --loglevel verbose</span><br></pre></td></tr></table></figure></p>
+<p>4.配置相关环境变量使用(完整路径的改良版)<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">redis-server</span> %<span class="selector-tag">RedisHome</span>%\<span class="selector-tag">redis</span><span class="selector-class">.windows</span><span class="selector-class">.conf</span></span><br></pre></td></tr></table></figure></p>
+<img src="http://hemrj.cn/static/images/RedisHome.png">
+<h3 id="Redis-验证安装"><a href="#Redis-验证安装" class="headerlink" title="Redis 验证安装"></a>Redis 验证安装</h3><h4 id="安装RedisDesktopManager，默认直接下一步安装"><a href="#安装RedisDesktopManager，默认直接下一步安装" class="headerlink" title="安装RedisDesktopManager，默认直接下一步安装"></a>安装RedisDesktopManager，默认直接下一步安装</h4><img src="http://hemrj.cn/static/images/redismanager.png">
+<p>填写相关IP信息和密码，能正常连接即可，到此，主服务器配置完毕。</p>
+<h2 id="Redis从服务器"><a href="#Redis从服务器" class="headerlink" title="Redis从服务器"></a>Redis从服务器</h2><h3 id="安装Redis-内容和安装主服务器一致，主从服务器区别在于配置文件上的不同"><a href="#安装Redis-内容和安装主服务器一致，主从服务器区别在于配置文件上的不同" class="headerlink" title="安装Redis 内容和安装主服务器一致，主从服务器区别在于配置文件上的不同"></a>安装Redis 内容和安装主服务器一致，主从服务器区别在于配置文件上的不同</h3><h3 id="配置文件修改-redis-windows-conf"><a href="#配置文件修改-redis-windows-conf" class="headerlink" title="配置文件修改 redis.windows.conf"></a>配置文件修改 redis.windows.conf</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slaveof 114.114.114.114     主服务器Redis IP</span><br><span class="line">masterauth abc123     主服务器Redis密码</span><br></pre></td></tr></table></figure>
+<h3 id="安装服务-1"><a href="#安装服务-1" class="headerlink" title="安装服务"></a>安装服务</h3><p>内容和安装主服务器一致</p>
+<h2 id="测试主从服务器"><a href="#测试主从服务器" class="headerlink" title="测试主从服务器"></a>测试主从服务器</h2><h3 id="主要测试Redis主从服务安装是否成功，主从是否实现"><a href="#主要测试Redis主从服务安装是否成功，主从是否实现" class="headerlink" title="主要测试Redis主从服务安装是否成功，主从是否实现"></a>主要测试Redis主从服务安装是否成功，主从是否实现</h3><h4 id="主服务器Redis-cd到Redis安装目录"><a href="#主服务器Redis-cd到Redis安装目录" class="headerlink" title="主服务器Redis  cd到Redis安装目录"></a>主服务器Redis  cd到Redis安装目录</h4><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd C:\<span class="function"><span class="keyword">Program</span></span> Files\Redis</span><br></pre></td></tr></table></figure>
+<h4 id="命令行登录Redis"><a href="#命令行登录Redis" class="headerlink" title="命令行登录Redis"></a>命令行登录Redis</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ redis-cli -h host -p<span class="built_in"> port </span>-a password</span><br><span class="line">C:\Program Files\Redis&gt;redis-cli.exe -h 127.0.0.1 -p 6379 -a <span class="string">"123"</span></span><br></pre></td></tr></table></figure>
+<h4 id="往主Redis写入数据"><a href="#往主Redis写入数据" class="headerlink" title="往主Redis写入数据"></a>往主Redis写入数据</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="built_in">name</span> posn</span><br></pre></td></tr></table></figure>
+<h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">get</span> <span class="built_in">name</span></span><br></pre></td></tr></table></figure>
+<img src="http://hemrj.cn/static/images/redisreadwrite.png">
+<h2 id="Redis目录解析"><a href="#Redis目录解析" class="headerlink" title="Redis目录解析"></a>Redis目录解析</h2><h3 id="普通理解的文件用处，需要更详细的可以百度"><a href="#普通理解的文件用处，需要更详细的可以百度" class="headerlink" title="普通理解的文件用处，需要更详细的可以百度"></a>普通理解的文件用处，需要更详细的可以百度</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">dump<span class="selector-class">.rdb</span>      本地数据文件</span><br><span class="line">EventLog.dll</span><br><span class="line">InstallRedisService.bat</span><br><span class="line">Logs     日志</span><br><span class="line">Redis on Windows Release Notes<span class="selector-class">.docx</span>     官方文档</span><br><span class="line">Redis on Windows<span class="selector-class">.docx</span>    				官方文档</span><br><span class="line">Windows Service Documentation<span class="selector-class">.docx</span>      官方文档</span><br><span class="line">redis-benchmark<span class="selector-class">.exe</span>           性能测试</span><br><span class="line">redis-benchmark.pdb</span><br><span class="line">redis-check-aof.exe</span><br><span class="line">redis-check-aof.pdb</span><br><span class="line">redis-check-dump<span class="selector-class">.exe</span>  </span><br><span class="line">redis-check-dump.pdb</span><br><span class="line">redis-cli<span class="selector-class">.exe</span>                 客户端</span><br><span class="line">redis-cli.pdb</span><br><span class="line">redis-server<span class="selector-class">.exe</span>              服务端</span><br><span class="line">redis-server.pdb</span><br><span class="line">redis<span class="selector-class">.windows-service</span><span class="selector-class">.conf</span>    配置文件</span><br><span class="line">redis<span class="selector-class">.windows</span><span class="selector-class">.conf</span>            配置文件</span><br><span class="line">redis<span class="selector-class">.windowsForSlave</span><span class="selector-class">.conf</span>    自定义配置文件</span><br><span class="line">temp-<span class="number">1542164504.18020</span><span class="selector-class">.rdb</span>     临时数据备份</span><br></pre></td></tr></table></figure>
+<h2 id="Redis-常用命令"><a href="#Redis-常用命令" class="headerlink" title="Redis 常用命令"></a>Redis 常用命令</h2><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//停止Redis服务</span></span><br><span class="line">redis-<span class="keyword">server</span> stop</span><br><span class="line"><span class="comment">//启动Redis服务</span></span><br><span class="line">redis-<span class="keyword">server</span> start</span><br><span class="line"><span class="comment">//重启Redis服务</span></span><br><span class="line">redis-<span class="keyword">server</span> restart    </span><br><span class="line"><span class="comment">//查看redis进程</span></span><br><span class="line">ps -ef|grep redis</span><br><span class="line"><span class="comment">//以redis.conf配置文件启动服务</span></span><br><span class="line">redis-<span class="keyword">server</span> redis.conf</span><br><span class="line"><span class="comment">//退出登入redis</span></span><br><span class="line">quit</span><br><span class="line"><span class="comment">//获取redis信息</span></span><br><span class="line">info</span><br><span class="line"><span class="comment">//安装Redis Windows服务</span></span><br><span class="line">redis-<span class="keyword">server</span> --service-install redis.windows.conf --loglevel verbose</span><br><span class="line"><span class="comment">//启动Redis服务</span></span><br><span class="line">redis-<span class="keyword">server</span> --service-start</span><br><span class="line"><span class="comment">//清空Redis服务器所有数据</span></span><br><span class="line">redis-cli -h <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> -p <span class="number">6379</span> -a <span class="string">"asd2828"</span>          </span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span> flushall</span><br><span class="line"><span class="comment">//卸载Redis Windows服务</span></span><br><span class="line">redis-<span class="keyword">server</span> --service-uninstall</span><br><span class="line"><span class="comment">//停止Redis服务</span></span><br><span class="line">redis-<span class="keyword">server</span> --service-stop</span><br><span class="line"><span class="comment">//查询命令，</span></span><br><span class="line">sscan BsItem <span class="number">0</span> match *<span class="number">9898</span>* <span class="keyword">count</span> <span class="number">100000</span></span><br><span class="line">      key(表名)      (模糊查询条件)    (查询数量)</span><br></pre></td></tr></table></figure>
+<h2 id="切换服务器bat"><a href="#切换服务器bat" class="headerlink" title="切换服务器bat"></a>切换服务器bat</h2><h3 id="其实redis的指向就只是根据redis-windows-conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis-windows-test-conf，把里面的直线ip和密码等更换了"><a href="#其实redis的指向就只是根据redis-windows-conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis-windows-test-conf，把里面的直线ip和密码等更换了" class="headerlink" title="其实redis的指向就只是根据redis.windows.conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis.windows.test.conf，把里面的直线ip和密码等更换了"></a>其实redis的指向就只是根据redis.windows.conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis.windows.test.conf，把里面的直线ip和密码等更换了</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">@echo off  </span><br><span class="line"><span class="symbol">:</span>: BatchGotAdmin  </span><br><span class="line"><span class="symbol">:-------------------------------------</span>  </span><br><span class="line">REM  --&gt; Check <span class="keyword">for</span> permissions  </span><br><span class="line">&gt;nul <span class="number">2</span>&gt;&amp;<span class="number">1</span> <span class="string">"%SYSTEMROOT%\system32\cacls.exe"</span> <span class="string">"%SYSTEMROOT%\system32\config\system"</span>  </span><br><span class="line"></span><br><span class="line">REM --&gt; If error flag set, we <span class="keyword">do</span> <span class="keyword">not</span> have admin.  </span><br><span class="line"><span class="keyword">if</span> <span class="string">'%errorlevel%'</span> NEQ <span class="string">'0'</span> (  </span><br><span class="line">    echo Requesting administrative privileges...  </span><br><span class="line">    goto UACPrompt  </span><br><span class="line">) <span class="keyword">else</span> ( goto gotAdmin )  </span><br><span class="line"></span><br><span class="line"><span class="symbol">:UACPrompt</span>  </span><br><span class="line">    echo Set UAC = CreateObject^(<span class="string">"Shell.Application"</span>^) &gt; <span class="string">"%temp%\getadmin.vbs"</span>  </span><br><span class="line">    echo UAC.ShellExecute <span class="string">"%~s0"</span>, <span class="string">""</span>, <span class="string">""</span>, <span class="string">"runas"</span>, <span class="number">1</span> <span class="meta">&gt;&gt; </span><span class="string">"%temp%\getadmin.vbs"</span>  </span><br><span class="line"></span><br><span class="line">    <span class="string">"%temp%\getadmin.vbs"</span>  </span><br><span class="line">    exit /B  </span><br><span class="line"></span><br><span class="line"><span class="symbol">:gotAdmin</span>  </span><br><span class="line">    <span class="keyword">if</span> exist <span class="string">"%temp%\getadmin.vbs"</span> ( del <span class="string">"%temp%\getadmin.vbs"</span> )  </span><br><span class="line">    pushd <span class="string">"%CD%"</span>  </span><br><span class="line">    CD /D <span class="string">"%~dp0"</span>  </span><br><span class="line"><span class="symbol">:--------------------------------------</span>  </span><br><span class="line">@echo off</span><br><span class="line">cd <span class="symbol">C:</span>\Program Files\Redis</span><br><span class="line">redis-server --service-stop </span><br><span class="line"></span><br><span class="line">redis-server --service-uninstall</span><br><span class="line">redis-server --service-install redis.windows.test.conf --loglevel verbose</span><br><span class="line"></span><br><span class="line">redis-server --service-start</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+	
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/28/IDEA2017 SSM框架整合搭建 Maven + Spring + SpringMVC + MyBatis/" rel="next" title="IDEA2017 SSM框架整合搭建 Maven + Spring + SpringMVC + MyBatis">
+                <i class="fa fa-chevron-left"></i> IDEA2017 SSM框架整合搭建 Maven + Spring + SpringMVC + MyBatis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/17/系统配置文件/" rel="prev" title="系统配置文件">
+                系统配置文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://hemrj.cn/avatar.jpg" alt="Jam He">
+            
+              <p class="site-author-name" itemprop="name">Jam He</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis主服务器"><span class="nav-number">1.</span> <span class="nav-text">Redis主服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-服务安装"><span class="nav-number">1.1.</span> <span class="nav-text">Redis 服务安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#记下安装路径，之后的安装服务等需要用到相关路径"><span class="nav-number">1.1.1.</span> <span class="nav-text">记下安装路径，之后的安装服务等需要用到相关路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Redis服务的端口，默认为6379"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装Redis服务的端口，默认为6379</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis安装文件下载"><span class="nav-number">1.1.3.</span> <span class="nav-text">Redis安装文件下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置"><span class="nav-number">1.1.4.</span> <span class="nav-text">安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-配置文件修改"><span class="nav-number">1.2.</span> <span class="nav-text">Redis 配置文件修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#需要修改一下几个参数设置-–文件-redis-windows-conf"><span class="nav-number">1.2.1.</span> <span class="nav-text">需要修改一下几个参数设置  –文件 redis.windows.conf</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务"><span class="nav-number">1.2.2.</span> <span class="nav-text">更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Redis-Windows服务"><span class="nav-number">1.3.</span> <span class="nav-text">安装Redis Windows服务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Win-R-打开命令行"><span class="nav-number">1.3.1.</span> <span class="nav-text">Win+R 打开命令行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cd-到安装Redis目录下-以默认安装路径为例"><span class="nav-number">1.3.2.</span> <span class="nav-text">cd 到安装Redis目录下,以默认安装路径为例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装服务"><span class="nav-number">1.3.3.</span> <span class="nav-text">安装服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卸载服务"><span class="nav-number">1.3.4.</span> <span class="nav-text">卸载服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装成功"><span class="nav-number">1.3.5.</span> <span class="nav-text">安装成功</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见报错"><span class="nav-number">1.3.6.</span> <span class="nav-text">常见报错</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-验证安装"><span class="nav-number">1.4.</span> <span class="nav-text">Redis 验证安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装RedisDesktopManager，默认直接下一步安装"><span class="nav-number">1.4.1.</span> <span class="nav-text">安装RedisDesktopManager，默认直接下一步安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis从服务器"><span class="nav-number">2.</span> <span class="nav-text">Redis从服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Redis-内容和安装主服务器一致，主从服务器区别在于配置文件上的不同"><span class="nav-number">2.1.</span> <span class="nav-text">安装Redis 内容和安装主服务器一致，主从服务器区别在于配置文件上的不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件修改-redis-windows-conf"><span class="nav-number">2.2.</span> <span class="nav-text">配置文件修改 redis.windows.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装服务-1"><span class="nav-number">2.3.</span> <span class="nav-text">安装服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试主从服务器"><span class="nav-number">3.</span> <span class="nav-text">测试主从服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要测试Redis主从服务安装是否成功，主从是否实现"><span class="nav-number">3.1.</span> <span class="nav-text">主要测试Redis主从服务安装是否成功，主从是否实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主服务器Redis-cd到Redis安装目录"><span class="nav-number">3.1.1.</span> <span class="nav-text">主服务器Redis  cd到Redis安装目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行登录Redis"><span class="nav-number">3.1.2.</span> <span class="nav-text">命令行登录Redis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#往主Redis写入数据"><span class="nav-number">3.1.3.</span> <span class="nav-text">往主Redis写入数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询数据"><span class="nav-number">3.1.4.</span> <span class="nav-text">查询数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis目录解析"><span class="nav-number">4.</span> <span class="nav-text">Redis目录解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通理解的文件用处，需要更详细的可以百度"><span class="nav-number">4.1.</span> <span class="nav-text">普通理解的文件用处，需要更详细的可以百度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-常用命令"><span class="nav-number">5.</span> <span class="nav-text">Redis 常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换服务器bat"><span class="nav-number">6.</span> <span class="nav-text">切换服务器bat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其实redis的指向就只是根据redis-windows-conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis-windows-test-conf，把里面的直线ip和密码等更换了"><span class="nav-number">6.1.</span> <span class="nav-text">其实redis的指向就只是根据redis.windows.conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis.windows.test.conf，把里面的直线ip和密码等更换了</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span class="author" itemprop="copyrightHolder">Jam He</span>
+  
+	<div class="powered-by">
+	<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+</div>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
