@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "a32dba06"
+    });
+  daovoice('update');
+  </script>
+
+
+  <meta name="description" content="SqlLite数据库帮助类和基本DEMOSQLlite优点1234567891011◇轻量级SQLite和C/S模式的数据库软件不同，它是进程内的数据库引擎，因此不存在数据库的客户端和服务器。使用SQLite一般只需要带上它的一个动态 库，就可以享受它的全部功能。而且那个动态库的尺寸也挺小，以版本3.6.11为例，Windows下487KB、Linux下347KB。◇绿色软件SQLite的另外一个">
+<meta name="keywords" content="C#,编程开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SqlLite数据库帮助类和基本DEMO">
+<meta property="og:url" content="http://yoursite.com/2019/10/16/SqlLite数据库帮助类和基本DEMO/index.html">
+<meta property="og:site_name" content="Jam&#39;s blog">
+<meta property="og:description" content="SqlLite数据库帮助类和基本DEMOSQLlite优点1234567891011◇轻量级SQLite和C/S模式的数据库软件不同，它是进程内的数据库引擎，因此不存在数据库的客户端和服务器。使用SQLite一般只需要带上它的一个动态 库，就可以享受它的全部功能。而且那个动态库的尺寸也挺小，以版本3.6.11为例，Windows下487KB、Linux下347KB。◇绿色软件SQLite的另外一个">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-16T07:42:53.933Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SqlLite数据库帮助类和基本DEMO">
+<meta name="twitter:description" content="SqlLite数据库帮助类和基本DEMOSQLlite优点1234567891011◇轻量级SQLite和C/S模式的数据库软件不同，它是进程内的数据库引擎，因此不存在数据库的客户端和服务器。使用SQLite一般只需要带上它的一个动态 库，就可以享受它的全部功能。而且那个动态库的尺寸也挺小，以版本3.6.11为例，Windows下487KB、Linux下347KB。◇绿色软件SQLite的另外一个">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/10/16/SqlLite数据库帮助类和基本DEMO/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SqlLite数据库帮助类和基本DEMO | Jam's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jam's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">为什么要努力，为了自己吹下的牛逼</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/16/SqlLite数据库帮助类和基本DEMO/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jam He">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="http://hemrj.cn/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jam's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SqlLite数据库帮助类和基本DEMO
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-16 15:05:13 / 修改时间：15:42:53" itemprop="dateCreated datePublished" datetime="2019-10-16T15:05:13+08:00">2019-10-16</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Codeing/" itemprop="url" rel="index"><span itemprop="name">Codeing</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="SqlLite数据库帮助类和基本DEMO"><a href="#SqlLite数据库帮助类和基本DEMO" class="headerlink" title="SqlLite数据库帮助类和基本DEMO"></a>SqlLite数据库帮助类和基本DEMO</h2><h3 id="SQLlite优点"><a href="#SQLlite优点" class="headerlink" title="SQLlite优点"></a>SQLlite优点</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">◇轻量级</span><br><span class="line">SQLite和C/S模式的数据库软件不同，它是进程内的数据库引擎，因此不存在数据库的客户端和服务器。使用SQLite一般只需要带上它的一个动态 库，就可以享受它的全部功能。而且那个动态库的尺寸也挺小，以版本<span class="number">3.6</span><span class="number">.11</span>为例，Windows下<span class="number">487</span>KB、Linux下<span class="number">347</span>KB。</span><br><span class="line">◇绿色软件</span><br><span class="line">SQLite的另外一个特点是绿色：它的核心引擎本身不依赖第三方的软件，使用它也不需要“安装”。所以在部署的时候能够省去不少麻烦。</span><br><span class="line">◇单一文件</span><br><span class="line">所谓的“单一文件”，就是数据库中所有的信息（比如表、视图、触发器、等）都包含在一个文件内。这个文件可以copy到其它目录或其它机器上，也照用不误。</span><br><span class="line">◇跨平台/可移植性</span><br><span class="line">如果光支持主流操作系统，那就没啥好吹嘘的了。除了主流操作系统，SQLite还支持了很多冷门的操作系统。我个人比较感兴趣的是它对很多嵌入式系统（比如Android、WindowsMobile、Symbin、Palm、VxWorks等）的支持。</span><br><span class="line">◇内存数据库（in-memory database）</span><br><span class="line">这年头，内存越来越便宜，很多普通PC都开始以GB为单位来衡量内存（服务器就更甭提了）。这时候，SQLite的内存数据库特性就越发显得好用。</span><br><span class="line">SQLite的API不区分当前操作的数据库是在内存还是在文件（对于存储介质是透明的）。所以如果你觉得磁盘I/O有可能成为瓶颈的话，可以考虑切换 为内存方式。切换的时候，操作SQLite的代码基本不用大改，只要在开始时把文件Load到内存，结束时把内存的数据库Dump回文件就OK了。在这种情况下，前面提到的“onlinebackup API”就派上用场了，聪明的同学应该明白我为啥这么期待backup功能了吧？</span><br></pre></td></tr></table></figure>
+<h3 id="添加引用"><a href="#添加引用" class="headerlink" title="添加引用"></a>添加引用</h3><h5 id="管理NuGet管理程序–-gt-浏览–-gt-搜索System-Data-SQLite-安装引用"><a href="#管理NuGet管理程序–-gt-浏览–-gt-搜索System-Data-SQLite-安装引用" class="headerlink" title="管理NuGet管理程序–&gt;浏览–&gt;搜索System.Data.SQLite,安装引用"></a>管理NuGet管理程序–&gt;浏览–&gt;搜索System.Data.SQLite,安装引用</h5><h5 id="或者直接在此下载-下载后引用System-Data-SQLite-dll，把SQLite-Interop-dll-zip解压放在debug目录下"><a href="#或者直接在此下载-下载后引用System-Data-SQLite-dll，把SQLite-Interop-dll-zip解压放在debug目录下" class="headerlink" title="或者直接在此下载,下载后引用System.Data.SQLite.dll，把SQLite.Interop.dll.zip解压放在debug目录下"></a>或者直接在此下载,下载后引用System.Data.SQLite.dll，把SQLite.Interop.dll.zip解压放在debug目录下</h5><p> 1.<a href="http://hemrj.cn/System.Data.SQLite.dll" target="_blank" rel="noopener">http://hemrj.cn/System.Data.SQLite.dll</a><br> 2.<a href="http://hemrj.cn/SQLite.Interop.dll.zip" target="_blank" rel="noopener">http://hemrj.cn/SQLite.Interop.dll.zip</a></p>
+<h3 id="SqlLite帮助类"><a href="#SqlLite帮助类" class="headerlink" title="SqlLite帮助类"></a>SqlLite帮助类</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> System.Data;</span><br><span class="line"><span class="keyword">using</span> System.Data.Common;</span><br><span class="line"><span class="keyword">using</span> System.Data.SQLite;</span><br><span class="line"><span class="keyword">using</span> System.IO;</span><br><span class="line"><span class="keyword">using</span> System.Linq;</span><br><span class="line"><span class="keyword">using</span> System.Text;</span><br><span class="line"><span class="keyword">using</span> System.Threading.Tasks;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Nine.UnitlLibrary</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> </span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> SQLite数据库操作帮助类</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 提供一系列方便的调用:</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> Execute,Save,Update,Delete...</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> @author Nine</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SqlLiteHepler</span></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">bool</span> _showSql = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 是否输出生成的SQL语句</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">bool</span> ShowSql</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">this</span>._showSql;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">set</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">this</span>._showSql = <span class="keyword">value</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">readonly</span> <span class="keyword">string</span> _dataFile;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> SQLiteConnection _conn;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">SqlLiteHepler</span>(<span class="params"><span class="keyword">string</span> dataFile</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataFile == <span class="literal">null</span>)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"dataFile=null"</span>);</span><br><span class="line">            <span class="keyword">this</span>._dataFile = dataFile;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>打开SQLiteManager使用的数据库连接<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Open</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">this</span>._conn = OpenConnection(<span class="keyword">this</span>._dataFile);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Close</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>._conn != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">this</span>._conn.Close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>安静地关闭连接,保存不抛出任何异常<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CloseQuietly</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>._conn != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">try</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">this</span>._conn.Close();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">catch</span> &#123; &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>创建一个连接到指定数据文件的SQLiteConnection,并Open<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>如果文件不存在,创建之<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="dataFile"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SQLiteConnection <span class="title">OpenConnection</span>(<span class="params"><span class="keyword">string</span> dataFile</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dataFile == <span class="literal">null</span>)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"dataFile=null"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!File.Exists(dataFile))</span><br><span class="line">            &#123;</span><br><span class="line">                SQLiteConnection.CreateFile(dataFile);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            SQLiteConnection conn = <span class="keyword">new</span> SQLiteConnection();</span><br><span class="line">            SQLiteConnectionStringBuilder conStr = <span class="keyword">new</span> SQLiteConnectionStringBuilder</span><br><span class="line">            &#123;</span><br><span class="line">                DataSource = dataFile</span><br><span class="line">            &#125;;</span><br><span class="line">            conn.ConnectionString = conStr.ToString();</span><br><span class="line">            conn.Open();</span><br><span class="line">            <span class="keyword">return</span> conn;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>读取或设置SQLiteManager使用的数据库连接<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="keyword">public</span> SQLiteConnection Connection</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">get</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">this</span>._conn;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">set</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">value</span> == <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>._conn = <span class="keyword">value</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">EnsureConnection</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>._conn == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"SQLiteManager.Connection=null"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">GetDataFile</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>._dataFile;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>判断表table是否存在<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="table"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">TableExists</span>(<span class="params"><span class="keyword">string</span> table</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (table == <span class="literal">null</span>)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"table=null"</span>);</span><br><span class="line">            <span class="keyword">this</span>.EnsureConnection();</span><br><span class="line">            <span class="comment">// SELECT count(*) FROM sqlite_master WHERE type='table' AND name='test';</span></span><br><span class="line">            SQLiteCommand cmd = <span class="keyword">new</span> SQLiteCommand(<span class="string">"SELECT count(*) as c FROM sqlite_master WHERE type='table' AND name=@tableName "</span>);</span><br><span class="line">            cmd.Connection = <span class="keyword">this</span>.Connection;</span><br><span class="line">            cmd.Parameters.Add(<span class="keyword">new</span> SQLiteParameter(<span class="string">"tableName"</span>, table));</span><br><span class="line">            SQLiteDataReader reader = cmd.ExecuteReader();</span><br><span class="line">            reader.Read();</span><br><span class="line">            <span class="keyword">int</span> c = reader.GetInt32(<span class="number">0</span>);</span><br><span class="line">            reader.Close();</span><br><span class="line">            reader.Dispose();</span><br><span class="line">            cmd.Dispose();</span><br><span class="line">            <span class="comment">//return false;</span></span><br><span class="line">            <span class="keyword">return</span> c == <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>执行SQL,返回受影响的行数<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>可用于执行表创建语句<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>paramArr == null 表示无参数<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="sql"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">ExecuteNonQuery</span>(<span class="params"><span class="keyword">string</span> sql, SQLiteParameter[] paramArr</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sql == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"sql=null"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.EnsureConnection();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.ShowSql)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">"SQL: "</span> + sql);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            SQLiteCommand cmd = <span class="keyword">new</span> SQLiteCommand();</span><br><span class="line">            cmd.CommandText = sql;</span><br><span class="line">            <span class="keyword">if</span> (paramArr != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">foreach</span> (SQLiteParameter p <span class="keyword">in</span> paramArr)</span><br><span class="line">                &#123;</span><br><span class="line">                    cmd.Parameters.Add(p);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            cmd.Connection = <span class="keyword">this</span>.Connection;</span><br><span class="line">            <span class="keyword">int</span> c = cmd.ExecuteNonQuery();</span><br><span class="line">            cmd.Dispose();</span><br><span class="line">            <span class="keyword">return</span> c;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>执行SQL,返回SQLiteDataReader<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>返回的Reader为原始状态,须自行调用Read()方法<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>paramArr=null,则表示无参数<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="sql"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="paramArr"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> SQLiteDataReader <span class="title">ExecuteReader</span>(<span class="params"><span class="keyword">string</span> sql, SQLiteParameter[] paramArr</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> (SQLiteDataReader)ExecuteReader(sql, paramArr, (ReaderWrapper)<span class="literal">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>执行SQL,如果readerWrapper!=null,那么将调用readerWrapper对SQLiteDataReader进行包装,并返回结果<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="sql"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="paramArr"&gt;</span>null 表示无参数<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="readerWrapper"&gt;</span>null 直接返回SQLiteDataReader<span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">object</span> <span class="title">ExecuteReader</span>(<span class="params"><span class="keyword">string</span> sql, SQLiteParameter[] paramArr, ReaderWrapper readerWrapper</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sql == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"sql=null"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.EnsureConnection();</span><br><span class="line"></span><br><span class="line">            SQLiteCommand cmd = <span class="keyword">new</span> SQLiteCommand(sql, <span class="keyword">this</span>.Connection);</span><br><span class="line">            <span class="keyword">if</span> (paramArr != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">foreach</span> (SQLiteParameter p <span class="keyword">in</span> paramArr)</span><br><span class="line">                &#123;</span><br><span class="line">                    cmd.Parameters.Add(p);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            SQLiteDataReader reader = cmd.ExecuteReader();</span><br><span class="line">            <span class="keyword">object</span> result = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">if</span> (readerWrapper != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                result = readerWrapper(reader);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                result = reader;</span><br><span class="line">            &#125;</span><br><span class="line">            reader.Close();</span><br><span class="line">            reader.Dispose();</span><br><span class="line">            cmd.Dispose();</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>执行SQL,返回结果集,使用RowWrapper对每一行进行包装<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>如果结果集为空,那么返回空List (List.Count=0)<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>rowWrapper = null时,使用WrapRowToDictionary<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="sql"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="paramArr"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="rowWrapper"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> List&lt;<span class="keyword">object</span>&gt; <span class="title">ExecuteRow</span>(<span class="params"><span class="keyword">string</span> sql, SQLiteParameter[] paramArr, RowWrapper rowWrapper</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (sql == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"sql=null"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.EnsureConnection();</span><br><span class="line"></span><br><span class="line">            SQLiteCommand cmd = <span class="keyword">new</span> SQLiteCommand(sql, <span class="keyword">this</span>.Connection);</span><br><span class="line">            <span class="keyword">if</span> (paramArr != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">foreach</span> (SQLiteParameter p <span class="keyword">in</span> paramArr)</span><br><span class="line">                &#123;</span><br><span class="line">                    cmd.Parameters.Add(p);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (rowWrapper == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                rowWrapper = <span class="keyword">new</span> RowWrapper(SqlLiteHepler.WrapRowToDictionary);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            SQLiteDataReader reader = cmd.ExecuteReader();</span><br><span class="line">            List&lt;<span class="keyword">object</span>&gt; result = <span class="keyword">new</span> List&lt;<span class="keyword">object</span>&gt;();</span><br><span class="line">            <span class="keyword">if</span> (reader.HasRows)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> rowNum = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (reader.Read())</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">object</span> row = rowWrapper(rowNum, reader);</span><br><span class="line">                    result.Add(row);</span><br><span class="line">                    rowNum++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            reader.Close();</span><br><span class="line">            reader.Dispose();</span><br><span class="line">            cmd.Dispose();</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">object</span> <span class="title">WrapRowToDictionary</span>(<span class="params"><span class="keyword">int</span> rowNum, SQLiteDataReader reader</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">int</span> fc = reader.FieldCount;</span><br><span class="line">            Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; row = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; fc; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">string</span> fieldName = reader.GetName(i);</span><br><span class="line">                <span class="keyword">object</span> <span class="keyword">value</span> = reader.GetValue(i);</span><br><span class="line">                row.Add(fieldName, <span class="keyword">value</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> row;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>执行insert into语句<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="table"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="entity"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Save</span>(<span class="params"><span class="keyword">string</span> table, Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; entity</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (table == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"table=null"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.EnsureConnection();</span><br><span class="line">            <span class="keyword">string</span> sql = BuildInsert(table, entity);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.ExecuteNonQuery(sql, BuildParamArray(entity));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> SQLiteParameter[] <span class="title">BuildParamArray</span>(<span class="params">Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; entity</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            List&lt;SQLiteParameter&gt; list = <span class="keyword">new</span> List&lt;SQLiteParameter&gt;();</span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">string</span> key <span class="keyword">in</span> entity.Keys)</span><br><span class="line">            &#123;</span><br><span class="line">                list.Add(<span class="keyword">new</span> SQLiteParameter(key, entity[key]));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (list.Count == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">return</span> list.ToArray();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">BuildInsert</span>(<span class="params"><span class="keyword">string</span> table, Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; entity</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            StringBuilder buf = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            buf.Append(<span class="string">"insert into "</span>).Append(table);</span><br><span class="line">            buf.Append(<span class="string">" ("</span>);</span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">string</span> key <span class="keyword">in</span> entity.Keys)</span><br><span class="line">            &#123;</span><br><span class="line">                buf.Append(key).Append(<span class="string">","</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            buf.Remove(buf.Length - <span class="number">1</span>, <span class="number">1</span>); <span class="comment">// 移除最后一个,</span></span><br><span class="line">            buf.Append(<span class="string">") "</span>);</span><br><span class="line">            buf.Append(<span class="string">"values("</span>);</span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">string</span> key <span class="keyword">in</span> entity.Keys)</span><br><span class="line">            &#123;</span><br><span class="line">                buf.Append(<span class="string">"@"</span>).Append(key).Append(<span class="string">","</span>); <span class="comment">// 创建一个参数</span></span><br><span class="line">            &#125;</span><br><span class="line">            buf.Remove(buf.Length - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            buf.Append(<span class="string">") "</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> buf.ToString();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">string</span> <span class="title">BuildUpdate</span>(<span class="params"><span class="keyword">string</span> table, Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; entity</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            StringBuilder buf = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">            buf.Append(<span class="string">"update "</span>).Append(table).Append(<span class="string">" set "</span>);</span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">string</span> key <span class="keyword">in</span> entity.Keys)</span><br><span class="line">            &#123;</span><br><span class="line">                buf.Append(key).Append(<span class="string">"="</span>).Append(<span class="string">"@"</span>).Append(key).Append(<span class="string">","</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            buf.Remove(buf.Length - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            buf.Append(<span class="string">" "</span>);</span><br><span class="line">            <span class="keyword">return</span> buf.ToString();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>执行update语句<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>where参数不必要包含'where'关键字<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>如果where=null,那么忽略whereParams<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>如果where!=null,whereParams=null,where部分无参数<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="table"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="entity"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="where"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="whereParams"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Update</span>(<span class="params"><span class="keyword">string</span> table, Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; entity, <span class="keyword">string</span> <span class="keyword">where</span>, SQLiteParameter[] whereParams</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (table == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"table=null"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.EnsureConnection();</span><br><span class="line">            <span class="keyword">string</span> sql = BuildUpdate(table, entity);</span><br><span class="line">            SQLiteParameter[] arr = BuildParamArray(entity);</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">where</span> != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                sql += <span class="string">" where "</span> + <span class="keyword">where</span>;</span><br><span class="line">                <span class="keyword">if</span> (whereParams != <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    SQLiteParameter[] newArr = <span class="keyword">new</span> SQLiteParameter[arr.Length + whereParams.Length];</span><br><span class="line">                    Array.Copy(arr, newArr, arr.Length);</span><br><span class="line">                    Array.Copy(whereParams, <span class="number">0</span>, newArr, arr.Length, whereParams.Length);</span><br><span class="line"></span><br><span class="line">                    arr = newArr;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.ExecuteNonQuery(sql, arr);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>查询一行记录,无结果时返回null<span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;para&gt;</span>conditionCol = null时将忽略条件,直接执行select * from table <span class="doctag">&lt;/para&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="table"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="conditionCol"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="conditionVal"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; <span class="title">QueryOne</span>(<span class="params"><span class="keyword">string</span> table, <span class="keyword">string</span> conditionCol, <span class="keyword">object</span> conditionVal</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (table == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"table=null"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.EnsureConnection();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">string</span> sql = <span class="string">"select * from "</span> + table;</span><br><span class="line">            <span class="keyword">if</span> (conditionCol != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                sql += <span class="string">" where "</span> + conditionCol + <span class="string">"=@"</span> + conditionCol;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.ShowSql)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">"SQL: "</span> + sql);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            List&lt;<span class="keyword">object</span>&gt; list = <span class="keyword">this</span>.ExecuteRow(sql, <span class="keyword">new</span> SQLiteParameter[] &#123;</span><br><span class="line">                <span class="keyword">new</span> SQLiteParameter(conditionCol,conditionVal)</span><br><span class="line">            &#125;, <span class="literal">null</span>);</span><br><span class="line">            <span class="keyword">if</span> (list.Count == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">return</span> (Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt;)list[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 执行delete from table 语句</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> where不必包含'where'关键字</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> where=null时将忽略whereParams</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="table"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="where"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="whereParams"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Delete</span>(<span class="params"><span class="keyword">string</span> table, <span class="keyword">string</span> <span class="keyword">where</span>, SQLiteParameter[] whereParams</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">if</span> (table == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentNullException(<span class="string">"table=null"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.EnsureConnection();</span><br><span class="line">            <span class="keyword">string</span> sql = <span class="string">"delete from "</span> + table + <span class="string">" "</span>;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">where</span> != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                sql += <span class="string">"where "</span> + <span class="keyword">where</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.ExecuteNonQuery(sql, whereParams);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">#<span class="meta-keyword">region</span> NINE 19.10.10</span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 执行一个查询语句，返回一个包含查询结果的DataTable </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="sql"&gt;</span>要执行的查询语句<span class="doctag">&lt;/param&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="parameters"&gt;</span>执行SQL查询语句所需要的参数，参数必须以它们在SQL语句中的顺序为准<span class="doctag">&lt;/param&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span> </span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> DataTable <span class="title">ExecuteDataTable</span>(<span class="params"><span class="keyword">string</span> sql, SQLiteParameter[] parameters</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">using</span> (SQLiteCommand command = <span class="keyword">new</span> SQLiteCommand(sql, _conn))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (parameters != <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    command.Parameters.AddRange(parameters);</span><br><span class="line">                &#125;</span><br><span class="line">                SQLiteDataAdapter adapter = <span class="keyword">new</span> SQLiteDataAdapter(command);</span><br><span class="line">                DataTable data = <span class="keyword">new</span> DataTable();</span><br><span class="line">                adapter.Fill(data);</span><br><span class="line">                <span class="keyword">return</span> data;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 创建SQLite数据库文件 </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="dbPath"&gt;</span>要创建的SQLite数据库文件路径<span class="doctag">&lt;/param&gt;</span> </span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">CreateDB</span>(<span class="params"><span class="keyword">string</span> dbPath</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">using</span> (SQLiteConnection connection = <span class="keyword">new</span> SQLiteConnection(<span class="string">"Data Source="</span> + dbPath))</span><br><span class="line">            &#123;</span><br><span class="line">                connection.Open();</span><br><span class="line">                <span class="keyword">using</span> (SQLiteCommand command = <span class="keyword">new</span> SQLiteCommand(connection))</span><br><span class="line">                &#123;</span><br><span class="line">                    command.CommandText = <span class="string">"CREATE TABLE Demo(id integer NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE)"</span>;</span><br><span class="line">                    command.ExecuteNonQuery();</span><br><span class="line">                    command.CommandText = <span class="string">"DROP TABLE Demo"</span>;</span><br><span class="line">                    command.ExecuteNonQuery();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 对SQLite数据库执行增删改操作，返回受影响的行数。 </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="sql"&gt;</span>要执行的增删改的SQL语句<span class="doctag">&lt;/param&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="parameters"&gt;</span>执行增删改语句所需要的参数，参数必须以它们在SQL语句中的顺序为准<span class="doctag">&lt;/param&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span> </span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">ExecuteNonQuerySql</span>(<span class="params"><span class="keyword">string</span> sql, SQLiteParameter[] parameters</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">int</span> affectedRows = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">using</span> (DbTransaction transaction = _conn.BeginTransaction())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">using</span> (SQLiteCommand command = <span class="keyword">new</span> SQLiteCommand(_conn))</span><br><span class="line">                &#123;</span><br><span class="line">                    command.CommandText = sql;</span><br><span class="line">                    <span class="keyword">if</span> (parameters != <span class="literal">null</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        command.Parameters.AddRange(parameters);</span><br><span class="line">                    &#125;</span><br><span class="line">                    affectedRows = command.ExecuteNonQuery();</span><br><span class="line">                &#125;</span><br><span class="line">                transaction.Commit();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> affectedRows;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 执行一个查询语句，返回一个关联的SQLiteDataReader实例 </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="sql"&gt;</span>要执行的查询语句<span class="doctag">&lt;/param&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="parameters"&gt;</span>执行SQL查询语句所需要的参数，参数必须以它们在SQL语句中的顺序为准<span class="doctag">&lt;/param&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span> </span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> SQLiteDataReader <span class="title">ExecuteReaderSql</span>(<span class="params"><span class="keyword">string</span> sql, SQLiteParameter[] parameters</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            SQLiteCommand command = <span class="keyword">new</span> SQLiteCommand(sql, _conn);</span><br><span class="line">            <span class="keyword">if</span> (parameters != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                command.Parameters.AddRange(parameters);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> command.ExecuteReader(CommandBehavior.CloseConnection);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 执行一个查询语句，返回查询结果的第一行第一列 </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="sql"&gt;</span>要执行的查询语句<span class="doctag">&lt;/param&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="parameters"&gt;</span>执行SQL查询语句所需要的参数，参数必须以它们在SQL语句中的顺序为准<span class="doctag">&lt;/param&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span> </span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Object <span class="title">ExecuteScalar</span>(<span class="params"><span class="keyword">string</span> sql, SQLiteParameter[] parameters</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">using</span> (SQLiteCommand command = <span class="keyword">new</span> SQLiteCommand(sql, _conn))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (parameters != <span class="literal">null</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    command.Parameters.AddRange(parameters);</span><br><span class="line">                &#125;</span><br><span class="line">                SQLiteDataAdapter adapter = <span class="keyword">new</span> SQLiteDataAdapter(command);</span><br><span class="line">                DataTable data = <span class="keyword">new</span> DataTable();</span><br><span class="line">                adapter.Fill(data);</span><br><span class="line">                <span class="keyword">return</span> data;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 查询数据库中的所有数据类型信息 </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span> </span></span><br><span class="line">        <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span> </span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> DataTable <span class="title">GetSchema</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">using</span> (SQLiteConnection connection = <span class="keyword">new</span> SQLiteConnection(_conn))</span><br><span class="line">            &#123;</span><br><span class="line">                DataTable data = connection.GetSchema(<span class="string">"TABLES"</span>);</span><br><span class="line">                connection.Close();</span><br><span class="line">                <span class="comment">//foreach (DataColumn column in data.Columns) </span></span><br><span class="line">                <span class="comment">//&#123; </span></span><br><span class="line">                <span class="comment">//  Console.WriteLine(column.ColumnName); </span></span><br><span class="line">                <span class="comment">//&#125; </span></span><br><span class="line">                <span class="keyword">return</span> data;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">#<span class="meta-keyword">endregion</span></span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 在SQLiteManager.Execute方法中回调,将SQLiteDataReader包装成object </span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="reader"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">object</span> <span class="title">ReaderWrapper</span>(<span class="params">SQLiteDataReader reader</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 将SQLiteDataReader的行包装成object</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="rowNum"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name="reader"&gt;</span><span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">delegate</span> <span class="keyword">object</span> <span class="title">RowWrapper</span>(<span class="params"><span class="keyword">int</span> rowNum, SQLiteDataReader reader</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="SqlLite-DEMO"><a href="#SqlLite-DEMO" class="headerlink" title="SqlLite DEMO"></a>SqlLite DEMO</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Data.SQLite;</span><br><span class="line"><span class="keyword">using</span> System.Windows;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">SqlLiteHelper</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> MainWindow.xaml 的交互逻辑</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">partial</span> <span class="keyword">class</span> <span class="title">MainWindow</span> : <span class="title">Window</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MainWindow</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            InitializeComponent();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Window_Loaded</span>(<span class="params"><span class="keyword">object</span> sender, RoutedEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            SqlLiteHepler sqlLiteHepler = <span class="keyword">new</span> SqlLiteHepler(<span class="string">@"D:\NineBackstageToolsDB.db"</span>);</span><br><span class="line">            sqlLiteHepler.Open();</span><br><span class="line">            <span class="comment">//insert</span></span><br><span class="line">            <span class="keyword">string</span> insertSql = <span class="string">"INSERT INTO CountUserData(JsonData) values (@JsonData)"</span>;</span><br><span class="line">            SQLiteParameter[] insertParameters = <span class="keyword">new</span> SQLiteParameter[]&#123;</span><br><span class="line">            <span class="keyword">new</span> SQLiteParameter(<span class="string">"@JsonData"</span>,<span class="string">"test"</span>) &#125;;</span><br><span class="line">            <span class="keyword">int</span> insertRowCount = sqlLiteHepler.ExecuteNonQuerySql(insertSql, insertParameters);</span><br><span class="line">            <span class="comment">//update</span></span><br><span class="line">            <span class="keyword">string</span> updateSql = <span class="string">"Update CountUserData  set JsonData= @JsonData where id = @ID"</span>;</span><br><span class="line">            SQLiteParameter[] updateParameters = <span class="keyword">new</span> SQLiteParameter[]&#123;</span><br><span class="line">            <span class="keyword">new</span> SQLiteParameter(<span class="string">"@JsonData"</span>,<span class="string">"update"</span>),</span><br><span class="line">            <span class="keyword">new</span> SQLiteParameter(<span class="string">"@ID"</span>,<span class="string">"3"</span>)</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">int</span> updateRowCount = sqlLiteHepler.ExecuteNonQuerySql(updateSql, updateParameters);</span><br><span class="line">            <span class="comment">//delete</span></span><br><span class="line">            <span class="keyword">string</span> deleteSql = <span class="string">"delete from CountUserData where id = @ID"</span>;</span><br><span class="line">            SQLiteParameter[] deleteParameters = <span class="keyword">new</span> SQLiteParameter[]&#123;</span><br><span class="line">            <span class="keyword">new</span> SQLiteParameter(<span class="string">"@ID"</span>,<span class="string">"4"</span>)</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">int</span> deleteRowCount = sqlLiteHepler.ExecuteNonQuerySql(deleteSql, deleteParameters);</span><br><span class="line">            <span class="comment">//select</span></span><br><span class="line">            <span class="keyword">string</span> sqlText = <span class="string">"select * from XyhisLog where (logtime) &gt; (@logtime)"</span>;</span><br><span class="line">            SQLiteParameter[] selectParameters = <span class="keyword">new</span> SQLiteParameter[]&#123;</span><br><span class="line">            <span class="keyword">new</span> SQLiteParameter(<span class="string">"@logtime"</span>,DateTime.Now.Date.ToString().Replace(<span class="string">"/"</span>,<span class="string">"-"</span>)) &#125;;</span><br><span class="line">            <span class="keyword">var</span> ss = sqlLiteHepler.ExecuteDataTable(sqlText, selectParameters);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SqlLiteHelper Demo 源码下载 <a href="http://hemrj.cn/SqlLiteHelper.zip" target="_blank" rel="noopener">http://hemrj.cn/SqlLiteHelper.zip</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+          
+            <a href="/tags/编程开发/" rel="tag"><i class="fa fa-tag"></i> 编程开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/16/WPF属性双向绑定/" rel="next" title="WPF属性双向绑定">
+                <i class="fa fa-chevron-left"></i> WPF属性双向绑定
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/16/C-发送邮件DEMO/" rel="prev" title="C#发送邮件DEMO">
+                C#发送邮件DEMO <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://hemrj.cn/avatar.jpg" alt="Jam He">
+            
+              <p class="site-author-name" itemprop="name">Jam He</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SqlLite数据库帮助类和基本DEMO"><span class="nav-number">1.</span> <span class="nav-text">SqlLite数据库帮助类和基本DEMO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLlite优点"><span class="nav-number">1.1.</span> <span class="nav-text">SQLlite优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加引用"><span class="nav-number">1.2.</span> <span class="nav-text">添加引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#管理NuGet管理程序–-gt-浏览–-gt-搜索System-Data-SQLite-安装引用"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">管理NuGet管理程序–&gt;浏览–&gt;搜索System.Data.SQLite,安装引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#或者直接在此下载-下载后引用System-Data-SQLite-dll，把SQLite-Interop-dll-zip解压放在debug目录下"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">或者直接在此下载,下载后引用System.Data.SQLite.dll，把SQLite.Interop.dll.zip解压放在debug目录下</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SqlLite帮助类"><span class="nav-number">1.3.</span> <span class="nav-text">SqlLite帮助类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SqlLite-DEMO"><span class="nav-number">1.4.</span> <span class="nav-text">SqlLite DEMO</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-"></i>
+  </span>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span class="author" itemprop="copyrightHolder">Jam He</span>
+  
+	<div class="powered-by">
+	<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+	  本站访客数:<span id="busuanzi_value_site_uv"></span>
+	</span>
+</div>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
