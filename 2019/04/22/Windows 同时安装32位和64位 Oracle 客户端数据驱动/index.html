@@ -26,18 +26,18 @@
 })();
 </script>
 
-    <meta name="description" content="配置文件路径1C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config 配置文件1machine.config 查看当前安装Oracle Client版本号1C:\app\NINTH\product\11.1.0\client_1\odp.net\bin\2.x 修改配置文件1234567&amp;lt;system.data&amp;gt;    &amp;lt;DbPr">
+    <meta name="description" content="系统配置">
 <meta name="keywords" content="实用教程,Oracle,系统配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows 同时安装32位和64位 Oracle 客户端数据驱动">
 <meta property="og:url" content="http://yoursite.com/2019/04/22/Windows 同时安装32位和64位 Oracle 客户端数据驱动/index.html">
 <meta property="og:site_name" content="Jam&#39;s blog">
-<meta property="og:description" content="配置文件路径1C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config 配置文件1machine.config 查看当前安装Oracle Client版本号1C:\app\NINTH\product\11.1.0\client_1\odp.net\bin\2.x 修改配置文件1234567&amp;lt;system.data&amp;gt;    &amp;lt;DbPr">
+<meta property="og:description" content="系统配置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-17T02:56:36.389Z">
+<meta property="og:updated_time" content="2019-10-18T07:12:32.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows 同时安装32位和64位 Oracle 客户端数据驱动">
-<meta name="twitter:description" content="配置文件路径1C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config 配置文件1machine.config 查看当前安装Oracle Client版本号1C:\app\NINTH\product\11.1.0\client_1\odp.net\bin\2.x 修改配置文件1234567&amp;lt;system.data&amp;gt;    &amp;lt;DbPr">
+<meta name="twitter:description" content="系统配置">
 
 
 
@@ -200,7 +200,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 103 个字)
+                    几秒 读完 (大约 108 个字)
                 </span>
                 
                 
@@ -218,7 +218,8 @@
             
         </h1>
         <div class="content">
-            <h3 id="配置文件路径"><a href="#配置文件路径" class="headerlink" title="配置文件路径"></a>配置文件路径</h3><figure class="highlight taggerscript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\M</span>icrosoft.NET<span class="hljs-symbol">\F</span>ramework<span class="hljs-symbol">\v</span>4.0.30319<span class="hljs-symbol">\C</span>onfig</span><br></pre></td></tr></table></figure>
+            <h3 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h3><a id="more"></a> 
+<h3 id="配置文件路径"><a href="#配置文件路径" class="headerlink" title="配置文件路径"></a>配置文件路径</h3><figure class="highlight taggerscript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="hljs-symbol">\W</span>indows<span class="hljs-symbol">\M</span>icrosoft.NET<span class="hljs-symbol">\F</span>ramework<span class="hljs-symbol">\v</span>4.0.30319<span class="hljs-symbol">\C</span>onfig</span><br></pre></td></tr></table></figure>
 <h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight arduino hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">machine.<span class="hljs-built_in">config</span></span><br></pre></td></tr></table></figure>
 <h3 id="查看当前安装Oracle-Client版本号"><a href="#查看当前安装Oracle-Client版本号" class="headerlink" title="查看当前安装Oracle Client版本号"></a>查看当前安装Oracle Client版本号</h3><figure class="highlight taggerscript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="hljs-symbol">\a</span>pp<span class="hljs-symbol">\N</span>INTH<span class="hljs-symbol">\p</span>roduct<span class="hljs-symbol">\1</span>1.1.0<span class="hljs-symbol">\c</span>lient_1<span class="hljs-symbol">\o</span>dp.net<span class="hljs-symbol">\b</span>in<span class="hljs-symbol">\2</span>.x</span><br></pre></td></tr></table></figure>
 <h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight nix hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;system.data&gt;</span><br><span class="line">    &lt;DbProviderFactories&gt;</span><br><span class="line">      &lt;add <span class="hljs-attr">name="Oracle</span> Data Provider for .NET<span class="hljs-string">" invariant="</span>Oracle.DataAccess.Client<span class="hljs-string">" description="</span>Oracle Data Provider for .NET<span class="hljs-string">" type="</span>Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, <span class="hljs-attr">Version=4.112.3.0,</span> <span class="hljs-attr">Culture=neutral,</span> <span class="hljs-attr">PublicKeyToken=89b483f429c47342"</span> /&gt;</span><br><span class="line">      &lt;add <span class="hljs-attr">name="Microsoft</span> SQL Server Compact Data Provider <span class="hljs-number">4.0</span><span class="hljs-string">" invariant="</span>System.Data.SqlServerCe.<span class="hljs-number">4.0</span><span class="hljs-string">" description="</span>.NET Framework Data Provider for Microsoft SQL Server Compact<span class="hljs-string">" type="</span>System.Data.SqlServerCe.SqlCeProviderFactory, System.Data.SqlServerCe, <span class="hljs-attr">Version=4.0.0.0,</span> <span class="hljs-attr">Culture=neutral,</span> <span class="hljs-attr">PublicKeyToken=89845dcd8080cc91"</span> /&gt;</span><br><span class="line">      &lt;add <span class="hljs-attr">name="MySQL</span> Data Provider<span class="hljs-string">" invariant="</span>MySql.Data.MySqlClient<span class="hljs-string">" description="</span>.Net Framework Data Provider for MySQL<span class="hljs-string">" type="</span>MySql.Data.MySqlClient.MySqlClientFactory, MySql.Data, <span class="hljs-attr">Version=6.9.9.0,</span> <span class="hljs-attr">Culture=neutral,</span> <span class="hljs-attr">PublicKeyToken=c5687fc88969c44d"</span> /&gt;</span><br><span class="line">    &lt;/DbProviderFactories&gt;</span><br><span class="line">  &lt;/system.data&gt;</span><br></pre></td></tr></table></figure>
@@ -1213,5 +1214,5 @@ document.addEventListener('DOMContentLoaded', function () {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" defer src="/js/global-hot-data.js"></script>
     <script type="text/javascript" async="" src="/live2d/autoload.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>
