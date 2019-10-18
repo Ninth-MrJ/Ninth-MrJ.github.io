@@ -1,111 +1,33 @@
 <!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8">
+<title>WindowsOS系统整合，创建自己的系统盘 - Jam&#39;s blog</title>
+<meta charset="utf-8" />
 
+<meta name="generator" content="Hexo 3.9.0" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>WindowsOS系统整合，创建自己的系统盘 - Jam&#39;s blog</title>
 
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.1.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.1.0">
-
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.1.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+<meta name="google-site-verification" content="67z1CXZ8AOhImIglgTwqAlneRCHTO6xRJo5NeafDAqw" />
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
     }
-  };
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
 </script>
 
-
-  
-
-
-
-
-
-  <script>
-  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
-  daovoice('init', {
-      app_id: "a32dba06"
-    });
-  daovoice('update');
-  </script>
-
-
-  <meta name="description" content="Windows OS 相关整合   Window 7 And Windows 10 自制MSDN原版 10 IN 1 ISO镜像  Tools ： Imagex、WimTool、Dism++、MSDN ISO镜像 123456789101112131415161718解压ISO文件 提取出sources-&amp;gt;install.wim 重命名install.wim文件（自定义）打开WIMtool（">
-<meta name="keywords" content="实用教程,系统配置,Windows">
+    <meta name="description" content="Windows OS 相关整合   Window 7 And Windows 10 自制MSDN原版 10 IN 1 ISO镜像  Tools ： Imagex、WimTool、Dism++、MSDN ISO镜像 123456789101112131415161718解压ISO文件 提取出sources-&amp;gt;install.wim 重命名install.wim文件（自定义）打开WIMtool（">
+<meta name="keywords" content="实用教程,Windows,系统配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WindowsOS系统整合，创建自己的系统盘">
 <meta property="og:url" content="http://yoursite.com/2019/10/17/WindowsOS系统整合，创建自己的系统盘/index.html">
@@ -119,343 +41,193 @@
 
 
 
-
-
-  
-  
-  <link rel="canonical" href="http://yoursite.com/2019/10/17/WindowsOS系统整合，创建自己的系统盘/">
+<link rel="alternative" href="/atom.xml" title="WindowsOS系统整合，创建自己的系统盘" type="application/atom+xml">
 
 
 
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>WindowsOS系统整合，创建自己的系统盘 | Jam's blog</title>
-  
+<link rel="icon" href="/images/favicon.ico">
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-dark.css">
 
 
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
 
 
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
 
 
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
 
 
-
-
-  <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/live2d/waifu.css">
+    <!-- <meta name="referrer" content="no-referrer" /> 解决图片过期问题-->
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Jam's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-    
-      
-        <p class="site-subtitle">为什么要努力，为了自己吹下的牛逼</p>
-      
-    
-    
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
-</script>
-
-
-
-<nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-
-  
-</nav>
-
-
-
-  
-
-
-
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
             
-
-          
-          <div id="content" class="content">
+                <img src="/images/logo.svg" alt="WindowsOS系统整合，创建自己的系统盘" height="28">
             
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/17/WindowsOS系统整合，创建自己的系统盘/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jam He">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="http://hemrj.cn/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jam's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">WindowsOS系统整合，创建自己的系统盘
-
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-17 09:29:27 / 修改时间：10:55:19" itemprop="dateCreated datePublished" datetime="2019-10-17T09:29:27+08:00">2019-10-17</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/实用教程/" itemprop="url" rel="index"><span itemprop="name">实用教程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+            </a>
         </div>
-      </header>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/message">留言</a>
+                
+                <a class="navbar-item"
+                href="/friend">友链</a>
+                
+                <a class="navbar-item"
+                href="/album">美图</a>
+                
+                <a class="navbar-item"
+                href="/music">影音</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/removeif">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
     
-
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main"><div class="card">
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h4 id="Windows-OS-相关整合-Window-7-And-Windows-10"><a href="#Windows-OS-相关整合-Window-7-And-Windows-10" class="headerlink" title="Windows OS 相关整合   Window 7 And Windows 10"></a>Windows OS 相关整合   Window 7 And Windows 10</h4><blockquote>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                
+                <time class="level-item has-text-grey" datetime="2019-10-17T01:29:27.000Z">2019-10-17</time>
+                
+                    <span class="display-none-class">a40e22ae39b3b8438c28183c14598fcd</span>
+                    <img class="not-gallery-item" src="/images/chat.svg">&nbsp;<span class="level-item has-text-grey" id=a40e22ae39b3b8438c28183c14598fcd>99+</span></img>
+                
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1041 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    1<span id="busuanzi_value_page_pv"></span> 次查看
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                WindowsOS系统整合，创建自己的系统盘
+            
+        </h1>
+        <div class="content">
+            <h4 id="Windows-OS-相关整合-Window-7-And-Windows-10"><a href="#Windows-OS-相关整合-Window-7-And-Windows-10" class="headerlink" title="Windows OS 相关整合   Window 7 And Windows 10"></a>Windows OS 相关整合   Window 7 And Windows 10</h4><blockquote>
 <h6 id="自制MSDN原版-10-IN-1-ISO镜像"><a href="#自制MSDN原版-10-IN-1-ISO镜像" class="headerlink" title="自制MSDN原版 10 IN 1 ISO镜像"></a>自制MSDN原版 10 IN 1 ISO镜像</h6></blockquote>
 <blockquote>
 <h6 id="Tools-：-Imagex、WimTool、Dism-、MSDN-ISO镜像"><a href="#Tools-：-Imagex、WimTool、Dism-、MSDN-ISO镜像" class="headerlink" title="Tools ： Imagex、WimTool、Dism++、MSDN ISO镜像"></a>Tools ： Imagex、WimTool、Dism++、MSDN ISO镜像</h6></blockquote>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">解压ISO文件 </span><br><span class="line">提取出sources-&gt;install.wim </span><br><span class="line">重命名install.wim文件（自定义）</span><br><span class="line">打开WIMtool（管理员）  </span><br><span class="line">菜单<span class="function">-&gt;</span>删卷和信息<span class="function">-&gt;</span>浏览(打开提取到的wim文件)</span><br><span class="line">修改映像名称，显示名称，映像描述，显示描述<span class="function">-&gt;</span>修改映像信息</span><br><span class="line">查看映像信息可以查看包含有多少个映像，映像卷号对应相应的映像</span><br><span class="line">每一个卷号修改了要点修改映像信息进行保存</span><br><span class="line"></span><br><span class="line">以此类推，把所有卷所有需要的映像的信息全部改好。</span><br><span class="line"></span><br><span class="line">记录下哪一个wim文件哪一卷对应的是什么映像</span><br><span class="line"></span><br><span class="line">imagex.exe放置到C:<span class="string">\Windows\System32目录下</span></span><br><span class="line">打开命令行（管理员）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">命令模板：imagex /<span class="keyword">export</span> e:<span class="string">\win764.wim</span> <span class="number">1</span> E:<span class="string">\install.wim</span> /compress maximum</span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">e</span>:\<span class="selector-tag">win764</span><span class="selector-class">.wim</span>：你要合并的<span class="selector-tag">wim</span>文件也就是第一步提取出来的<span class="selector-tag">wim</span>文件，这里放在<span class="selector-tag">e</span>盘根目录下（根据自己情况可自定义）</span><br><span class="line"><span class="selector-tag">E</span>:\<span class="selector-tag">install</span><span class="selector-class">.wim</span>：合并后的新文件（自动创建<span class="selector-tag">install</span><span class="selector-class">.wim</span>文件）这里存放在<span class="selector-tag">E</span>盘根目录（根据自己情况可自定义）</span><br></pre></td></tr></table></figure>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>：这里的<span class="number">1</span>代表的是你要合并的wim文件的第一卷，假设你要合并的文件有<span class="number">3</span>卷，则</span><br><span class="line">imagex /export e:\win764<span class="selector-class">.wim</span> <span class="number">1</span> E:\install<span class="selector-class">.wim</span> /compress maximum</span><br><span class="line">imagex /export e:\win764<span class="selector-class">.wim</span> <span class="number">2</span> E:\install<span class="selector-class">.wim</span> /compress maximum</span><br><span class="line">imagex /export e:\win764<span class="selector-class">.wim</span> <span class="number">3</span> E:\install<span class="selector-class">.wim</span> /compress maximum</span><br></pre></td></tr></table></figure>
+<figure class="highlight livescript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">解压ISO文件 </span><br><span class="line">提取出sources-&gt;install.wim </span><br><span class="line">重命名install.wim文件（自定义）</span><br><span class="line">打开WIMtool（管理员）  </span><br><span class="line">菜单<span class="hljs-function">-&gt;</span>删卷和信息<span class="hljs-function">-&gt;</span>浏览(打开提取到的wim文件)</span><br><span class="line">修改映像名称，显示名称，映像描述，显示描述<span class="hljs-function">-&gt;</span>修改映像信息</span><br><span class="line">查看映像信息可以查看包含有多少个映像，映像卷号对应相应的映像</span><br><span class="line">每一个卷号修改了要点修改映像信息进行保存</span><br><span class="line"></span><br><span class="line">以此类推，把所有卷所有需要的映像的信息全部改好。</span><br><span class="line"></span><br><span class="line">记录下哪一个wim文件哪一卷对应的是什么映像</span><br><span class="line"></span><br><span class="line">imagex.exe放置到C:<span class="hljs-string">\Windows\System32目录下</span></span><br><span class="line">打开命令行（管理员）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">命令模板：imagex /<span class="hljs-keyword">export</span> e:<span class="hljs-string">\win764.wim</span> <span class="hljs-number">1</span> E:<span class="hljs-string">\install.wim</span> /compress maximum</span><br></pre></td></tr></table></figure>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">e</span>:\<span class="hljs-selector-tag">win764</span><span class="hljs-selector-class">.wim</span>：你要合并的<span class="hljs-selector-tag">wim</span>文件也就是第一步提取出来的<span class="hljs-selector-tag">wim</span>文件，这里放在<span class="hljs-selector-tag">e</span>盘根目录下（根据自己情况可自定义）</span><br><span class="line"><span class="hljs-selector-tag">E</span>:\<span class="hljs-selector-tag">install</span><span class="hljs-selector-class">.wim</span>：合并后的新文件（自动创建<span class="hljs-selector-tag">install</span><span class="hljs-selector-class">.wim</span>文件）这里存放在<span class="hljs-selector-tag">E</span>盘根目录（根据自己情况可自定义）</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-number">1</span>：这里的<span class="hljs-number">1</span>代表的是你要合并的wim文件的第一卷，假设你要合并的文件有<span class="hljs-number">3</span>卷，则</span><br><span class="line">imagex /export e:\win764<span class="hljs-selector-class">.wim</span> <span class="hljs-number">1</span> E:\install<span class="hljs-selector-class">.wim</span> /compress maximum</span><br><span class="line">imagex /export e:\win764<span class="hljs-selector-class">.wim</span> <span class="hljs-number">2</span> E:\install<span class="hljs-selector-class">.wim</span> /compress maximum</span><br><span class="line">imagex /export e:\win764<span class="hljs-selector-class">.wim</span> <span class="hljs-number">3</span> E:\install<span class="hljs-selector-class">.wim</span> /compress maximum</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>1. windows7 企业版sp1</strong></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="type">cn_windows_7_enterprise_with_sp1_x64_dvd_u_677685.iso</span></span><br><span class="line">SHA1 : 9<span class="type">BA5E85596C2F25BE59F7E96139D83D4CB261A62</span></span><br><span class="line">文件大小 : 3.04<span class="type">GB</span></span><br><span class="line">发布时间 : 2011-05-12</span><br><span class="line">LINK : <span class="type">ed2k</span>://|file|cn_windows_7_enterprise_with_sp1_x64_dvd_u_677685.iso|<span class="number">3265574912</span>|E9DB2607EA3B3540F3FE2E388F8C53C4|/</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="hljs-type">cn_windows_7_enterprise_with_sp1_x64_dvd_u_677685.iso</span></span><br><span class="line">SHA1 : 9<span class="hljs-type">BA5E85596C2F25BE59F7E96139D83D4CB261A62</span></span><br><span class="line">文件大小 : 3.04<span class="hljs-type">GB</span></span><br><span class="line">发布时间 : 2011-05-12</span><br><span class="line">LINK : <span class="hljs-type">ed2k</span>://|file|cn_windows_7_enterprise_with_sp1_x64_dvd_u_677685.iso|<span class="hljs-number">3265574912</span>|E9DB2607EA3B3540F3FE2E388F8C53C4|/</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -475,7 +247,7 @@
 <hr>
 <h6 id="—分—割—线—"><a href="#—分—割—线—" class="headerlink" title="—分—割—线—"></a>—分—割—线—</h6><hr>
 <p><strong>2. windows7 4 IN 1版本sp1</strong></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="type">cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso</span></span><br><span class="line">SHA1 : 2<span class="type">CE0B2DB34D76ED3F697CE148CB7594432405E23</span></span><br><span class="line">文件大小 : 3.19<span class="type">GB</span></span><br><span class="line">发布时间 : 2011-05-12</span><br><span class="line">LINK : <span class="type">ed2k</span>://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|<span class="number">3420557312</span>|B58548681854236C7939003B583A8078|/</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="hljs-type">cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso</span></span><br><span class="line">SHA1 : 2<span class="hljs-type">CE0B2DB34D76ED3F697CE148CB7594432405E23</span></span><br><span class="line">文件大小 : 3.19<span class="hljs-type">GB</span></span><br><span class="line">发布时间 : 2011-05-12</span><br><span class="line">LINK : <span class="hljs-type">ed2k</span>://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|<span class="hljs-number">3420557312</span>|B58548681854236C7939003B583A8078|/</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -510,7 +282,7 @@
 <hr>
 <h6 id="—分—割—线—-1"><a href="#—分—割—线—-1" class="headerlink" title="—分—割—线—"></a>—分—割—线—</h6><hr>
 <p><strong>3. windows10 3 IN 1版本1709</strong></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="type">cn_windows_10_multi</span>-edition_vl_version_1709_updated_dec_2017_x64_dvd_100406208.iso</span><br><span class="line">SHA1 : 69<span class="type">dc07e7b7940121027be4c9b51648fa31d2b6ad</span></span><br><span class="line">文件大小 : 4.66<span class="type">GB</span></span><br><span class="line">发布时间 : 2017-12-19</span><br><span class="line">内核版本 : 1709</span><br><span class="line">LINK : <span class="type">ed2k</span>://|file|cn_windows_10_multi-edition_vl_version_1709_updated_dec_2017_x64_dvd_100406208.iso|<span class="number">5007116288</span>|<span class="number">317</span>BDC520FA2DD6005CBA8293EA06DF6|/</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="hljs-type">cn_windows_10_multi</span>-edition_vl_version_1709_updated_dec_2017_x64_dvd_100406208.iso</span><br><span class="line">SHA1 : 69<span class="hljs-type">dc07e7b7940121027be4c9b51648fa31d2b6ad</span></span><br><span class="line">文件大小 : 4.66<span class="hljs-type">GB</span></span><br><span class="line">发布时间 : 2017-12-19</span><br><span class="line">内核版本 : 1709</span><br><span class="line">LINK : <span class="hljs-type">ed2k</span>://|file|cn_windows_10_multi-edition_vl_version_1709_updated_dec_2017_x64_dvd_100406208.iso|<span class="hljs-number">5007116288</span>|<span class="hljs-number">317</span>BDC520FA2DD6005CBA8293EA06DF6|/</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -540,7 +312,7 @@
 <hr>
 <h6 id="—分—割—线—-2"><a href="#—分—割—线—-2" class="headerlink" title="—分—割—线—"></a>—分—割—线—</h6><hr>
 <p><strong>4. windows10 长期服务版2016</strong></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="type">cn_windows_10_enterprise_2016_ltsb_x64_dvd_9060409.iso</span></span><br><span class="line">SHA1 : 9<span class="type">E405E950890D2A196565BCA35E152F9CFAD296D</span></span><br><span class="line">文件大小 : 3.56<span class="type">GB</span></span><br><span class="line">发布时间 : 2016-08-11</span><br><span class="line">内核版本 : 1607</span><br><span class="line">LINK : <span class="type">ed2k</span>://|file|cn_windows_10_enterprise_2016_ltsb_x64_dvd_9060409.iso|<span class="number">3821895680</span>|FF17FF2D5919E3A560151BBC11C399D1|/</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="hljs-type">cn_windows_10_enterprise_2016_ltsb_x64_dvd_9060409.iso</span></span><br><span class="line">SHA1 : 9<span class="hljs-type">E405E950890D2A196565BCA35E152F9CFAD296D</span></span><br><span class="line">文件大小 : 3.56<span class="hljs-type">GB</span></span><br><span class="line">发布时间 : 2016-08-11</span><br><span class="line">内核版本 : 1607</span><br><span class="line">LINK : <span class="hljs-type">ed2k</span>://|file|cn_windows_10_enterprise_2016_ltsb_x64_dvd_9060409.iso|<span class="hljs-number">3821895680</span>|FF17FF2D5919E3A560151BBC11C399D1|/</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -560,7 +332,7 @@
 <hr>
 <h6 id="—分—割—线—-3"><a href="#—分—割—线—-3" class="headerlink" title="—分—割—线—"></a>—分—割—线—</h6><hr>
 <p><strong>5. windows10 S版</strong></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="type">en_windows_10_s_version_1703_updated_july_2017_x64_dvd_10928916.iso</span></span><br><span class="line">SHA1 : <span class="type">BBEE654D384AE14BA2B64F149E25DFAEF7D5754B</span></span><br><span class="line">文件大小 : 4.47<span class="type">GB</span></span><br><span class="line">发布时间 : 2017-07-27</span><br><span class="line">内核版本 : 1703</span><br><span class="line">LINK :  <span class="type">ed2k</span>://|file|en_windows_10_s_version_1703_updated_july_2017_x64_dvd_10928916.iso|<span class="number">4799027200</span>|A953CDE943DF709E8CCA148DA0CCCA79|/</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">文件名 : <span class="hljs-type">en_windows_10_s_version_1703_updated_july_2017_x64_dvd_10928916.iso</span></span><br><span class="line">SHA1 : <span class="hljs-type">BBEE654D384AE14BA2B64F149E25DFAEF7D5754B</span></span><br><span class="line">文件大小 : 4.47<span class="hljs-type">GB</span></span><br><span class="line">发布时间 : 2017-07-27</span><br><span class="line">内核版本 : 1703</span><br><span class="line">LINK :  <span class="hljs-type">ed2k</span>://|file|en_windows_10_s_version_1703_updated_july_2017_x64_dvd_10928916.iso|<span class="hljs-number">4799027200</span>|A953CDE943DF709E8CCA148DA0CCCA79|/</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -580,7 +352,7 @@
 <hr>
 <h6 id="—分—割—线—-4"><a href="#—分—割—线—-4" class="headerlink" title="—分—割—线—"></a>—分—割—线—</h6><hr>
 <p><strong>5. windows 10 IN 1 版</strong></p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件名 : _<span class="type">NINTH.iso</span></span><br><span class="line">文件大小 : 10.5<span class="type">GB</span></span><br><span class="line">发布时间 : 2018-04-18</span><br></pre></td></tr></table></figure>
+<figure class="highlight ada hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件名 : _<span class="hljs-type">NINTH.iso</span></span><br><span class="line">文件大小 : 10.5<span class="hljs-type">GB</span></span><br><span class="line">发布时间 : 2018-04-18</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -631,479 +403,988 @@
 </tr>
 </tbody>
 </table>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows 10 1803</span><br><span class="line">ed2k://|<span class="string">file</span>|<span class="string">cn_windows_10_business_editions_version_1803_updated_march_2018_x64_dvd_12063730.iso</span>|<span class="string">4634574848</span>|<span class="string">5674B3586C866EB2F47D7736A1FDE27A</span>|<span class="string">/</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-	<div>
-  
-    <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
-  
-</div>
-	
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/实用教程/" rel="tag"><i class="fa fa-tag"></i> 实用教程</a>
-          
-            <a href="/tags/系统配置/" rel="tag"><i class="fa fa-tag"></i> 系统配置</a>
-          
-            <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
-          
+<figure class="highlight gherkin hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Windows 10 1803</span><br><span class="line">ed2k://|<span class="hljs-string">file</span>|<span class="hljs-string">cn_windows_10_business_editions_version_1803_updated_march_2018_x64_dvd_12063730.iso</span>|<span class="hljs-string">4634574848</span>|<span class="hljs-string">5674B3586C866EB2F47D7736A1FDE27A</span>|<span class="hljs-string">/</span></span><br></pre></td></tr></table></figure>
         </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/10/17/制作Visual Studio 2017离线包/" rel="next" title="制作Visual Studio 2017离线包">
-                <i class="fa fa-chevron-left"></i> 制作Visual Studio 2017离线包
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-
-
-
-        </div>
+        <!-- 部分参考自https://www.alphalxy.com/2019/03/customize-icarus/ -->
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="http://hemrj.cn/avatar.jpg" alt="Jam He">
-            
-              <p class="site-author-name" itemprop="name">Jam He</p>
-              <div class="site-description motion-element" itemprop="description"></div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">20</span>
-                    <span class="site-state-item-name">日志</span>
-                  </a>
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/10/17/WindowsOS系统整合，创建自己的系统盘/">WindowsOS系统整合，创建自己的系统盘</a></li>
+            <li><strong>本文作者：</strong><a href="http://yoursite.com">Jam He</a></li>
+            <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/10/17/WindowsOS系统整合，创建自己的系统盘/">http://yoursite.com/2019/10/17/WindowsOS系统整合，创建自己的系统盘/</a></li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+            <br>
+        
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Windows/">Windows</a>,&nbsp;<a class="has-link-grey -link" href="/tags/实用教程/">实用教程</a>,&nbsp;<a class="has-link-grey -link" href="/tags/系统配置/">系统配置</a>
                 </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-categories">
-                  
-                    
-                      <a href="/categories/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">3</span>
-                    <span class="site-state-item-name">分类</span>
-                  </a>
-                </div>
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">33</span>
-                    <span class="site-state-item-name">标签</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
+            </div>
         </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-OS-相关整合-Window-7-And-Windows-10"><span class="nav-number">1.</span> <span class="nav-text">Windows OS 相关整合   Window 7 And Windows 10</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#自制MSDN原版-10-IN-1-ISO镜像"><span class="nav-number">1.0.1.</span> <span class="nav-text">自制MSDN原版 10 IN 1 ISO镜像</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Tools-：-Imagex、WimTool、Dism-、MSDN-ISO镜像"><span class="nav-number">1.0.2.</span> <span class="nav-text">Tools ： Imagex、WimTool、Dism++、MSDN ISO镜像</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#—分—割—线—"><span class="nav-number">1.0.3.</span> <span class="nav-text">—分—割—线—</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#—分—割—线—-1"><span class="nav-number">1.0.4.</span> <span class="nav-text">—分—割—线—</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#—分—割—线—-2"><span class="nav-number">1.0.5.</span> <span class="nav-text">—分—割—线—</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#—分—割—线—-3"><span class="nav-number">1.0.6.</span> <span class="nav-text">—分—割—线—</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#—分—割—线—-4"><span class="nav-number">1.0.7.</span> <span class="nav-text">—分—割—线—</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
     </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-"></i>
-  </span>
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  <span class="author" itemprop="copyrightHolder">Jam He</span>
-  
-	<div class="powered-by">
-	<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-	  本站访客数:<span id="busuanzi_value_site_uv"></span>
-	</span>
-</div>
-  
-
-  
 </div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135456.png" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135550.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
-
-
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-
-
-
-
-
-
-
-
         
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/17/制作Visual Studio 2017离线包/">
+                <span class="level-item">制作Visual Studio 2017离线包</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
         
-      </div>
-    
+    </div>
+</div>
 
-    
 
-    
 
-    
-  </div>
-
-  
-
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
 <script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+    var gitalk = new Gitalk({
+        clientID: '9cc5a5cf31e3db7b19a3',
+        clientSecret: '5f4df72600dd23acd4b3bf9bc3e0c4d477075540',
+        id: 'a40e22ae39b3b8438c28183c14598fcd',
+        repo: 'blog_comment',
+        owner: 'Ninth-MrJ',
+        admin: "xxx",
+        createIssueManually: true,
+        distractionFreeMode: true
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-3-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="http://hemrj.cn/avatar.jpg" alt="Jam He">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Jam He
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        为什么要努力，为了自己吹下的牛逼
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>China,GuangDong</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        20
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        3
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        33
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://weibo.com/u/3050419984" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/removeif">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://github.com/removeif ">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://github.com/removeif ">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://github.com/removeif ">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://weibo.com/u/3050419984" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">微博</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">weibo.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.cnblogs.com/KongkOngL/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">博客园</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.cnblogs.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu text-desc">
+        <h3 class="menu-label">
+            通知
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                    <span class="level-left">
+                        <span class="level-item notice-item">2019.09.01：加入伪娘看板</span>
+                    </span>
+            </li>
+        
+            <li>
+                    <span class="level-left">
+                        <span class="level-item notice-item">2019.08.11：网站升级</span>
+                    </span>
+            </li>
+        
+            <li>
+                    <span class="level-left">
+                        <span class="level-item notice-item">2019.02.01：采用Icarus主题</span>
+                    </span>
+            </li>
+        
+            <li>
+                    <span class="level-left">
+                        <span class="level-item notice-item">2018.11.11：建站</span>
+                    </span>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+    
+    
+        <div class="column-right-shadow  ">
+        
+            
+    <div class="card widget">
+        <div class="card-content" id="body_hot_comment">
+        <h3 class="menu-label">最新评论<br>加载中，稍等几秒...</h3>
+        </div>
+    </div>
+
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/WindowsOS系统整合，创建自己的系统盘/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="WindowsOS系统整合，创建自己的系统盘">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-17T01:29:27.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/WindowsOS系统整合，创建自己的系统盘/" class="has-link-black-ter is-size-6">WindowsOS系统整合，创建自己的系统盘</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/制作Visual Studio 2017离线包/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="制作Visual Studio 2017离线包">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-17T01:27:25.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/制作Visual Studio 2017离线包/" class="has-link-black-ter is-size-6">制作Visual Studio 2017离线包</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/16/C-发送邮件DEMO/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="C#发送邮件DEMO">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T07:44:20.000Z">2019-10-16</time></div>
+                    <a href="/2019/10/16/C-发送邮件DEMO/" class="has-link-black-ter is-size-6">C#发送邮件DEMO</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SqlLite数据库帮助类和基本DEMO">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T07:05:13.000Z">2019-10-16</time></div>
+                    <a href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/" class="has-link-black-ter is-size-6">SqlLite数据库帮助类和基本DEMO</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/16/WPF属性双向绑定/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="WPF属性双向绑定">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T06:25:43.000Z">2019-10-16</time></div>
+                    <a href="/2019/10/16/WPF属性双向绑定/" class="has-link-black-ter is-size-6">WPF属性双向绑定</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Codeing/">
+            <span class="level-start">
+                <span class="level-item">Codeing</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/个人/">
+            <span class="level-start">
+                <span class="level-item">个人</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/实用教程/">
+            <span class="level-start">
+                <span class="level-item">实用教程</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Blog/">
+                        <span class="tag">Blog</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/C/">
+                        <span class="tag">C#</span>
+                        <span class="tag is-grey">10</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/DEMO/">
+                        <span class="tag">DEMO</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Http/">
+                        <span class="tag">Http</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Java/">
+                        <span class="tag">Java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MVVM/">
+                        <span class="tag">MVVM</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Maven/">
+                        <span class="tag">Maven</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MyBatis/">
+                        <span class="tag">MyBatis</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NodeJs/">
+                        <span class="tag">NodeJs</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Oracle/">
+                        <span class="tag">Oracle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Proxy/">
+                        <span class="tag">Proxy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Redis/">
+                        <span class="tag">Redis</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SVN/">
+                        <span class="tag">SVN</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Service/">
+                        <span class="tag">Service</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SpringMVC/">
+                        <span class="tag">SpringMVC</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Visualsvn-Server/">
+                        <span class="tag">Visualsvn Server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WPF/">
+                        <span class="tag">WPF</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/代码块/">
+                        <span class="tag">代码块</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/实用工具/">
+                        <span class="tag">实用工具</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/实用教程/">
+                        <span class="tag">实用教程</span>
+                        <span class="tag is-grey">12</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/情感/">
+                        <span class="tag">情感</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/日记/">
+                        <span class="tag">日记</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/激活/">
+                        <span class="tag">激活</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/系统优化/">
+                        <span class="tag">系统优化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/系统配置/">
+                        <span class="tag">系统配置</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/编程开发/">
+                        <span class="tag">编程开发</span>
+                        <span class="tag is-grey">9</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/软件安装/">
+                        <span class="tag">软件安装</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/部署实施/">
+                        <span class="tag">部署实施</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/随笔/">
+                        <span class="tag">随笔</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C/" style="font-size: 18px;">C#</a> <a href="/tags/DEMO/" style="font-size: 10px;">DEMO</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MVVM/" style="font-size: 12px;">MVVM</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/NodeJs/" style="font-size: 10px;">NodeJs</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Visualsvn-Server/" style="font-size: 10px;">Visualsvn Server</a> <a href="/tags/WPF/" style="font-size: 12px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/代码块/" style="font-size: 14px;">代码块</a> <a href="/tags/实用工具/" style="font-size: 10px;">实用工具</a> <a href="/tags/实用教程/" style="font-size: 20px;">实用教程</a> <a href="/tags/情感/" style="font-size: 10px;">情感</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/激活/" style="font-size: 10px;">激活</a> <a href="/tags/系统优化/" style="font-size: 10px;">系统优化</a> <a href="/tags/系统配置/" style="font-size: 14px;">系统配置</a> <a href="/tags/编程开发/" style="font-size: 16px;">编程开发</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a> <a href="/tags/部署实施/" style="font-size: 10px;">部署实施</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    </div>
+</div>
+
+        
+        </div>
+    
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="WindowsOS系统整合，创建自己的系统盘" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Jam He
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif">removeif</a>&nbsp;
+                
+                <br>
+                &copy; 版权说明：[本网站所有内容均收集于互联网或自己创作,<br>&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="https://removeif.github.io/message/" target="_blank">留言</a>，立即处理]
+                <br>
+                <span id="busuanzi_container_site_uv">
+                      ❤️感谢 <span id="busuanzi_value_site_uv"></span> 小伙伴的 
+                </span>
+                 <span id="busuanzi_value_site_pv"></span> 次光临 ❤️
+                 
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://weibo.com/u/3050419984">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://weibo.com/u/3050419984">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/removeif">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
 </script>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
     
     
-  
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
 
 
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
 
 
+<script src="/js/main.js" defer></script>
 
-
-
-
-
-
-
-
-
-  
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.0"></script>
-
-  <script src="/js/motion.js?v=7.1.0"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.0"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.1.0"></script>
-<script src="/js/post-details.js?v=7.1.0"></script>
-
-
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.0"></script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-    <!-- 代码块复制功能 -->
-  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
-  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" defer src="/js/global-hot-data.js"></script>
+    <script type="text/javascript" async="" src="/live2d/autoload.js"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
