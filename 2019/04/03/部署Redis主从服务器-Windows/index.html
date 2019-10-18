@@ -48,7 +48,7 @@
 <meta property="og:image" content="http://hemrj.cn/static/images/RedisHome.png">
 <meta property="og:image" content="http://hemrj.cn/static/images/redismanager.png">
 <meta property="og:image" content="http://hemrj.cn/static/images/redisreadwrite.png">
-<meta property="og:updated_time" content="2019-10-18T05:48:02.594Z">
+<meta property="og:updated_time" content="2019-10-18T08:26:01.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部署Redis主从服务器--Windows篇">
 <meta name="twitter:description" content="Redis主服务器">
@@ -181,6 +181,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -196,10 +200,18 @@
             <div class="columns">
                 <div class="column is-8-tablet is-9-desktop is-9-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="部署Redis主从服务器--Windows篇">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                
+                <div class="level-item tag is-danger" style="background-color: #3273dc;">已置顶</div>
                 
                 <time class="level-item has-text-grey" datetime="2019-04-03T04:58:37.000Z">2019-04-03</time>
                 
@@ -496,6 +508,155 @@
 </div>
     
         
+
+<div class="card widget" id="toc" style="max-height: 225px;overflow: auto;">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#Redis主服务器">
+        <span class="has-mr-6">1</span>
+        <span>Redis主服务器</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Redis-服务安装">
+        <span class="has-mr-6">1.1</span>
+        <span>Redis 服务安装</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#记下安装路径，之后的安装服务等需要用到相关路径">
+        <span class="has-mr-6">1.1.1</span>
+        <span>记下安装路径，之后的安装服务等需要用到相关路径</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装Redis服务的端口，默认为6379">
+        <span class="has-mr-6">1.1.2</span>
+        <span>安装Redis服务的端口，默认为6379</span>
+        </a></li><li>
+        <a class="is-flex" href="#Redis安装文件下载">
+        <span class="has-mr-6">1.1.3</span>
+        <span>Redis安装文件下载</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置">
+        <span class="has-mr-6">1.1.4</span>
+        <span>安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Redis-配置文件修改">
+        <span class="has-mr-6">1.2</span>
+        <span>Redis 配置文件修改</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#需要修改一下几个参数设置-–文件-redis-windows-conf">
+        <span class="has-mr-6">1.2.1</span>
+        <span>需要修改一下几个参数设置  –文件 redis.windows.conf</span>
+        </a></li><li>
+        <a class="is-flex" href="#更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务">
+        <span class="has-mr-6">1.2.2</span>
+        <span>更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#安装Redis-Windows服务">
+        <span class="has-mr-6">1.3</span>
+        <span>安装Redis Windows服务</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Win-R-打开命令行">
+        <span class="has-mr-6">1.3.1</span>
+        <span>Win+R 打开命令行</span>
+        </a></li><li>
+        <a class="is-flex" href="#cd-到安装Redis目录下-以默认安装路径为例">
+        <span class="has-mr-6">1.3.2</span>
+        <span>cd 到安装Redis目录下,以默认安装路径为例</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装服务">
+        <span class="has-mr-6">1.3.3</span>
+        <span>安装服务</span>
+        </a></li><li>
+        <a class="is-flex" href="#卸载服务">
+        <span class="has-mr-6">1.3.4</span>
+        <span>卸载服务</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装成功">
+        <span class="has-mr-6">1.3.5</span>
+        <span>安装成功</span>
+        </a></li><li>
+        <a class="is-flex" href="#常见报错">
+        <span class="has-mr-6">1.3.6</span>
+        <span>常见报错</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Redis-验证安装">
+        <span class="has-mr-6">1.4</span>
+        <span>Redis 验证安装</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#安装RedisDesktopManager，默认直接下一步安装">
+        <span class="has-mr-6">1.4.1</span>
+        <span>安装RedisDesktopManager，默认直接下一步安装</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#Redis从服务器">
+        <span class="has-mr-6">2</span>
+        <span>Redis从服务器</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#安装Redis-内容和安装主服务器一致，主从服务器区别在于配置文件上的不同">
+        <span class="has-mr-6">2.1</span>
+        <span>安装Redis 内容和安装主服务器一致，主从服务器区别在于配置文件上的不同</span>
+        </a></li><li>
+        <a class="is-flex" href="#配置文件修改-redis-windows-conf">
+        <span class="has-mr-6">2.2</span>
+        <span>配置文件修改 redis.windows.conf</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装服务-1">
+        <span class="has-mr-6">2.3</span>
+        <span>安装服务</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#测试主从服务器">
+        <span class="has-mr-6">3</span>
+        <span>测试主从服务器</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#主要测试Redis主从服务安装是否成功，主从是否实现">
+        <span class="has-mr-6">3.1</span>
+        <span>主要测试Redis主从服务安装是否成功，主从是否实现</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#主服务器Redis-cd到Redis安装目录">
+        <span class="has-mr-6">3.1.1</span>
+        <span>主服务器Redis  cd到Redis安装目录</span>
+        </a></li><li>
+        <a class="is-flex" href="#命令行登录Redis">
+        <span class="has-mr-6">3.1.2</span>
+        <span>命令行登录Redis</span>
+        </a></li><li>
+        <a class="is-flex" href="#往主Redis写入数据">
+        <span class="has-mr-6">3.1.3</span>
+        <span>往主Redis写入数据</span>
+        </a></li><li>
+        <a class="is-flex" href="#查询数据">
+        <span class="has-mr-6">3.1.4</span>
+        <span>查询数据</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#Redis目录解析">
+        <span class="has-mr-6">4</span>
+        <span>Redis目录解析</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#普通理解的文件用处，需要更详细的可以百度">
+        <span class="has-mr-6">4.1</span>
+        <span>普通理解的文件用处，需要更详细的可以百度</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Redis-常用命令">
+        <span class="has-mr-6">5</span>
+        <span>Redis 常用命令</span>
+        </a></li><li>
+        <a class="is-flex" href="#切换服务器bat">
+        <span class="has-mr-6">6</span>
+        <span>切换服务器bat</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#其实redis的指向就只是根据redis-windows-conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis-windows-test-conf，把里面的直线ip和密码等更换了">
+        <span class="has-mr-6">6.1</span>
+        <span>其实redis的指向就只是根据redis.windows.conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis.windows.test.conf，把里面的直线ip和密码等更换了</span>
+        </a></li><li>
+        <a class="is-flex" href="#精简后的Redis配置文件">
+        <span class="has-mr-6">6.2</span>
+        <span>精简后的Redis配置文件</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+
     
         
 
@@ -600,7 +761,7 @@
             
             <a href="/2019/10/17/WindowsOS系统整合，创建自己的系统盘/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="WindowsOS系统整合，创建自己的系统盘">
+                    <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="WindowsOS系统整合，创建自己的系统盘">
                 </p>
             </a>
             
@@ -619,7 +780,7 @@
             
             <a href="/2019/10/17/制作Visual Studio 2017离线包/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="制作Visual Studio 2017离线包">
+                    <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="制作Visual Studio 2017离线包">
                 </p>
             </a>
             
@@ -638,7 +799,7 @@
             
             <a href="/2019/10/16/C-发送邮件DEMO/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="C#发送邮件DEMO">
+                    <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="C#发送邮件DEMO">
                 </p>
             </a>
             
@@ -657,7 +818,7 @@
             
             <a href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SqlLite数据库帮助类和基本DEMO">
+                    <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="SqlLite数据库帮助类和基本DEMO">
                 </p>
             </a>
             
@@ -676,7 +837,7 @@
             
             <a href="/2019/10/16/WPF属性双向绑定/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="WPF属性双向绑定">
+                    <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="WPF属性双向绑定">
                 </p>
             </a>
             
