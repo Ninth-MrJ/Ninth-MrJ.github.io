@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 3.9.0" />
+<meta name="generator" content="Hexo 4.0.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -28,16 +28,14 @@
 <meta name="keywords" content="Git,实用教程,Hexo,Blog,NodeJs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo使用">
-<meta property="og:url" content="http://yoursite.com/2019/06/13/Hexo使用/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;06&#x2F;13&#x2F;Hexo%E4%BD%BF%E7%94%A8&#x2F;index.html">
 <meta property="og:site_name" content="Jam&#39;s blog">
 <meta property="og:description" content="Hexo安装使用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;hemrj.cn&#x2F;%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
 <meta property="og:updated_time" content="2019-10-18T08:22:34.866Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo使用">
-<meta name="twitter:description" content="Hexo安装使用">
-<meta name="twitter:image" content="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;hemrj.cn&#x2F;%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
 
 
 
@@ -145,7 +143,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="搜索" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -178,7 +176,7 @@
                 
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                <a class="has-link-grey -link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a>
                 </div>
                 
                 
@@ -191,7 +189,7 @@
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
-                    1<span id="busuanzi_value_page_pv">0</span> 次查看
+                    1<span id="busuanzi_value_page_pv">99+</span> 次查看
                 </span>
                 
             </div>
@@ -208,7 +206,7 @@
 <h5 id="安装NodeJs-本文10-0-0-LTS"><a href="#安装NodeJs-本文10-0-0-LTS" class="headerlink" title="安装NodeJs(本文10.0.0 LTS)"></a>安装NodeJs(本文10.0.0 LTS)</h5><figure class="highlight awk hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">官网地址：https:<span class="hljs-regexp">//</span>nodejs.org<span class="hljs-regexp">/en/</span></span><br></pre></td></tr></table></figure>
 <h5 id="Open-Git-Bash-查看NodeJs版本是否安装成功"><a href="#Open-Git-Bash-查看NodeJs版本是否安装成功" class="headerlink" title="Open Git Bash 查看NodeJs版本是否安装成功"></a>Open Git Bash 查看NodeJs版本是否安装成功</h5><figure class="highlight crmsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="hljs-keyword">Node</span> <span class="hljs-title">-v</span></span><br></pre></td></tr></table></figure>
 <h5 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h5><figure class="highlight avrasm hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-<span class="hljs-keyword">cli</span> -g</span><br></pre></td></tr></table></figure>
-<h5 id="检查Hexo版本"><a href="#检查Hexo版本" class="headerlink" title="检查Hexo版本"></a>检查Hexo版本</h5><figure class="highlight avrasm hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br><span class="line"></span><br><span class="line">hexo-<span class="hljs-keyword">cli</span>: <span class="hljs-number">1.1</span><span class="hljs-number">.0</span></span><br><span class="line"><span class="hljs-symbol">os:</span> Windows_NT <span class="hljs-number">10.0</span><span class="hljs-number">.17763</span> win32 x64</span><br><span class="line"><span class="hljs-symbol">http_parser:</span> <span class="hljs-number">2.8</span><span class="hljs-number">.0</span></span><br><span class="line"><span class="hljs-symbol">node:</span> <span class="hljs-number">10.0</span><span class="hljs-number">.0</span></span><br><span class="line"><span class="hljs-symbol">v8:</span> <span class="hljs-number">7.0</span><span class="hljs-number">.276</span><span class="hljs-number">.38</span>-node<span class="hljs-number">.11</span></span><br><span class="line"><span class="hljs-symbol">uv:</span> <span class="hljs-number">1.23</span><span class="hljs-number">.2</span></span><br><span class="line"><span class="hljs-symbol">zlib:</span> <span class="hljs-number">1.2</span><span class="hljs-number">.11</span></span><br><span class="line"><span class="hljs-symbol">ares:</span> <span class="hljs-number">1.15</span><span class="hljs-number">.0</span></span><br><span class="line"><span class="hljs-symbol">modules:</span> <span class="hljs-number">67</span></span><br><span class="line"><span class="hljs-symbol">nghttp2:</span> <span class="hljs-number">1.34</span><span class="hljs-number">.0</span></span><br><span class="line"><span class="hljs-symbol">napi:</span> <span class="hljs-number">3</span></span><br><span class="line"><span class="hljs-symbol">openssl:</span> <span class="hljs-number">1.1</span><span class="hljs-number">.0</span>j</span><br><span class="line"><span class="hljs-symbol">icu:</span> <span class="hljs-number">63.1</span></span><br><span class="line"><span class="hljs-symbol">unicode:</span> <span class="hljs-number">11.0</span></span><br><span class="line"><span class="hljs-symbol">cldr:</span> <span class="hljs-number">34.0</span></span><br><span class="line"><span class="hljs-symbol">tz:</span> <span class="hljs-number">2018</span>e</span><br></pre></td></tr></table></figure>
+<h5 id="检查Hexo版本"><a href="#检查Hexo版本" class="headerlink" title="检查Hexo版本"></a>检查Hexo版本</h5><figure class="highlight angelscript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ hexo -v</span><br><span class="line"></span><br><span class="line">hexo-cli: <span class="hljs-number">1.1</span><span class="hljs-number">.0</span></span><br><span class="line">os: Windows_NT <span class="hljs-number">10.0</span><span class="hljs-number">.17763</span> win32 x64</span><br><span class="line">http_parser: <span class="hljs-number">2.8</span><span class="hljs-number">.0</span></span><br><span class="line">node: <span class="hljs-number">10.0</span><span class="hljs-number">.0</span></span><br><span class="line">v8: <span class="hljs-number">7.0</span><span class="hljs-number">.276</span><span class="hljs-number">.38</span>-node<span class="hljs-number">.11</span></span><br><span class="line">uv: <span class="hljs-number">1.23</span><span class="hljs-number">.2</span></span><br><span class="line">zlib: <span class="hljs-number">1.2</span><span class="hljs-number">.11</span></span><br><span class="line">ares: <span class="hljs-number">1.15</span><span class="hljs-number">.0</span></span><br><span class="line">modules: <span class="hljs-number">67</span></span><br><span class="line">nghttp2: <span class="hljs-number">1.34</span><span class="hljs-number">.0</span></span><br><span class="line">napi: <span class="hljs-number">3</span></span><br><span class="line">openssl: <span class="hljs-number">1.1</span><span class="hljs-number">.0</span>j</span><br><span class="line">icu: <span class="hljs-number">63.1</span></span><br><span class="line">unicode: <span class="hljs-number">11.0</span></span><br><span class="line">cldr: <span class="hljs-number">34.0</span></span><br><span class="line">tz: <span class="hljs-number">2018</span>e</span><br></pre></td></tr></table></figure>
 <h5 id="CD-到安装目录"><a href="#CD-到安装目录" class="headerlink" title="CD 到安装目录"></a>CD 到安装目录</h5><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> <span class="hljs-built_in">cd</span> E:\Hexo</span></span><br></pre></td></tr></table></figure>
 <h5 id="初始化Hexo目录"><a href="#初始化Hexo目录" class="headerlink" title="初始化Hexo目录"></a>初始化Hexo目录</h5><figure class="highlight elixir hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-variable">$ </span>hexo init</span><br></pre></td></tr></table></figure>
 <h5 id="安装所需要的组件"><a href="#安装所需要的组件" class="headerlink" title="安装所需要的组件"></a>安装所需要的组件</h5><figure class="highlight cmake hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm <span class="hljs-keyword">install</span></span><br></pre></td></tr></table></figure>
@@ -225,9 +223,9 @@
         <!-- 部分参考自https://www.alphalxy.com/2019/03/customize-icarus/ -->
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/06/13/Hexo使用/">Hexo使用</a></li>
+            <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/06/13/Hexo%E4%BD%BF%E7%94%A8/">Hexo使用</a></li>
             <li><strong>本文作者：</strong><a href="http://yoursite.com">Jam He</a></li>
-            <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/06/13/Hexo使用/">http://yoursite.com/2019/06/13/Hexo使用/</a></li>
+            <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/06/13/Hexo%E4%BD%BF%E7%94%A8/">http://yoursite.com/2019/06/13/Hexo%E4%BD%BF%E7%94%A8/</a></li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
@@ -238,7 +236,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Blog/">Blog</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Git/">Git</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Hexo/">Hexo</a>,&nbsp;<a class="has-link-grey -link" href="/tags/NodeJs/">NodeJs</a>,&nbsp;<a class="has-link-grey -link" href="/tags/实用教程/">实用教程</a>
+                    <a class="has-link-grey -link" href="/tags/Blog/" rel="tag">Blog</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Git/" rel="tag">Git</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Hexo/" rel="tag">Hexo</a>,&nbsp;<a class="has-link-grey -link" href="/tags/NodeJs/" rel="tag">NodeJs</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" rel="tag">实用教程</a>
                 </div>
             </div>
         </div>
@@ -289,7 +287,7 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/29/Visual Studio创建类版权模板/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/29/Visual%20Studio%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%89%88%E6%9D%83%E6%A8%A1%E6%9D%BF/">
                 <i class="level-item fas fa-chevron-left"></i>
                 <span class="level-item">Visual Studio创建类版权模板</span>
             </a>
@@ -297,7 +295,7 @@
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/13/Git常用命令操作/">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/13/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/">
                 <span class="level-item">Git常用命令操作</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -494,7 +492,7 @@
     <div class="card-content">
         <div class="menu text-desc">
         <h3 class="menu-label">
-            通知
+            公告
         </h3>
         <ul class="menu-list">
         
@@ -535,8 +533,8 @@
         
             
     <div class="card widget">
-        <div class="card-content" id="body_hot_comment">
-        <h3 class="menu-label">最新评论<br>加载中，稍等几秒...</h3>
+        <div class="card-content">
+        <h3 class="menu-label">最新评论</h3><span class="menu-label1" id="body_hot_comment">加载中，最新评论有10分钟延迟...<span>
         </div>
     </div>
 
@@ -549,7 +547,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/17/WindowsOS系统整合，创建自己的系统盘/" class="media-left">
+            <a href="/2019/10/17/WindowsOS%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88%EF%BC%8C%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%B3%BB%E7%BB%9F%E7%9B%98/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="WindowsOS系统整合，创建自己的系统盘">
                 </p>
@@ -558,9 +556,9 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-17T01:29:27.000Z">2019-10-17</time></div>
-                    <a href="/2019/10/17/WindowsOS系统整合，创建自己的系统盘/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WindowsOS系统整合，创建自己的系统盘</a>
+                    <a href="/2019/10/17/WindowsOS%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88%EF%BC%8C%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%B3%BB%E7%BB%9F%E7%9B%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WindowsOS系统整合，创建自己的系统盘</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                        <a class="has-link-grey -link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a>
                     </p>
                 </div>
             </div>
@@ -568,7 +566,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/17/制作Visual Studio 2017离线包/" class="media-left">
+            <a href="/2019/10/17/%E5%88%B6%E4%BD%9CVisual%20Studio%202017%E7%A6%BB%E7%BA%BF%E5%8C%85/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="制作Visual Studio 2017离线包">
                 </p>
@@ -577,9 +575,9 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-17T01:27:25.000Z">2019-10-17</time></div>
-                    <a href="/2019/10/17/制作Visual Studio 2017离线包/" class="title has-link-black-ter is-size-6 has-text-weight-normal">制作Visual Studio 2017离线包</a>
+                    <a href="/2019/10/17/%E5%88%B6%E4%BD%9CVisual%20Studio%202017%E7%A6%BB%E7%BA%BF%E5%8C%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">制作Visual Studio 2017离线包</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                        <a class="has-link-grey -link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a>
                     </p>
                 </div>
             </div>
@@ -587,7 +585,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/16/C-发送邮件DEMO/" class="media-left">
+            <a href="/2019/10/16/C-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6DEMO/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="C#发送邮件DEMO">
                 </p>
@@ -596,7 +594,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T07:44:20.000Z">2019-10-16</time></div>
-                    <a href="/2019/10/16/C-发送邮件DEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">C#发送邮件DEMO</a>
+                    <a href="/2019/10/16/C-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6DEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">C#发送邮件DEMO</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
                     </p>
@@ -606,7 +604,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/" class="media-left">
+            <a href="/2019/10/16/SqlLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%AE%E5%8A%A9%E7%B1%BB%E5%92%8C%E5%9F%BA%E6%9C%ACDEMO/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="SqlLite数据库帮助类和基本DEMO">
                 </p>
@@ -615,7 +613,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T07:05:13.000Z">2019-10-16</time></div>
-                    <a href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SqlLite数据库帮助类和基本DEMO</a>
+                    <a href="/2019/10/16/SqlLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%AE%E5%8A%A9%E7%B1%BB%E5%92%8C%E5%9F%BA%E6%9C%ACDEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SqlLite数据库帮助类和基本DEMO</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
                     </p>
@@ -625,7 +623,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/16/WPF属性双向绑定/" class="media-left">
+            <a href="/2019/10/16/WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="WPF属性双向绑定">
                 </p>
@@ -634,7 +632,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T06:25:43.000Z">2019-10-16</time></div>
-                    <a href="/2019/10/16/WPF属性双向绑定/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WPF属性双向绑定</a>
+                    <a href="/2019/10/16/WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WPF属性双向绑定</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
                     </p>
@@ -730,7 +728,7 @@
                 <span class="level-item tag">10</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/个人/">
+        <a class="level is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA/">
             <span class="level-start">
                 <span class="level-item">个人</span>
             </span>
@@ -738,7 +736,7 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/实用教程/">
+        <a class="level is-marginless" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">
             <span class="level-start">
                 <span class="level-item">实用教程</span>
             </span>
@@ -907,84 +905,84 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/代码块/">
+                    <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%A0%81%E5%9D%97/">
                         <span class="tag">代码块</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/实用工具/">
+                    <a class="tags has-addons" href="/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">
                         <span class="tag">实用工具</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/实用教程/">
+                    <a class="tags has-addons" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">
                         <span class="tag">实用教程</span>
                         <span class="tag is-grey">12</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/情感/">
+                    <a class="tags has-addons" href="/tags/%E6%83%85%E6%84%9F/">
                         <span class="tag">情感</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/日记/">
+                    <a class="tags has-addons" href="/tags/%E6%97%A5%E8%AE%B0/">
                         <span class="tag">日记</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/激活/">
+                    <a class="tags has-addons" href="/tags/%E6%BF%80%E6%B4%BB/">
                         <span class="tag">激活</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/系统优化/">
+                    <a class="tags has-addons" href="/tags/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/">
                         <span class="tag">系统优化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/系统配置/">
+                    <a class="tags has-addons" href="/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/">
                         <span class="tag">系统配置</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/编程开发/">
+                    <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/">
                         <span class="tag">编程开发</span>
                         <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/软件安装/">
+                    <a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">
                         <span class="tag">软件安装</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/部署实施/">
+                    <a class="tags has-addons" href="/tags/%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%96%BD/">
                         <span class="tag">部署实施</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/随笔/">
+                    <a class="tags has-addons" href="/tags/%E9%9A%8F%E7%AC%94/">
                         <span class="tag">随笔</span>
                         <span class="tag is-grey">1</span>
                     </a>
@@ -1000,7 +998,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C/" style="font-size: 18px;">C#</a> <a href="/tags/DEMO/" style="font-size: 10px;">DEMO</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MVVM/" style="font-size: 12px;">MVVM</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/NodeJs/" style="font-size: 10px;">NodeJs</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Visualsvn-Server/" style="font-size: 10px;">Visualsvn Server</a> <a href="/tags/WPF/" style="font-size: 12px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/代码块/" style="font-size: 14px;">代码块</a> <a href="/tags/实用工具/" style="font-size: 10px;">实用工具</a> <a href="/tags/实用教程/" style="font-size: 20px;">实用教程</a> <a href="/tags/情感/" style="font-size: 10px;">情感</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/激活/" style="font-size: 10px;">激活</a> <a href="/tags/系统优化/" style="font-size: 10px;">系统优化</a> <a href="/tags/系统配置/" style="font-size: 14px;">系统配置</a> <a href="/tags/编程开发/" style="font-size: 16px;">编程开发</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a> <a href="/tags/部署实施/" style="font-size: 10px;">部署实施</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C/" style="font-size: 18px;">C#</a> <a href="/tags/DEMO/" style="font-size: 10px;">DEMO</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MVVM/" style="font-size: 12px;">MVVM</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/NodeJs/" style="font-size: 10px;">NodeJs</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Visualsvn-Server/" style="font-size: 10px;">Visualsvn Server</a> <a href="/tags/WPF/" style="font-size: 12px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%9D%97/" style="font-size: 14px;">代码块</a> <a href="/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">实用工具</a> <a href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 20px;">实用教程</a> <a href="/tags/%E6%83%85%E6%84%9F/" style="font-size: 10px;">情感</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">日记</a> <a href="/tags/%E6%BF%80%E6%B4%BB/" style="font-size: 10px;">激活</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" style="font-size: 10px;">系统优化</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" style="font-size: 14px;">系统配置</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" style="font-size: 16px;">编程开发</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 10px;">软件安装</a> <a href="/tags/%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%96%BD/" style="font-size: 10px;">部署实施</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
     </div>
 </div>
         
@@ -1025,15 +1023,15 @@
                 <p class="is-size-7">
                 &copy; 2019 Jam He&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif">removeif</a>&nbsp;
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif" target="_blank" rel="noopener">removeif</a>&nbsp;
                 
                 <br>
                 &copy; 版权说明：[本网站所有内容均收集于互联网或自己创作,<br>&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="https://removeif.github.io/message/" target="_blank">留言</a>，立即处理]
                 <br>
                 <span id="busuanzi_container_site_uv">
-                ❤️感谢 <span id="busuanzi_value_site_uv">0</span> 小伙伴的 
+                ❤️感谢 <span id="busuanzi_value_site_uv">99+</span> 小伙伴的 
                 </span>
-                 <span id="busuanzi_value_site_pv"></span> 次光临 ❤️
+                 <span id="busuanzi_value_site_pv">99+</span> 次光临 ❤️
                  
                 </p>
             </div>
@@ -1105,7 +1103,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -1145,7 +1143,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1198,7 +1196,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     
-    <script type="text/javascript" defer src="/js/global-hot-data.js"></script>
+    <script type="text/javascript" defer src="/js/comment-issue-data.js"></script>
     
     <script type="text/javascript" async="" src="/live2d/autoload.js"></script>
 </body>

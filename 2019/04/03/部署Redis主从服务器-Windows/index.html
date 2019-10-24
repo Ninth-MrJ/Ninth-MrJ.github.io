@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 3.9.0" />
+<meta name="generator" content="Hexo 4.0.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -28,16 +28,14 @@
 <meta name="keywords" content="实用教程,部署实施,Redis,软件安装">
 <meta property="og:type" content="article">
 <meta property="og:title" content="部署Redis主从服务器--Windows篇">
-<meta property="og:url" content="http://yoursite.com/2019/04/03/部署Redis主从服务器-Windows/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;04&#x2F;03&#x2F;%E9%83%A8%E7%BD%B2Redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8-Windows&#x2F;index.html">
 <meta property="og:site_name" content="Jam&#39;s blog">
 <meta property="og:description" content="Redis主服务器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
-<meta property="og:updated_time" content="2019-10-18T08:26:01.615Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;hemrj.cn&#x2F;%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
+<meta property="og:updated_time" content="2019-10-24T06:53:53.007Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="部署Redis主从服务器--Windows篇">
-<meta name="twitter:description" content="Redis主服务器">
-<meta name="twitter:image" content="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;hemrj.cn&#x2F;%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
 
 
 
@@ -144,12 +142,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="搜索" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -184,7 +182,7 @@
                 
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                <a class="has-link-grey -link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a>
                 </div>
                 
                 
@@ -197,7 +195,7 @@
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
-                    1<span id="busuanzi_value_page_pv">0</span> 次查看
+                    1<span id="busuanzi_value_page_pv">99+</span> 次查看
                 </span>
                 
             </div>
@@ -217,21 +215,33 @@
 <img src="http://hemrj.cn/static/images/redis5.png">
 <img src="http://hemrj.cn/static/images/redis6.png">
 <h4 id="Redis安装文件下载"><a href="#Redis安装文件下载" class="headerlink" title="Redis安装文件下载"></a>Redis安装文件下载</h4><img src="http://hemrj.cn/static/images/redis7.jpg">
-<h4 id="安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置"><a href="#安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置" class="headerlink" title="安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置"></a>安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置</h4><h3 id="Redis-配置文件修改"><a href="#Redis-配置文件修改" class="headerlink" title="Redis 配置文件修改"></a>Redis 配置文件修改</h3><h4 id="需要修改一下几个参数设置-–文件-redis-windows-conf"><a href="#需要修改一下几个参数设置-–文件-redis-windows-conf" class="headerlink" title="需要修改一下几个参数设置  –文件 redis.windows.conf"></a>需要修改一下几个参数设置  –文件 redis.windows.conf</h4><figure class="highlight less hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">bind</span> <span class="hljs-selector-tag">114</span><span class="hljs-selector-class">.114</span><span class="hljs-selector-class">.114</span><span class="hljs-selector-class">.114</span>(服务器地址)</span><br><span class="line"><span class="hljs-selector-tag">dir</span> ./</span><br><span class="line"><span class="hljs-selector-tag">dbfilename</span> <span class="hljs-selector-tag">dump</span><span class="hljs-selector-class">.rdb</span> (缓存文件地址)</span><br><span class="line"><span class="hljs-selector-tag">requirepass</span> <span class="hljs-selector-tag">Xyhis</span>@<span class="hljs-selector-id">#Xyhis</span> (Redis密码)</span><br></pre></td></tr></table></figure>
+<h4 id="安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置"><a href="#安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置" class="headerlink" title="安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置"></a>安装完成，安装后默认创建了一个Windows服务（Redis），但这个是默认的配置，根据项目我们需要自己更改一下相关IP等配置</h4><h3 id="Redis-配置文件修改"><a href="#Redis-配置文件修改" class="headerlink" title="Redis 配置文件修改"></a>Redis 配置文件修改</h3><h4 id="需要修改一下几个参数设置-–文件-redis-windows-conf"><a href="#需要修改一下几个参数设置-–文件-redis-windows-conf" class="headerlink" title="需要修改一下几个参数设置  –文件 redis.windows.conf"></a>需要修改一下几个参数设置  –文件 redis.windows.conf</h4><figure class="highlight angelscript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bind <span class="hljs-number">114.114</span><span class="hljs-number">.114</span><span class="hljs-number">.114</span>(服务器地址)</span><br><span class="line">dir ./</span><br><span class="line">dbfilename dump.rdb (缓存文件地址)</span><br><span class="line">requirepass <span class="hljs-symbol">Xyhis@</span>#Xyhis (Redis密码)</span><br></pre></td></tr></table></figure>
 <h4 id="更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务"><a href="#更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务" class="headerlink" title="更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务"></a>更改配置文件后，暂时用不了Windows服务（Redis），需要安装新的Redis服务</h4><h3 id="安装Redis-Windows服务"><a href="#安装Redis-Windows服务" class="headerlink" title="安装Redis Windows服务"></a>安装Redis Windows服务</h3><h4 id="Win-R-打开命令行"><a href="#Win-R-打开命令行" class="headerlink" title="Win+R 打开命令行"></a>Win+R 打开命令行</h4><h4 id="cd-到安装Redis目录下-以默认安装路径为例"><a href="#cd-到安装Redis目录下-以默认安装路径为例" class="headerlink" title="cd 到安装Redis目录下,以默认安装路径为例"></a>cd 到安装Redis目录下,以默认安装路径为例</h4><figure class="highlight fortran hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd C:\<span class="hljs-function"><span class="hljs-keyword">Program</span></span> Files\Redis</span><br></pre></td></tr></table></figure>
 <h4 id="安装服务"><a href="#安装服务" class="headerlink" title="安装服务"></a>安装服务</h4><figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Redis&gt;redis-server --service-install redis<span class="hljs-selector-class">.windows</span><span class="hljs-selector-class">.conf</span> --loglevel verbose</span><br></pre></td></tr></table></figure>
 <img src="http://hemrj.cn/static/images/clipboard.png">
 <p>意思是已存在服务，接下来先要卸载原来的redis服务</p>
-<h4 id="卸载服务"><a href="#卸载服务" class="headerlink" title="卸载服务"></a>卸载服务</h4><figure class="highlight ada hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server <span class="hljs-comment">--service-uninstall</span></span><br></pre></td></tr></table></figure>
+<h4 id="卸载服务"><a href="#卸载服务" class="headerlink" title="卸载服务"></a>卸载服务</h4><figure class="highlight pgsql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-<span class="hljs-keyword">server</span> <span class="hljs-comment">--service-uninstall</span></span><br></pre></td></tr></table></figure>
 <img src="http://hemrj.cn/static/images/clipboard2.png">
-<p>显示已经卸载成功，继续安装<br><figure class="highlight vim hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Redis&gt;redis-server --service-install redis.windows.<span class="hljs-keyword">conf</span> --loglevel <span class="hljs-keyword">verbose</span></span><br><span class="line">[<span class="hljs-number">11696</span>] <span class="hljs-number">15</span> Nov <span class="hljs-number">14</span>:<span class="hljs-number">24</span>:<span class="hljs-number">35.534</span> # Granting <span class="hljs-keyword">read</span>/<span class="hljs-keyword">write</span> access <span class="hljs-keyword">to</span> <span class="hljs-string">'NT AUTHORITY\NetworkService'</span> <span class="hljs-keyword">on</span>: <span class="hljs-string">"C:\Program Files\Redis"</span> <span class="hljs-string">"C:\Program Files\Redis\"</span></span><br><span class="line">[<span class="hljs-number">11696</span>] <span class="hljs-number">15</span> Nov <span class="hljs-number">14</span>:<span class="hljs-number">24</span>:<span class="hljs-number">35.535</span> # Redis successfully installed <span class="hljs-keyword">as</span> <span class="hljs-keyword">a</span> service.</span><br></pre></td></tr></table></figure></p>
-<p>启动Redis服务<br><figure class="highlight ada hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server <span class="hljs-comment">--service-start</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="安装成功"><a href="#安装成功" class="headerlink" title="安装成功"></a>安装成功</h4><h4 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h4><p>报错，卸载后安装还是报错<br><img src="http://hemrj.cn/static/images/clipboard3.png"><br>这是因为redis-cli还在启动导致不能安装<br><img src="http://hemrj.cn/static/images/clipboard4.png"><br><figure class="highlight awk hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-number">1</span>）redis-cli.exe  启动cli</span><br><span class="line"><span class="hljs-number">2</span>）shutdown   关闭</span><br><span class="line"><span class="hljs-number">3</span>）<span class="hljs-keyword">exit</span> 离开，返回上一层</span><br><span class="line"><span class="hljs-number">4</span>）重新安装</span><br></pre></td></tr></table></figure></p>
-<p>以上全部无效<br>1.使用Redis自带命令登录关闭Redis服务<br><figure class="highlight lsl hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span> -p <span class="hljs-number">6379</span> shutdown</span><br></pre></td></tr></table></figure></p>
-<p>2.bat，创建bat命令结束进程<br><figure class="highlight routeros hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">p</span>=redis-cli.exe</span><br><span class="line">taskkill /f /im %p%</span><br></pre></td></tr></table></figure></p>
-<p>3.使用完整路径安装(部分老系统电脑使用这个方法)<br><figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server --service-install redis<span class="hljs-selector-class">.windows</span><span class="hljs-selector-class">.conf</span> --loglevel verbose</span><br></pre></td></tr></table></figure></p>
-<p>4.配置相关环境变量使用(完整路径的改良版)<br><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">redis-server</span> %<span class="hljs-selector-tag">RedisHome</span>%\<span class="hljs-selector-tag">redis</span><span class="hljs-selector-class">.windows</span><span class="hljs-selector-class">.conf</span></span><br></pre></td></tr></table></figure></p>
+<p>显示已经卸载成功，继续安装</p>
+<figure class="highlight pgsql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Redis&gt;redis-<span class="hljs-keyword">server</span> <span class="hljs-comment">--service-install redis.windows.conf --loglevel verbose</span></span><br><span class="line">[<span class="hljs-number">11696</span>] <span class="hljs-number">15</span> Nov <span class="hljs-number">14</span>:<span class="hljs-number">24</span>:<span class="hljs-number">35.534</span> # Granting <span class="hljs-keyword">read</span>/<span class="hljs-keyword">write</span> <span class="hljs-keyword">access</span> <span class="hljs-keyword">to</span> <span class="hljs-string">'NT AUTHORITY\NetworkService'</span> <span class="hljs-keyword">on</span>: "C:\Program Files\Redis" "C:\Program Files\Redis\"</span><br><span class="line">[<span class="hljs-number">11696</span>] <span class="hljs-number">15</span> Nov <span class="hljs-number">14</span>:<span class="hljs-number">24</span>:<span class="hljs-number">35.535</span> # Redis successfully installed <span class="hljs-keyword">as</span> a service.</span><br></pre></td></tr></table></figure>
+<p>启动Redis服务</p>
+<figure class="highlight pgsql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-<span class="hljs-keyword">server</span> <span class="hljs-comment">--service-start</span></span><br></pre></td></tr></table></figure>
+<h4 id="安装成功"><a href="#安装成功" class="headerlink" title="安装成功"></a>安装成功</h4><h4 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h4><p>报错，卸载后安装还是报错</p>
+<img src="http://hemrj.cn/static/images/clipboard3.png">
+<p>这是因为redis-cli还在启动导致不能安装</p>
+<img src="http://hemrj.cn/static/images/clipboard4.png">
+<figure class="highlight awk hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-number">1</span>）redis-cli.exe  启动cli</span><br><span class="line"><span class="hljs-number">2</span>）shutdown   关闭</span><br><span class="line"><span class="hljs-number">3</span>）<span class="hljs-keyword">exit</span> 离开，返回上一层</span><br><span class="line"><span class="hljs-number">4</span>）重新安装</span><br></pre></td></tr></table></figure>
+<p>以上全部无效<br>1.使用Redis自带命令登录关闭Redis服务</p>
+<figure class="highlight angelscript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span> -p <span class="hljs-number">6379</span> shutdown</span><br></pre></td></tr></table></figure>
+<p>2.bat，创建bat命令结束进程</p>
+<figure class="highlight routeros hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-builtin-name">set</span> <span class="hljs-attribute">p</span>=redis-cli.exe</span><br><span class="line">taskkill /f /im %p%</span><br></pre></td></tr></table></figure>
+<p>3.使用完整路径安装(部分老系统电脑使用这个方法)</p>
+<figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server --service-install redis<span class="hljs-selector-class">.windows</span><span class="hljs-selector-class">.conf</span> --loglevel verbose</span><br></pre></td></tr></table></figure>
+
+<p>4.配置相关环境变量使用(完整路径的改良版)</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">redis-server</span> %<span class="hljs-selector-tag">RedisHome</span>%\<span class="hljs-selector-tag">redis</span><span class="hljs-selector-class">.windows</span><span class="hljs-selector-class">.conf</span></span><br></pre></td></tr></table></figure>
 <img src="http://hemrj.cn/static/images/RedisHome.png">
+
 <h3 id="Redis-验证安装"><a href="#Redis-验证安装" class="headerlink" title="Redis 验证安装"></a>Redis 验证安装</h3><h4 id="安装RedisDesktopManager，默认直接下一步安装"><a href="#安装RedisDesktopManager，默认直接下一步安装" class="headerlink" title="安装RedisDesktopManager，默认直接下一步安装"></a>安装RedisDesktopManager，默认直接下一步安装</h4><img src="http://hemrj.cn/static/images/redismanager.png">
 <p>填写相关IP信息和密码，能正常连接即可，到此，主服务器配置完毕。</p>
 <h2 id="Redis从服务器"><a href="#Redis从服务器" class="headerlink" title="Redis从服务器"></a>Redis从服务器</h2><h3 id="安装Redis-内容和安装主服务器一致，主从服务器区别在于配置文件上的不同"><a href="#安装Redis-内容和安装主服务器一致，主从服务器区别在于配置文件上的不同" class="headerlink" title="安装Redis 内容和安装主服务器一致，主从服务器区别在于配置文件上的不同"></a>安装Redis 内容和安装主服务器一致，主从服务器区别在于配置文件上的不同</h3><h3 id="配置文件修改-redis-windows-conf"><a href="#配置文件修改-redis-windows-conf" class="headerlink" title="配置文件修改 redis.windows.conf"></a>配置文件修改 redis.windows.conf</h3><figure class="highlight routeros hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slaveof 114.114.114.114     主服务器Redis IP</span><br><span class="line">masterauth abc123     主服务器Redis密码</span><br></pre></td></tr></table></figure>
@@ -241,6 +251,7 @@
 <h4 id="往主Redis写入数据"><a href="#往主Redis写入数据" class="headerlink" title="往主Redis写入数据"></a>往主Redis写入数据</h4><figure class="highlight applescript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">set</span> <span class="hljs-built_in">name</span> posn</span><br></pre></td></tr></table></figure>
 <h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><figure class="highlight applescript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">get</span> <span class="hljs-built_in">name</span></span><br></pre></td></tr></table></figure>
 <img src="http://hemrj.cn/static/images/redisreadwrite.png">
+
 <h2 id="Redis目录解析"><a href="#Redis目录解析" class="headerlink" title="Redis目录解析"></a>Redis目录解析</h2><h3 id="普通理解的文件用处，需要更详细的可以百度"><a href="#普通理解的文件用处，需要更详细的可以百度" class="headerlink" title="普通理解的文件用处，需要更详细的可以百度"></a>普通理解的文件用处，需要更详细的可以百度</h3><figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">dump<span class="hljs-selector-class">.rdb</span>      本地数据文件</span><br><span class="line">EventLog.dll</span><br><span class="line">InstallRedisService.bat</span><br><span class="line">Logs     日志</span><br><span class="line">Redis on Windows Release Notes<span class="hljs-selector-class">.docx</span>     官方文档</span><br><span class="line">Redis on Windows<span class="hljs-selector-class">.docx</span>    				官方文档</span><br><span class="line">Windows Service Documentation<span class="hljs-selector-class">.docx</span>      官方文档</span><br><span class="line">redis-benchmark<span class="hljs-selector-class">.exe</span>           性能测试</span><br><span class="line">redis-benchmark.pdb</span><br><span class="line">redis-check-aof.exe</span><br><span class="line">redis-check-aof.pdb</span><br><span class="line">redis-check-dump<span class="hljs-selector-class">.exe</span>  </span><br><span class="line">redis-check-dump.pdb</span><br><span class="line">redis-cli<span class="hljs-selector-class">.exe</span>                 客户端</span><br><span class="line">redis-cli.pdb</span><br><span class="line">redis-server<span class="hljs-selector-class">.exe</span>              服务端</span><br><span class="line">redis-server.pdb</span><br><span class="line">redis<span class="hljs-selector-class">.windows-service</span><span class="hljs-selector-class">.conf</span>    配置文件</span><br><span class="line">redis<span class="hljs-selector-class">.windows</span><span class="hljs-selector-class">.conf</span>            配置文件</span><br><span class="line">redis<span class="hljs-selector-class">.windowsForSlave</span><span class="hljs-selector-class">.conf</span>    自定义配置文件</span><br><span class="line">temp-<span class="hljs-number">1542164504.18020</span><span class="hljs-selector-class">.rdb</span>     临时数据备份</span><br></pre></td></tr></table></figure>
 <h2 id="Redis-常用命令"><a href="#Redis-常用命令" class="headerlink" title="Redis 常用命令"></a>Redis 常用命令</h2><figure class="highlight axapta hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//停止Redis服务</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> stop</span><br><span class="line"><span class="hljs-comment">//启动Redis服务</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> start</span><br><span class="line"><span class="hljs-comment">//重启Redis服务</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> restart    </span><br><span class="line"><span class="hljs-comment">//查看redis进程</span></span><br><span class="line">ps -ef|grep redis</span><br><span class="line"><span class="hljs-comment">//以redis.conf配置文件启动服务</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> redis.conf</span><br><span class="line"><span class="hljs-comment">//退出登入redis</span></span><br><span class="line">quit</span><br><span class="line"><span class="hljs-comment">//获取redis信息</span></span><br><span class="line">info</span><br><span class="line"><span class="hljs-comment">//安装Redis Windows服务</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> --service-install redis.windows.conf --loglevel verbose</span><br><span class="line"><span class="hljs-comment">//启动Redis服务</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> --service-start</span><br><span class="line"><span class="hljs-comment">//清空Redis服务器所有数据</span></span><br><span class="line">redis-cli -h <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span> -p <span class="hljs-number">6379</span> -a <span class="hljs-string">"asd2828"</span>          </span><br><span class="line"><span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">6379</span> flushall</span><br><span class="line"><span class="hljs-comment">//卸载Redis Windows服务</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> --service-uninstall</span><br><span class="line"><span class="hljs-comment">//停止Redis服务</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> --service-stop</span><br><span class="line"><span class="hljs-comment">//查询命令，</span></span><br><span class="line">sscan BsItem <span class="hljs-number">0</span> match *<span class="hljs-number">9898</span>* <span class="hljs-keyword">count</span> <span class="hljs-number">100000</span></span><br><span class="line">      key(表名)      (模糊查询条件)    (查询数量)</span><br><span class="line"><span class="hljs-comment">//安装命令（带服务名）</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> --service-install redis.windows6379.conf --service-name RedisService6379 --loglevel verbose </span><br><span class="line"><span class="hljs-comment">//卸载命令（带服务名）</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> --service-uninstall --service-name RedisService6379</span><br><span class="line"><span class="hljs-comment">//启动命令（带服务名）</span></span><br><span class="line">redis-<span class="hljs-keyword">server</span> start --service-name RedisService6379</span><br></pre></td></tr></table></figure>
 <h2 id="切换服务器bat"><a href="#切换服务器bat" class="headerlink" title="切换服务器bat"></a>切换服务器bat</h2><h3 id="其实redis的指向就只是根据redis-windows-conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis-windows-test-conf，把里面的直线ip和密码等更换了"><a href="#其实redis的指向就只是根据redis-windows-conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis-windows-test-conf，把里面的直线ip和密码等更换了" class="headerlink" title="其实redis的指向就只是根据redis.windows.conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis.windows.test.conf，把里面的直线ip和密码等更换了"></a>其实redis的指向就只是根据redis.windows.conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis.windows.test.conf，把里面的直线ip和密码等更换了</h3><figure class="highlight ruby hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">@echo off  </span><br><span class="line"><span class="hljs-symbol">:</span>: BatchGotAdmin  </span><br><span class="line"><span class="hljs-symbol">:-------------------------------------</span>  </span><br><span class="line">REM  --&gt; Check <span class="hljs-keyword">for</span> permissions  </span><br><span class="line">&gt;nul <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> <span class="hljs-string">"%SYSTEMROOT%\system32\cacls.exe"</span> <span class="hljs-string">"%SYSTEMROOT%\system32\config\system"</span>  </span><br><span class="line"></span><br><span class="line">REM --&gt; If error flag set, we <span class="hljs-keyword">do</span> <span class="hljs-keyword">not</span> have admin.  </span><br><span class="line"><span class="hljs-keyword">if</span> <span class="hljs-string">'%errorlevel%'</span> NEQ <span class="hljs-string">'0'</span> (  </span><br><span class="line">    echo Requesting administrative privileges...  </span><br><span class="line">    goto UACPrompt  </span><br><span class="line">) <span class="hljs-keyword">else</span> ( goto gotAdmin )  </span><br><span class="line"></span><br><span class="line"><span class="hljs-symbol">:UACPrompt</span>  </span><br><span class="line">    echo Set UAC = CreateObject^(<span class="hljs-string">"Shell.Application"</span>^) &gt; <span class="hljs-string">"%temp%\getadmin.vbs"</span>  </span><br><span class="line">    echo UAC.ShellExecute <span class="hljs-string">"%~s0"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"runas"</span>, <span class="hljs-number">1</span> <span class="hljs-meta">&gt;&gt; </span><span class="hljs-string">"%temp%\getadmin.vbs"</span>  </span><br><span class="line"></span><br><span class="line">    <span class="hljs-string">"%temp%\getadmin.vbs"</span>  </span><br><span class="line">    exit /B  </span><br><span class="line"></span><br><span class="line"><span class="hljs-symbol">:gotAdmin</span>  </span><br><span class="line">    <span class="hljs-keyword">if</span> exist <span class="hljs-string">"%temp%\getadmin.vbs"</span> ( del <span class="hljs-string">"%temp%\getadmin.vbs"</span> )  </span><br><span class="line">    pushd <span class="hljs-string">"%CD%"</span>  </span><br><span class="line">    CD /D <span class="hljs-string">"%~dp0"</span>  </span><br><span class="line"><span class="hljs-symbol">:--------------------------------------</span>  </span><br><span class="line">@echo off</span><br><span class="line">cd <span class="hljs-symbol">C:</span>\Program Files\Redis</span><br><span class="line">redis-server --service-stop </span><br><span class="line"></span><br><span class="line">redis-server --service-uninstall</span><br><span class="line">redis-server --service-install redis.windows.test.conf --loglevel verbose</span><br><span class="line"></span><br><span class="line">redis-server --service-start</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
@@ -249,9 +260,9 @@
         <!-- 部分参考自https://www.alphalxy.com/2019/03/customize-icarus/ -->
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/04/03/部署Redis主从服务器-Windows/">部署Redis主从服务器--Windows篇</a></li>
+            <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/04/03/%E9%83%A8%E7%BD%B2Redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8-Windows/">部署Redis主从服务器--Windows篇</a></li>
             <li><strong>本文作者：</strong><a href="http://yoursite.com">Jam He</a></li>
-            <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/04/03/部署Redis主从服务器-Windows/">http://yoursite.com/2019/04/03/部署Redis主从服务器-Windows/</a></li>
+            <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/04/03/%E9%83%A8%E7%BD%B2Redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8-Windows/">http://yoursite.com/2019/04/03/%E9%83%A8%E7%BD%B2Redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8-Windows/</a></li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
@@ -262,7 +273,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Redis/">Redis</a>,&nbsp;<a class="has-link-grey -link" href="/tags/实用教程/">实用教程</a>,&nbsp;<a class="has-link-grey -link" href="/tags/软件安装/">软件安装</a>,&nbsp;<a class="has-link-grey -link" href="/tags/部署实施/">部署实施</a>
+                    <a class="has-link-grey -link" href="/tags/Redis/" rel="tag">Redis</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" rel="tag">实用教程</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag">软件安装</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%96%BD/" rel="tag">部署实施</a>
                 </div>
             </div>
         </div>
@@ -313,7 +324,7 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/17/系统配置文件/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/17/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
                 <i class="level-item fas fa-chevron-left"></i>
                 <span class="level-item">系统配置文件</span>
             </a>
@@ -321,7 +332,7 @@
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2017/10/28/IDEA2017 SSM框架整合搭建 Maven + Spring + SpringMVC + MyBatis/">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2017/10/28/IDEA2017%20SSM%E6%A1%86%E6%9E%B6%E6%95%B4%E5%90%88%E6%90%AD%E5%BB%BA%20Maven%20+%20Spring%20+%20SpringMVC%20+%20MyBatis/">
                 <span class="level-item">IDEA2017 SSM框架整合搭建 Maven + Spring + SpringMVC + MyBatis</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -666,7 +677,7 @@
     <div class="card-content">
         <div class="menu text-desc">
         <h3 class="menu-label">
-            通知
+            公告
         </h3>
         <ul class="menu-list">
         
@@ -707,8 +718,8 @@
         
             
     <div class="card widget">
-        <div class="card-content" id="body_hot_comment">
-        <h3 class="menu-label">最新评论<br>加载中，稍等几秒...</h3>
+        <div class="card-content">
+        <h3 class="menu-label">最新评论</h3><span class="menu-label1" id="body_hot_comment">加载中，最新评论有10分钟延迟...<span>
         </div>
     </div>
 
@@ -721,7 +732,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/17/WindowsOS系统整合，创建自己的系统盘/" class="media-left">
+            <a href="/2019/10/17/WindowsOS%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88%EF%BC%8C%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%B3%BB%E7%BB%9F%E7%9B%98/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="WindowsOS系统整合，创建自己的系统盘">
                 </p>
@@ -730,9 +741,9 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-17T01:29:27.000Z">2019-10-17</time></div>
-                    <a href="/2019/10/17/WindowsOS系统整合，创建自己的系统盘/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WindowsOS系统整合，创建自己的系统盘</a>
+                    <a href="/2019/10/17/WindowsOS%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88%EF%BC%8C%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%B3%BB%E7%BB%9F%E7%9B%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WindowsOS系统整合，创建自己的系统盘</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                        <a class="has-link-grey -link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a>
                     </p>
                 </div>
             </div>
@@ -740,7 +751,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/17/制作Visual Studio 2017离线包/" class="media-left">
+            <a href="/2019/10/17/%E5%88%B6%E4%BD%9CVisual%20Studio%202017%E7%A6%BB%E7%BA%BF%E5%8C%85/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="制作Visual Studio 2017离线包">
                 </p>
@@ -749,9 +760,9 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-17T01:27:25.000Z">2019-10-17</time></div>
-                    <a href="/2019/10/17/制作Visual Studio 2017离线包/" class="title has-link-black-ter is-size-6 has-text-weight-normal">制作Visual Studio 2017离线包</a>
+                    <a href="/2019/10/17/%E5%88%B6%E4%BD%9CVisual%20Studio%202017%E7%A6%BB%E7%BA%BF%E5%8C%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">制作Visual Studio 2017离线包</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                        <a class="has-link-grey -link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a>
                     </p>
                 </div>
             </div>
@@ -759,7 +770,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/16/C-发送邮件DEMO/" class="media-left">
+            <a href="/2019/10/16/C-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6DEMO/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="C#发送邮件DEMO">
                 </p>
@@ -768,7 +779,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T07:44:20.000Z">2019-10-16</time></div>
-                    <a href="/2019/10/16/C-发送邮件DEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">C#发送邮件DEMO</a>
+                    <a href="/2019/10/16/C-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6DEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">C#发送邮件DEMO</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
                     </p>
@@ -778,7 +789,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/" class="media-left">
+            <a href="/2019/10/16/SqlLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%AE%E5%8A%A9%E7%B1%BB%E5%92%8C%E5%9F%BA%E6%9C%ACDEMO/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="SqlLite数据库帮助类和基本DEMO">
                 </p>
@@ -787,7 +798,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T07:05:13.000Z">2019-10-16</time></div>
-                    <a href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SqlLite数据库帮助类和基本DEMO</a>
+                    <a href="/2019/10/16/SqlLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%AE%E5%8A%A9%E7%B1%BB%E5%92%8C%E5%9F%BA%E6%9C%ACDEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SqlLite数据库帮助类和基本DEMO</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
                     </p>
@@ -797,7 +808,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/16/WPF属性双向绑定/" class="media-left">
+            <a href="/2019/10/16/WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="WPF属性双向绑定">
                 </p>
@@ -806,7 +817,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T06:25:43.000Z">2019-10-16</time></div>
-                    <a href="/2019/10/16/WPF属性双向绑定/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WPF属性双向绑定</a>
+                    <a href="/2019/10/16/WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WPF属性双向绑定</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
                     </p>
@@ -902,7 +913,7 @@
                 <span class="level-item tag">10</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/个人/">
+        <a class="level is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA/">
             <span class="level-start">
                 <span class="level-item">个人</span>
             </span>
@@ -910,7 +921,7 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/实用教程/">
+        <a class="level is-marginless" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">
             <span class="level-start">
                 <span class="level-item">实用教程</span>
             </span>
@@ -1079,84 +1090,84 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/代码块/">
+                    <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%A0%81%E5%9D%97/">
                         <span class="tag">代码块</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/实用工具/">
+                    <a class="tags has-addons" href="/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">
                         <span class="tag">实用工具</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/实用教程/">
+                    <a class="tags has-addons" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">
                         <span class="tag">实用教程</span>
                         <span class="tag is-grey">12</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/情感/">
+                    <a class="tags has-addons" href="/tags/%E6%83%85%E6%84%9F/">
                         <span class="tag">情感</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/日记/">
+                    <a class="tags has-addons" href="/tags/%E6%97%A5%E8%AE%B0/">
                         <span class="tag">日记</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/激活/">
+                    <a class="tags has-addons" href="/tags/%E6%BF%80%E6%B4%BB/">
                         <span class="tag">激活</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/系统优化/">
+                    <a class="tags has-addons" href="/tags/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/">
                         <span class="tag">系统优化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/系统配置/">
+                    <a class="tags has-addons" href="/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/">
                         <span class="tag">系统配置</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/编程开发/">
+                    <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/">
                         <span class="tag">编程开发</span>
                         <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/软件安装/">
+                    <a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">
                         <span class="tag">软件安装</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/部署实施/">
+                    <a class="tags has-addons" href="/tags/%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%96%BD/">
                         <span class="tag">部署实施</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/随笔/">
+                    <a class="tags has-addons" href="/tags/%E9%9A%8F%E7%AC%94/">
                         <span class="tag">随笔</span>
                         <span class="tag is-grey">1</span>
                     </a>
@@ -1172,7 +1183,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C/" style="font-size: 18px;">C#</a> <a href="/tags/DEMO/" style="font-size: 10px;">DEMO</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MVVM/" style="font-size: 12px;">MVVM</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/NodeJs/" style="font-size: 10px;">NodeJs</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Visualsvn-Server/" style="font-size: 10px;">Visualsvn Server</a> <a href="/tags/WPF/" style="font-size: 12px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/代码块/" style="font-size: 14px;">代码块</a> <a href="/tags/实用工具/" style="font-size: 10px;">实用工具</a> <a href="/tags/实用教程/" style="font-size: 20px;">实用教程</a> <a href="/tags/情感/" style="font-size: 10px;">情感</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/激活/" style="font-size: 10px;">激活</a> <a href="/tags/系统优化/" style="font-size: 10px;">系统优化</a> <a href="/tags/系统配置/" style="font-size: 14px;">系统配置</a> <a href="/tags/编程开发/" style="font-size: 16px;">编程开发</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a> <a href="/tags/部署实施/" style="font-size: 10px;">部署实施</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C/" style="font-size: 18px;">C#</a> <a href="/tags/DEMO/" style="font-size: 10px;">DEMO</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MVVM/" style="font-size: 12px;">MVVM</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/NodeJs/" style="font-size: 10px;">NodeJs</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Visualsvn-Server/" style="font-size: 10px;">Visualsvn Server</a> <a href="/tags/WPF/" style="font-size: 12px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%9D%97/" style="font-size: 14px;">代码块</a> <a href="/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">实用工具</a> <a href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 20px;">实用教程</a> <a href="/tags/%E6%83%85%E6%84%9F/" style="font-size: 10px;">情感</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">日记</a> <a href="/tags/%E6%BF%80%E6%B4%BB/" style="font-size: 10px;">激活</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" style="font-size: 10px;">系统优化</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" style="font-size: 14px;">系统配置</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" style="font-size: 16px;">编程开发</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 10px;">软件安装</a> <a href="/tags/%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%96%BD/" style="font-size: 10px;">部署实施</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
     </div>
 </div>
         
@@ -1197,15 +1208,15 @@
                 <p class="is-size-7">
                 &copy; 2019 Jam He&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif">removeif</a>&nbsp;
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif" target="_blank" rel="noopener">removeif</a>&nbsp;
                 
                 <br>
                 &copy; 版权说明：[本网站所有内容均收集于互联网或自己创作,<br>&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="https://removeif.github.io/message/" target="_blank">留言</a>，立即处理]
                 <br>
                 <span id="busuanzi_container_site_uv">
-                ❤️感谢 <span id="busuanzi_value_site_uv">0</span> 小伙伴的 
+                ❤️感谢 <span id="busuanzi_value_site_uv">99+</span> 小伙伴的 
                 </span>
-                 <span id="busuanzi_value_site_pv"></span> 次光临 ❤️
+                 <span id="busuanzi_value_site_pv">99+</span> 次光临 ❤️
                  
                 </p>
             </div>
@@ -1277,7 +1288,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -1317,7 +1328,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1370,7 +1381,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     
-    <script type="text/javascript" defer src="/js/global-hot-data.js"></script>
+    <script type="text/javascript" defer src="/js/comment-issue-data.js"></script>
     
     <script type="text/javascript" async="" src="/live2d/autoload.js"></script>
 </body>

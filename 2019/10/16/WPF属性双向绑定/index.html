@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 3.9.0" />
+<meta name="generator" content="Hexo 4.0.0" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -28,16 +28,14 @@
 <meta name="keywords" content="C#,编程开发,WPF,MVVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WPF属性双向绑定">
-<meta property="og:url" content="http://yoursite.com/2019/10/16/WPF属性双向绑定/index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;16&#x2F;WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A&#x2F;index.html">
 <meta property="og:site_name" content="Jam&#39;s blog">
 <meta property="og:description" content="WPF最主要的特性之一，双向绑定">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;hemrj.cn&#x2F;%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
 <meta property="og:updated_time" content="2019-10-18T08:22:18.787Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WPF属性双向绑定">
-<meta name="twitter:description" content="WPF最主要的特性之一，双向绑定">
-<meta name="twitter:image" content="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;hemrj.cn&#x2F;%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg">
 
 
 
@@ -145,7 +143,7 @@
                 
                 
                 
-                <a class="navbar-item search" title="搜索" href="javascript:;">
+                <a class="navbar-item search" title="搜索" href="javascript:;" target="_blank" rel="noopener">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -191,7 +189,7 @@
                 
                 <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
                     <i class="far fa-eye"></i>
-                    1<span id="busuanzi_value_page_pv">0</span> 次查看
+                    1<span id="busuanzi_value_page_pv">99+</span> 次查看
                 </span>
                 
             </div>
@@ -203,14 +201,16 @@
             
         </h1>
         <div class="content">
-            <p>WPF最主要的特性之一，双向绑定<br><a id="more"></a> </p>
-<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><figure class="highlight q hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DependencyObject中拥有一个字典保存绑定信息，字典的<span class="hljs-built_in">key</span>是依赖属性，<span class="hljs-built_in">value</span>为绑定的值。对于绑定SetBinding方法是关键，他处理保存bingding对象的键值对，如果bingding对象中保存的TargetObject（被绑定对象）实现INotifyPropertyChanged接口，那么监听TargetObject的PropertyChanged事件，TargetObject一旦改变就修改依赖属性的值，这就可以实现了通知。而对于双向绑定，奥秘就在给依赖属性赋值的SetValue(xx,xx)方法中,这个方法中会查找管理绑定的那个字典，当前依赖属性是否绑定了值，如果绑定了并且是双向绑定，就给TargetObject设置新值，实现双向绑定。</span><br><span class="line"></span><br><span class="line">基础理论这种东西，看着有点犯困，基本了解就行，双向绑定主要是解耦合，数据实时刷新</span><br><span class="line"></span><br><span class="line">WPF双向数据同步：目标属性（UI）和源属性（CS）数据同步。</span><br><span class="line">实现双向数据同步数据源需要实现依赖属性INotifyPropertyChanged接口，因为依赖属性有垂直的内嵌变更通知机制。</span><br><span class="line">INotifyPropertyChanged是用于实现界面通知。</span><br><span class="line">DependencyObject是实现依赖对象的依赖属性。</span><br></pre></td></tr></table></figure>
+            <p>WPF最主要的特性之一，双向绑定</p>
+<a id="more"></a> 
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><figure class="highlight reasonml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DependencyObject中拥有一个字典保存绑定信息，字典的key是依赖属性，value为绑定的值。对于绑定SetBinding方法是关键，他处理保存bingding对象的键值对，如果bingding对象中保存的TargetObject（被绑定对象）实现INotifyPropertyChanged接口，那么监听TargetObject的PropertyChanged事件，TargetObject一旦改变就修改依赖属性的值，这就可以实现了通知。而对于双向绑定，奥秘就在给依赖属性赋值的<span class="hljs-constructor">SetValue(<span class="hljs-params">xx</span>,<span class="hljs-params">xx</span>)</span>方法中,这个方法中会查找管理绑定的那个字典，当前依赖属性是否绑定了值，如果绑定了并且是双向绑定，就给TargetObject设置新值，实现双向绑定。</span><br><span class="line"></span><br><span class="line">基础理论这种东西，看着有点犯困，基本了解就行，双向绑定主要是解耦合，数据实时刷新</span><br><span class="line"></span><br><span class="line">WPF双向数据同步：目标属性（UI）和源属性（CS）数据同步。</span><br><span class="line">实现双向数据同步数据源需要实现依赖属性INotifyPropertyChanged接口，因为依赖属性有垂直的内嵌变更通知机制。</span><br><span class="line">INotifyPropertyChanged是用于实现界面通知。</span><br><span class="line">DependencyObject是实现依赖对象的依赖属性。</span><br></pre></td></tr></table></figure>
 <h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h3 id="Xaml"><a href="#Xaml" class="headerlink" title="Xaml"></a>Xaml</h3><figure class="highlight dust hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Window</span> <span class="hljs-attr">x:Class</span>=<span class="hljs-string">"WPFDemo.Window1"</span></span></span></span><br><span class="line"><span class="hljs-xml">        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span></span><br><span class="line"><span class="hljs-xml">        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"</span></span><br><span class="line"><span class="hljs-xml">        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"</span></span><br><span class="line"><span class="hljs-xml">        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"</span></span><br><span class="line"><span class="hljs-xml">        xmlns:local="clr-namespace:WPFDemo"</span></span><br><span class="line"><span class="hljs-xml">        mc:Ignorable="d"</span></span><br><span class="line"><span class="hljs-xml">        Title="Window1" Height="300" Width="300"&gt;</span></span><br><span class="line"><span class="hljs-xml">    </span></span><br><span class="line"><span class="hljs-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">Grid</span>&gt;</span></span></span><br><span class="line"><span class="hljs-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">Name</span>=<span class="hljs-string">"Button_OK"</span> <span class="hljs-attr">MaxWidth</span>=<span class="hljs-string">"50"</span> <span class="hljs-attr">MaxHeight</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">Click</span>=<span class="hljs-string">"Button_OK_Click"</span>&gt;</span>OK<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span></span></span><br><span class="line"><span class="hljs-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">TextBlock</span> <span class="hljs-attr">MaxWidth</span>=<span class="hljs-string">"50"</span> <span class="hljs-attr">MaxHeight</span>=<span class="hljs-string">"20"</span> <span class="hljs-attr">VerticalAlignment</span>=<span class="hljs-string">"Top"</span>  <span class="hljs-attr">HorizontalAlignment</span>=<span class="hljs-string">"Left"</span> <span class="hljs-attr">Text</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">&#123;Binding Text&#125;</span><span class="hljs-xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">TextBlock</span>&gt;</span></span></span><br><span class="line"><span class="hljs-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">Grid</span>&gt;</span></span></span><br><span class="line"><span class="hljs-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">Window</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h3><figure class="highlight cs hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ObservableObject实现了INotifyPropertyChanged，项目中，一般我们把这个抽取重构为一个viewmodel的基类，继承ViewModelBase即可实现INotifyPropertyChanged</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainViewModel</span> : <span class="hljs-title">ViewModelBase</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MainViewModel</span>(<span class="hljs-params"></span>)</span></span><br><span class="line"><span class="hljs-function"></span>        &#123;</span><br><span class="line">            Init();</span><br><span class="line">            InitCommand();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">//双向绑定属性</span></span><br><span class="line">        <span class="hljs-keyword">private</span> <span class="hljs-keyword">string</span> _text;</span><br><span class="line">        <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Text</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> _text; &#125;</span><br><span class="line">            <span class="hljs-keyword">set</span> &#123; <span class="hljs-keyword">this</span>.SetProperty(<span class="hljs-keyword">ref</span> _text, <span class="hljs-keyword">value</span>); &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="DependencyObject"><a href="#DependencyObject" class="headerlink" title="DependencyObject"></a>DependencyObject</h3><figure class="highlight cs hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">using</span> System.ComponentModel;</span><br><span class="line"><span class="hljs-keyword">using</span> System.Runtime.CompilerServices;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Nine.UnitlLibrary</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ObservableObject</span> : <span class="hljs-title">INotifyPropertyChanged</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 属性更改机制</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">public</span> <span class="hljs-keyword">event</span> PropertyChangedEventHandler PropertyChanged;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 支持.NET4.5/.NET4.0</span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> </span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;typeparam name="T"&gt;</span>属性类型<span class="hljs-doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="storage"&gt;</span>被设置的属性<span class="hljs-doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="isCheckEquals"&gt;</span>是否检查属性相等<span class="hljs-doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="value"&gt;</span>将要设置的属性值<span class="hljs-doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> SetProperty&lt;T&gt;(<span class="hljs-keyword">ref</span> T storage, T <span class="hljs-keyword">value</span>, <span class="hljs-keyword">bool</span> isCheckEquals = <span class="hljs-literal">true</span>, [CallerMemberName] <span class="hljs-keyword">string</span> propertyName = <span class="hljs-literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (isCheckEquals)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">object</span>.Equals(storage, <span class="hljs-keyword">value</span>)) &#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            storage = <span class="hljs-keyword">value</span>;</span><br><span class="line">            OnPropertyChanged(propertyName);</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> </span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;typeparam name="T"&gt;</span>属性类型<span class="hljs-doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="storage"&gt;</span>被设置的属性<span class="hljs-doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="isCheckEquals"&gt;</span>是否检查属性相等<span class="hljs-doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="value"&gt;</span>将要设置的属性值<span class="hljs-doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="hljs-keyword">protected</span> <span class="hljs-keyword">bool</span> SetProperty&lt;T&gt;(<span class="hljs-keyword">ref</span> T storage, T <span class="hljs-keyword">value</span>, [CallerMemberName] <span class="hljs-keyword">string</span> propertyName = <span class="hljs-literal">null</span>, <span class="hljs-keyword">params</span> <span class="hljs-keyword">string</span>[] propertyNames)</span><br><span class="line">        &#123;</span><br><span class="line">            storage = <span class="hljs-keyword">value</span>;</span><br><span class="line">            OnPropertyChanged(propertyName);</span><br><span class="line">            <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">string</span> propertyname <span class="hljs-keyword">in</span> propertyNames)</span><br><span class="line">            &#123;</span><br><span class="line">                OnPropertyChanged(propertyname);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnPropertyChanged</span>(<span class="hljs-params">[CallerMemberName] <span class="hljs-keyword">string</span> propertyName = <span class="hljs-literal">null</span></span>)</span></span><br><span class="line"><span class="hljs-function"></span>        &#123;</span><br><span class="line">            PropertyChangedEventHandler eventHandler = PropertyChanged;</span><br><span class="line">            <span class="hljs-keyword">if</span> (eventHandler != <span class="hljs-literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                eventHandler(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> PropertyChangedEventArgs(propertyName));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> 支持.NET4.0</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">//private static string GetProperyName(string methodName)</span></span><br><span class="line">        <span class="hljs-comment">//&#123;</span></span><br><span class="line">        <span class="hljs-comment">//    if (methodName.StartsWith("get_") || methodName.StartsWith("set_") ||</span></span><br><span class="line">        <span class="hljs-comment">//        methodName.StartsWith("put_"))</span></span><br><span class="line">        <span class="hljs-comment">//    &#123;</span></span><br><span class="line">        <span class="hljs-comment">//        return methodName.Substring("get_".Length);</span></span><br><span class="line">        <span class="hljs-comment">//    &#125;</span></span><br><span class="line">        <span class="hljs-comment">//    throw new Exception(methodName + " not a method of Property");</span></span><br><span class="line">        <span class="hljs-comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">//protected bool SetProperty&lt;T&gt;(ref T storage, T value)</span></span><br><span class="line">        <span class="hljs-comment">//&#123;</span></span><br><span class="line">        <span class="hljs-comment">//    if (object.Equals(storage, value)) &#123; return false; &#125;</span></span><br><span class="line">        <span class="hljs-comment">//    storage = value;</span></span><br><span class="line">        <span class="hljs-comment">//    string propertyName = GetProperyName(new System.Diagnostics.StackTrace(true).GetFrame(1).GetMethod().Name);</span></span><br><span class="line">        <span class="hljs-comment">//    this.OnPropertyChanged(propertyName);</span></span><br><span class="line">        <span class="hljs-comment">//    return true;</span></span><br><span class="line">        <span class="hljs-comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span>// <span class="hljs-doctag">&lt;summary&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span>// </span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span>// <span class="hljs-doctag">&lt;/summary&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span>// <span class="hljs-doctag">&lt;typeparam name="T"&gt;</span>属性类型<span class="hljs-doctag">&lt;/typeparam&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span>// <span class="hljs-doctag">&lt;param name="storage"&gt;</span>被设置的属性<span class="hljs-doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span>// <span class="hljs-doctag">&lt;param name="value"&gt;</span>将要设置的属性值<span class="hljs-doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span>// <span class="hljs-doctag">&lt;param name="isCheckEquals"&gt;</span>是否检查属性相等<span class="hljs-doctag">&lt;/param&gt;</span></span></span><br><span class="line">        <span class="hljs-comment"><span class="hljs-doctag">///</span>// <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span></span><br><span class="line">        <span class="hljs-comment">//protected bool SetProperty&lt;T&gt;(ref T storage, T value, bool isCheckEquals)</span></span><br><span class="line">        <span class="hljs-comment">//&#123;</span></span><br><span class="line">        <span class="hljs-comment">//    if (isCheckEquals)</span></span><br><span class="line">        <span class="hljs-comment">//        if (object.Equals(storage, value)) &#123; return false; &#125;</span></span><br><span class="line">        <span class="hljs-comment">//    storage = value;</span></span><br><span class="line">        <span class="hljs-comment">//    string propertyName = GetProperyName(new System.Diagnostics.StackTrace(true).GetFrame(1).GetMethod().Name);</span></span><br><span class="line">        <span class="hljs-comment">//    this.OnPropertyChanged(propertyName);</span></span><br><span class="line">        <span class="hljs-comment">//    return true;</span></span><br><span class="line">        <span class="hljs-comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">//private void OnPropertyChanged(string propertyName)</span></span><br><span class="line">        <span class="hljs-comment">//&#123;</span></span><br><span class="line">        <span class="hljs-comment">//    var eventHandler = this.PropertyChanged;</span></span><br><span class="line">        <span class="hljs-comment">//    if (eventHandler != null)</span></span><br><span class="line">        <span class="hljs-comment">//    &#123;</span></span><br><span class="line">        <span class="hljs-comment">//        eventHandler(this, new PropertyChangedEventArgs(propertyName));</span></span><br><span class="line">        <span class="hljs-comment">//    &#125;</span></span><br><span class="line">        <span class="hljs-comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span></span><br><span class="line"></span><br><span class="line">        <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="ViewModelBase"><a href="#ViewModelBase" class="headerlink" title="ViewModelBase"></a>ViewModelBase</h3><figure class="highlight cs hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ViewModelBase</span> : <span class="hljs-title">ObservableObject</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">event</span> PropertyChangedEventHandler PropertyChanged;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">RaisePropertyChanged</span>(<span class="hljs-params"><span class="hljs-keyword">string</span> propertyName</span>)</span></span><br><span class="line"><span class="hljs-function"></span>    &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (PropertyChanged != <span class="hljs-literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            PropertyChanged.Invoke(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">new</span> PropertyChangedEventArgs(propertyName));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="ObservableCollection"><a href="#ObservableCollection" class="headerlink" title="ObservableCollection"></a>ObservableCollection<t></t></h3><h4 id="WPF-提供-ObservableCollection-类，它是实现-INotifyCollectionChanged-接口的数据集合的内置实现。"><a href="#WPF-提供-ObservableCollection-类，它是实现-INotifyCollectionChanged-接口的数据集合的内置实现。" class="headerlink" title="WPF 提供 ObservableCollection 类，它是实现 INotifyCollectionChanged 接口的数据集合的内置实现。"></a>WPF 提供 ObservableCollection<t> 类，它是实现 INotifyCollectionChanged 接口的数据集合的内置实现。</t></h4><figure class="highlight routeros hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class<span class="hljs-built_in"> Users </span>: ObservableCollection&lt;Users&gt;</span><br><span class="line">&#123;</span><br><span class="line">    public Users() : base()</span><br><span class="line">    &#123;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Binding对象的属性说明"><a href="#Binding对象的属性说明" class="headerlink" title="Binding对象的属性说明"></a>Binding对象的属性说明</h3><figure class="highlight routeros hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">属性名                 描述         </span><br><span class="line">1、Converter：转换器,将绑定的内容转换成自己需要的内容。自定义转换类 必须继承于:IValueConverter接口</span><br><span class="line">2、ElementName：绑定的源对象,本人理解 专程用于UI控件之间属性的绑定</span><br><span class="line">3、FallbackValue ：绑定无法返回有效值时的默认显示值</span><br><span class="line">4、Mode：绑定方式，枚举类型<span class="hljs-built_in"> Default </span>OneWay TwoWay OneTime OneWayToSource</span><br><span class="line">5、Path：属性 路径，用来指定要绑定数据源的路径，其性质是一个属性，该属性该当是依靠属性，也即便能够告终积极更新机制的【单个类实现INotifyPropertyChanged、集合要 实现INotifyCollectionChanged接口】</span><br><span class="line">6、RelativeSource：常用于自身绑定或者数据模板中来指定绑定的源对象及控件模块中的绑定。</span><br><span class="line">7、Source：源对象，控件或自定义对象等。</span><br><span class="line">8、StringFormat：格式化表达式</span><br><span class="line">9、UpdateSourceTrigger：在双向绑定时TwoWay 或 OneWayToSource 时。用来确定属性更改的时机。UpdateSourceTrigger枚举类型：Default,PropertyChanged,LostFocus,Explicit。</span><br><span class="line">10、ValidationRules：验证规则.可以被设置为一个或多个派生自ValidationRule的对象，每个规则都会检查特定的条件并更具结果来标记数据的有效性</span><br></pre></td></tr></table></figure>
+<h3 id="Binding对象的属性说明"><a href="#Binding对象的属性说明" class="headerlink" title="Binding对象的属性说明"></a>Binding对象的属性说明</h3><figure class="highlight angelscript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">属性名                 描述         </span><br><span class="line"><span class="hljs-number">1</span>、Converter：转换器,将绑定的内容转换成自己需要的内容。自定义转换类 必须继承于:IValueConverter接口</span><br><span class="line"><span class="hljs-number">2</span>、ElementName：绑定的源对象,本人理解 专程用于UI控件之间属性的绑定</span><br><span class="line"><span class="hljs-number">3</span>、FallbackValue ：绑定无法返回有效值时的默认显示值</span><br><span class="line"><span class="hljs-number">4</span>、Mode：绑定方式，枚举类型 Default OneWay TwoWay OneTime OneWayToSource</span><br><span class="line"><span class="hljs-number">5</span>、Path：属性 路径，用来指定要绑定数据源的路径，其性质是一个属性，该属性该当是依靠属性，也即便能够告终积极更新机制的【单个类实现INotifyPropertyChanged、集合要 实现INotifyCollectionChanged接口】</span><br><span class="line"><span class="hljs-number">6</span>、RelativeSource：常用于自身绑定或者数据模板中来指定绑定的源对象及控件模块中的绑定。</span><br><span class="line"><span class="hljs-number">7</span>、Source：源对象，控件或自定义对象等。</span><br><span class="line"><span class="hljs-number">8</span>、StringFormat：格式化表达式</span><br><span class="line"><span class="hljs-number">9</span>、UpdateSourceTrigger：在双向绑定时TwoWay 或 OneWayToSource 时。用来确定属性更改的时机。UpdateSourceTrigger枚举类型：Default,PropertyChanged,LostFocus,Explicit。</span><br><span class="line"><span class="hljs-number">10</span>、ValidationRules：验证规则.可以被设置为一个或多个派生自ValidationRule的对象，每个规则都会检查特定的条件并更具结果来标记数据的有效性</span><br></pre></td></tr></table></figure>
 <h3 id="Mode指定绑定的方向"><a href="#Mode指定绑定的方向" class="headerlink" title="Mode指定绑定的方向"></a>Mode指定绑定的方向</h3><figure class="highlight routeros hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">数据绑定模式共有四种：OneTime、OneWay、OneWayToSource和TwoWay，默认是TwoWay。</span><br><span class="line"></span><br><span class="line">TwoWay 当发生更改时的目标属性或源属性更新目标属性。</span><br><span class="line">OneWay 仅当源属性更改时，请更新目标属性。</span><br><span class="line">OneTime 仅当应用程序启动时或时，请更新目标属性DataContext发生了更改。</span><br><span class="line">OneWayToSource 目标属性更改时，请更新源属性。</span><br><span class="line">Default 默认值将导致Mode要使用的目标属性的值。</span><br></pre></td></tr></table></figure>
 <h3 id="UpdateSourceTrigger"><a href="#UpdateSourceTrigger" class="headerlink" title="UpdateSourceTrigger"></a>UpdateSourceTrigger</h3><figure class="highlight routeros hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">四种用来确定属性更改的时机，对于 <span class="hljs-attribute">Model</span>=TwoWay 及 OneWayToSource是源数据改变时机</span><br></pre></td></tr></table></figure>
 <h3 id="UI属性绑定数据对象"><a href="#UI属性绑定数据对象" class="headerlink" title="UI属性绑定数据对象"></a>UI属性绑定数据对象</h3><figure class="highlight protobuf hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UI属性直接绑定实例对象 。实例：Text=<span class="hljs-string">"&#123;Binding Path=EntryDate,StringFormat=yyyy-MM-dd&#125;"</span></span><br><span class="line"></span><br><span class="line">UI属性直接绑定静态对象。实例：DataContext=<span class="hljs-string">"&#123;x:Static local:GlobalData.user&#125;"</span></span><br><span class="line"></span><br><span class="line">UI属性绑定资源中的对象。DataContext=<span class="hljs-string">"&#123;StaticResource ResourceKey=userKey&#125;"</span></span><br></pre></td></tr></table></figure>
@@ -221,9 +221,9 @@
         <!-- 部分参考自https://www.alphalxy.com/2019/03/customize-icarus/ -->
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/10/16/WPF属性双向绑定/">WPF属性双向绑定</a></li>
+            <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/10/16/WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/">WPF属性双向绑定</a></li>
             <li><strong>本文作者：</strong><a href="http://yoursite.com">Jam He</a></li>
-            <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/10/16/WPF属性双向绑定/">http://yoursite.com/2019/10/16/WPF属性双向绑定/</a></li>
+            <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/10/16/WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/">http://yoursite.com/2019/10/16/WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</a></li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
@@ -234,7 +234,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/C/">C#</a>,&nbsp;<a class="has-link-grey -link" href="/tags/MVVM/">MVVM</a>,&nbsp;<a class="has-link-grey -link" href="/tags/WPF/">WPF</a>,&nbsp;<a class="has-link-grey -link" href="/tags/编程开发/">编程开发</a>
+                    <a class="has-link-grey -link" href="/tags/C/" rel="tag">C#</a>,&nbsp;<a class="has-link-grey -link" href="/tags/MVVM/" rel="tag">MVVM</a>,&nbsp;<a class="has-link-grey -link" href="/tags/WPF/" rel="tag">WPF</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" rel="tag">编程开发</a>
                 </div>
             </div>
         </div>
@@ -285,7 +285,7 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/16/SqlLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%AE%E5%8A%A9%E7%B1%BB%E5%92%8C%E5%9F%BA%E6%9C%ACDEMO/">
                 <i class="level-item fas fa-chevron-left"></i>
                 <span class="level-item">SqlLite数据库帮助类和基本DEMO</span>
             </a>
@@ -293,7 +293,7 @@
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/16/WPF基本MVVM模式Command基类实现/">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/16/WPF%E5%9F%BA%E6%9C%ACMVVM%E6%A8%A1%E5%BC%8FCommand%E5%9F%BA%E7%B1%BB%E5%AE%9E%E7%8E%B0/">
                 <span class="level-item">WPF基本MVVM模式Command基类实现</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -490,7 +490,7 @@
     <div class="card-content">
         <div class="menu text-desc">
         <h3 class="menu-label">
-            通知
+            公告
         </h3>
         <ul class="menu-list">
         
@@ -531,8 +531,8 @@
         
             
     <div class="card widget">
-        <div class="card-content" id="body_hot_comment">
-        <h3 class="menu-label">最新评论<br>加载中，稍等几秒...</h3>
+        <div class="card-content">
+        <h3 class="menu-label">最新评论</h3><span class="menu-label1" id="body_hot_comment">加载中，最新评论有10分钟延迟...<span>
         </div>
     </div>
 
@@ -545,7 +545,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/17/WindowsOS系统整合，创建自己的系统盘/" class="media-left">
+            <a href="/2019/10/17/WindowsOS%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88%EF%BC%8C%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%B3%BB%E7%BB%9F%E7%9B%98/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="WindowsOS系统整合，创建自己的系统盘">
                 </p>
@@ -554,9 +554,9 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-17T01:29:27.000Z">2019-10-17</time></div>
-                    <a href="/2019/10/17/WindowsOS系统整合，创建自己的系统盘/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WindowsOS系统整合，创建自己的系统盘</a>
+                    <a href="/2019/10/17/WindowsOS%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88%EF%BC%8C%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%B3%BB%E7%BB%9F%E7%9B%98/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WindowsOS系统整合，创建自己的系统盘</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                        <a class="has-link-grey -link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a>
                     </p>
                 </div>
             </div>
@@ -564,7 +564,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/17/制作Visual Studio 2017离线包/" class="media-left">
+            <a href="/2019/10/17/%E5%88%B6%E4%BD%9CVisual%20Studio%202017%E7%A6%BB%E7%BA%BF%E5%8C%85/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="制作Visual Studio 2017离线包">
                 </p>
@@ -573,9 +573,9 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-17T01:27:25.000Z">2019-10-17</time></div>
-                    <a href="/2019/10/17/制作Visual Studio 2017离线包/" class="title has-link-black-ter is-size-6 has-text-weight-normal">制作Visual Studio 2017离线包</a>
+                    <a href="/2019/10/17/%E5%88%B6%E4%BD%9CVisual%20Studio%202017%E7%A6%BB%E7%BA%BF%E5%8C%85/" class="title has-link-black-ter is-size-6 has-text-weight-normal">制作Visual Studio 2017离线包</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/实用教程/">实用教程</a>
+                        <a class="has-link-grey -link" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">实用教程</a>
                     </p>
                 </div>
             </div>
@@ -583,7 +583,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/16/C-发送邮件DEMO/" class="media-left">
+            <a href="/2019/10/16/C-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6DEMO/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="C#发送邮件DEMO">
                 </p>
@@ -592,7 +592,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T07:44:20.000Z">2019-10-16</time></div>
-                    <a href="/2019/10/16/C-发送邮件DEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">C#发送邮件DEMO</a>
+                    <a href="/2019/10/16/C-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6DEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">C#发送邮件DEMO</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
                     </p>
@@ -602,7 +602,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/" class="media-left">
+            <a href="/2019/10/16/SqlLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%AE%E5%8A%A9%E7%B1%BB%E5%92%8C%E5%9F%BA%E6%9C%ACDEMO/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="SqlLite数据库帮助类和基本DEMO">
                 </p>
@@ -611,7 +611,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T07:05:13.000Z">2019-10-16</time></div>
-                    <a href="/2019/10/16/SqlLite数据库帮助类和基本DEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SqlLite数据库帮助类和基本DEMO</a>
+                    <a href="/2019/10/16/SqlLite%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%AE%E5%8A%A9%E7%B1%BB%E5%92%8C%E5%9F%BA%E6%9C%ACDEMO/" class="title has-link-black-ter is-size-6 has-text-weight-normal">SqlLite数据库帮助类和基本DEMO</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
                     </p>
@@ -621,7 +621,7 @@
         
         <article class="media">
             
-            <a href="/2019/10/16/WPF属性双向绑定/" class="media-left">
+            <a href="/2019/10/16/WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://hemrj.cn/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20191010152920.jpg" alt="WPF属性双向绑定">
                 </p>
@@ -630,7 +630,7 @@
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T06:25:43.000Z">2019-10-16</time></div>
-                    <a href="/2019/10/16/WPF属性双向绑定/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WPF属性双向绑定</a>
+                    <a href="/2019/10/16/WPF%E5%B1%9E%E6%80%A7%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/" class="title has-link-black-ter is-size-6 has-text-weight-normal">WPF属性双向绑定</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/Codeing/">Codeing</a>
                     </p>
@@ -726,7 +726,7 @@
                 <span class="level-item tag">10</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/个人/">
+        <a class="level is-marginless" href="/categories/%E4%B8%AA%E4%BA%BA/">
             <span class="level-start">
                 <span class="level-item">个人</span>
             </span>
@@ -734,7 +734,7 @@
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/实用教程/">
+        <a class="level is-marginless" href="/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">
             <span class="level-start">
                 <span class="level-item">实用教程</span>
             </span>
@@ -903,84 +903,84 @@
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/代码块/">
+                    <a class="tags has-addons" href="/tags/%E4%BB%A3%E7%A0%81%E5%9D%97/">
                         <span class="tag">代码块</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/实用工具/">
+                    <a class="tags has-addons" href="/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">
                         <span class="tag">实用工具</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/实用教程/">
+                    <a class="tags has-addons" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/">
                         <span class="tag">实用教程</span>
                         <span class="tag is-grey">12</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/情感/">
+                    <a class="tags has-addons" href="/tags/%E6%83%85%E6%84%9F/">
                         <span class="tag">情感</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/日记/">
+                    <a class="tags has-addons" href="/tags/%E6%97%A5%E8%AE%B0/">
                         <span class="tag">日记</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/激活/">
+                    <a class="tags has-addons" href="/tags/%E6%BF%80%E6%B4%BB/">
                         <span class="tag">激活</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/系统优化/">
+                    <a class="tags has-addons" href="/tags/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/">
                         <span class="tag">系统优化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/系统配置/">
+                    <a class="tags has-addons" href="/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/">
                         <span class="tag">系统配置</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/编程开发/">
+                    <a class="tags has-addons" href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/">
                         <span class="tag">编程开发</span>
                         <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/软件安装/">
+                    <a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">
                         <span class="tag">软件安装</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/部署实施/">
+                    <a class="tags has-addons" href="/tags/%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%96%BD/">
                         <span class="tag">部署实施</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/随笔/">
+                    <a class="tags has-addons" href="/tags/%E9%9A%8F%E7%AC%94/">
                         <span class="tag">随笔</span>
                         <span class="tag is-grey">1</span>
                     </a>
@@ -996,7 +996,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C/" style="font-size: 18px;">C#</a> <a href="/tags/DEMO/" style="font-size: 10px;">DEMO</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MVVM/" style="font-size: 12px;">MVVM</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/NodeJs/" style="font-size: 10px;">NodeJs</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Visualsvn-Server/" style="font-size: 10px;">Visualsvn Server</a> <a href="/tags/WPF/" style="font-size: 12px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/代码块/" style="font-size: 14px;">代码块</a> <a href="/tags/实用工具/" style="font-size: 10px;">实用工具</a> <a href="/tags/实用教程/" style="font-size: 20px;">实用教程</a> <a href="/tags/情感/" style="font-size: 10px;">情感</a> <a href="/tags/日记/" style="font-size: 10px;">日记</a> <a href="/tags/激活/" style="font-size: 10px;">激活</a> <a href="/tags/系统优化/" style="font-size: 10px;">系统优化</a> <a href="/tags/系统配置/" style="font-size: 14px;">系统配置</a> <a href="/tags/编程开发/" style="font-size: 16px;">编程开发</a> <a href="/tags/软件安装/" style="font-size: 10px;">软件安装</a> <a href="/tags/部署实施/" style="font-size: 10px;">部署实施</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+        <a href="/tags/Blog/" style="font-size: 10px;">Blog</a> <a href="/tags/C/" style="font-size: 18px;">C#</a> <a href="/tags/DEMO/" style="font-size: 10px;">DEMO</a> <a href="/tags/Git/" style="font-size: 12px;">Git</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Http/" style="font-size: 10px;">Http</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/MVVM/" style="font-size: 12px;">MVVM</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/NodeJs/" style="font-size: 10px;">NodeJs</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Service/" style="font-size: 10px;">Service</a> <a href="/tags/SpringMVC/" style="font-size: 10px;">SpringMVC</a> <a href="/tags/Visualsvn-Server/" style="font-size: 10px;">Visualsvn Server</a> <a href="/tags/WPF/" style="font-size: 12px;">WPF</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%9D%97/" style="font-size: 14px;">代码块</a> <a href="/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">实用工具</a> <a href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" style="font-size: 20px;">实用教程</a> <a href="/tags/%E6%83%85%E6%84%9F/" style="font-size: 10px;">情感</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 10px;">日记</a> <a href="/tags/%E6%BF%80%E6%B4%BB/" style="font-size: 10px;">激活</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" style="font-size: 10px;">系统优化</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/" style="font-size: 14px;">系统配置</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" style="font-size: 16px;">编程开发</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" style="font-size: 10px;">软件安装</a> <a href="/tags/%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%96%BD/" style="font-size: 10px;">部署实施</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 10px;">随笔</a>
     </div>
 </div>
         
@@ -1021,15 +1021,15 @@
                 <p class="is-size-7">
                 &copy; 2019 Jam He&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif">removeif</a>&nbsp;
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>,Modify by <a href="https://github.com/removeif" target="_blank" rel="noopener">removeif</a>&nbsp;
                 
                 <br>
                 &copy; 版权说明：[本网站所有内容均收集于互联网或自己创作,<br>&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="https://removeif.github.io/message/" target="_blank">留言</a>，立即处理]
                 <br>
                 <span id="busuanzi_container_site_uv">
-                ❤️感谢 <span id="busuanzi_value_site_uv">0</span> 小伙伴的 
+                ❤️感谢 <span id="busuanzi_value_site_uv">99+</span> 小伙伴的 
                 </span>
-                 <span id="busuanzi_value_site_pv"></span> 次光临 ❤️
+                 <span id="busuanzi_value_site_pv">99+</span> 次光临 ❤️
                  
                 </p>
             </div>
@@ -1101,7 +1101,7 @@ var IcarusThemeSettings = {
     
 <div id="outdated">
     <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
             my browser now </a></p>
     <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
 </div>
@@ -1141,7 +1141,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
     
     
-<a id="back-to-top" title="回到顶端" href="javascript:;">
+<a id="back-to-top" title="回到顶端" href="javascript:;" target="_blank" rel="noopener">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -1194,7 +1194,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     
-    <script type="text/javascript" defer src="/js/global-hot-data.js"></script>
+    <script type="text/javascript" defer src="/js/comment-issue-data.js"></script>
     
     <script type="text/javascript" async="" src="/live2d/autoload.js"></script>
 </body>

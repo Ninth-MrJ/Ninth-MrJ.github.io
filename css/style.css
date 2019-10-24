@@ -18,22 +18,27 @@ textarea {
   .is-1-column .container,
   .is-2-column .container,
   .is-3-column .container {
-    max-width: 1292px;
-    width: 1292px;
+    max-width: 94%;
+    width: 94%;
+  }
+  .navbar > .container .navbar-brand,
+  .container > .navbar .navbar-brand {
+    margin-left: 0%;
+  }
+  .navbar > .container .navbar-menu,
+  .container > .navbar .navbar-menu {
+    margin-right: 0.5%;
+  }
+  .level-end {
+    margin-right: -1.5%;
   }
 }
-@media screen and (min-width: 1472px) {
-  .is-2-column .container {
-    max-width: 1344px;
-    width: 1344px;
-  }
-  .is-1-column .container {
-    max-width: 960px;
-    width: 960px;
-  }
+@media screen and (min-width: 1920px) {
+  .is-1-column .container,
+  .is-2-column .container,
   .is-3-column .container {
-    max-width: 1484px;
-    width: 1484px;
+    max-width: 80%;
+    width: 80%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -244,7 +249,7 @@ img.thumbnail {
   overflow: hidden;
 }
 .donate .qrcode img {
-  max-width: 280px;
+  max-width: 140px;
 }
 .donate:hover .qrcode {
   display: block;
@@ -489,17 +494,6 @@ figure.highlight .section {
   vertical-align: inherit;
   min-width: inherit;
   border-radius: inherit;
-}
-figure.highlight .copy {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  color: #fff;
-  background: rgba(0,0,0,0.5);
-}
-figure.highlight:hover .copy {
-  display: block;
 }
 .table-overflow {
   overflow-x: auto;
@@ -844,4 +838,23 @@ figure.highlight:hover .copy {
   overflow-x: auto;
   justify-content: center;
   max-width: 100%;
+}
+#index_hot_div {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#index_hot_div .tag:not(:last-child) {
+  margin-right: 0.5rem;
+}
+#index_hot_div .tag {
+  margin-bottom: 0.5rem;
+}
+#body_hot_comment {
+  display: flex;
+}
+.menu-label1 {
+  color: #7a7a7a;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
 }
