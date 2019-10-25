@@ -212,6 +212,6 @@ $(document).ready(setTimeout(function () { // 延迟1s执行，保证其余的�
         console.log("~~~~记得有时间多来看看哦，https://removeif.github.io/")
     }
     ,
-    1000
+    1
 ))
 ;
