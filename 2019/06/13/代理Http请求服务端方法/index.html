@@ -97,7 +97,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="代理Http请求服务端方法" height="28">
+                <img src="/images/2018.png" alt="代理Http请求服务端方法" height="28">
             
             </a>
         </div>
@@ -176,7 +176,7 @@
                 <time class="level-item has-text-grey" datetime="2019-06-13T01:53:08.000Z">2019-06-13</time>
                 
                     <span class="display-none-class">6d69f2ad56dc81d871437d0eb0686bed</span>
-                    <img class="not-gallery-item" src="/images/chat.svg">&nbsp;<span class="level-item has-text-grey" id=6d69f2ad56dc81d871437d0eb0686bed>99+</span></img>
+                    <img class="not-gallery-item" src="/images/chat.svg">&nbsp;<a href="/2019/06/13/%E4%BB%A3%E7%90%86Http%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%96%B9%E6%B3%95/#comment-container"><span id=6d69f2ad56dc81d871437d0eb0686bed>99+</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</img>
                 
                 
                 <div class="level-item">
@@ -245,6 +245,17 @@
 <h4 id="Proxy-XYHis-IServices-TestSercive"><a href="#Proxy-XYHis-IServices-TestSercive" class="headerlink" title="Proxy_XYHis.IServices.TestSercive"></a>Proxy_XYHis.IServices.TestSercive</h4><figure class="highlight cs hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;BsHospital&gt; <span class="hljs-title">GetLocHouseRoomName</span>(<span class="hljs-params"></span>)</span></span><br><span class="line"><span class="hljs-function"></span>      &#123;</span><br><span class="line">          List&lt;Object&gt; ParamList = <span class="hljs-keyword">new</span> List&lt;Object&gt;();</span><br><span class="line">          <span class="hljs-keyword">string</span>[] TypeArgs = <span class="hljs-literal">null</span>;</span><br><span class="line">          <span class="hljs-keyword">return</span> (List&lt;BsHospital&gt;)TheReQuseter.RequseteWeb(ApiTypeMap.MapConfigKey, <span class="hljs-string">"Orm.IServices.ITestSercive.ITestDemoServices"</span>, <span class="hljs-string">"GetLocHouseRoomName"</span>, ParamList, TypeArgs, GetOneUrl());</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//GetOneUrl</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> <span class="hljs-title">GetOneUrl</span>(<span class="hljs-params"></span>)</span></span><br><span class="line"><span class="hljs-function"></span>      &#123;</span><br><span class="line">          Random rd = <span class="hljs-keyword">new</span> Random();</span><br><span class="line">          <span class="hljs-keyword">int</span> id = rd.Next(<span class="hljs-number">0</span>, ApiTypeMap.WebApiUrlList.Count);</span><br><span class="line">          <span class="hljs-comment">//return ApiTypeMap.WebApiUrlList[id];</span></span><br><span class="line">          <span class="hljs-keyword">if</span> (Environments.IISServerUrl != <span class="hljs-keyword">string</span>.Empty)</span><br><span class="line">          &#123;</span><br><span class="line">              <span class="hljs-keyword">return</span> Environments.IISServerUrl;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="hljs-keyword">else</span></span><br><span class="line">          &#123;</span><br><span class="line">              <span class="hljs-keyword">return</span> ConfigurationManager.AppSettings[<span class="hljs-string">"ServiceAddress"</span>];</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AutoUpdater</span></span><br><span class="line">&#123; </span><br><span class="line">	<span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span></span><br><span class="line">	<span class="hljs-comment"><span class="hljs-doctag">///</span>检查更新</span></span><br><span class="line">	<span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">CheckUpdate</span>(<span class="hljs-params"></span>)</span></span><br><span class="line"><span class="hljs-function"></span>	&#123;</span><br><span class="line">		<span class="hljs-keyword">string</span> serverUrl = ConfigurationManager.AppSettings[<span class="hljs-string">"ServiceAddress"</span>];</span><br><span class="line">		<span class="hljs-keyword">string</span> updateUrl = ConfigurationManager.AppSettings[<span class="hljs-string">"UpdateAddress"</span>];</span><br><span class="line">		XYHis.Framework.Services.Environments.IISServerUrl = serverUrl;</span><br><span class="line">		.....</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="ApiHandler-前面有介绍"><a href="#ApiHandler-前面有介绍" class="headerlink" title="ApiHandler  前面有介绍"></a>ApiHandler  前面有介绍</h4><h4 id="XYHis-Services-TestSercive"><a href="#XYHis-Services-TestSercive" class="headerlink" title="XYHis.Services.TestSercive"></a>XYHis.Services.TestSercive</h4><figure class="highlight lasso hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-built_in">List</span>&lt;BsHospital&gt; GetLocHouseRoomName()</span><br><span class="line">      &#123;</span><br><span class="line">	XXX<span class="hljs-params">...</span><span class="hljs-params">...</span></span><br><span class="line">	<span class="hljs-params">...</span><span class="hljs-params">...</span><span class="hljs-params">...</span></span><br><span class="line">	<span class="hljs-params">...</span><span class="hljs-params">...</span><span class="hljs-params">...</span></span><br><span class="line">          <span class="hljs-keyword">return</span> ;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
         </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/C/" rel="tag">C#</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Http/" rel="tag">Http</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Proxy/" rel="tag">Proxy</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Service/" rel="tag">Service</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" rel="tag">实用教程</a>
+                </div>
+            </div>
+        </div>
+        
+        
         <!-- 部分参考自https://www.alphalxy.com/2019/03/customize-icarus/ -->
         
             <ul class="post-copyright">
@@ -255,17 +266,10 @@
             </li>
             </ul>
             <br>
-        
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/C/" rel="tag">C#</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Http/" rel="tag">Http</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Proxy/" rel="tag">Proxy</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Service/" rel="tag">Service</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" rel="tag">实用教程</a>
-                </div>
-            </div>
-        </div>
-        
+            <span class="is-size-6 has-text-grey has-mr-7">#&nbsp;本站推荐文章</span>
+<br>
+
+            <br>
         
         
         <div class="social-share"></div>
@@ -331,10 +335,11 @@
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
+    <div class="card">
+        <div class="card-content">
+            
+                <h3 class="title is-5 has-text-weight-normal">评论</h3>
+                
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
@@ -352,8 +357,9 @@
     gitalk.render('comment-container')
 </script>
 
+            
+        </div>
     </div>
-</div>
 </div>
                 
 
@@ -385,7 +391,7 @@
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>China,GuangDong</span>
+                        <span>China , GuangDong</span>
                     </p>
                     
                 </div>
@@ -1152,7 +1158,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="代理Http请求服务端方法" height="28">
+                    <img src="/images/2018.png" alt="代理Http请求服务端方法" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -1163,10 +1169,13 @@
                 <br>
                 &copy; 版权说明：[本网站所有内容均收集于互联网或自己创作,<br>&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="https://removeif.github.io/message/" target="_blank">留言</a>，立即处理]
                 <br>
+                <script type="text/javascript" src="/js/statistics.js"></script>
+                <span id="statistic-times"></span>
+                <br>
                 <span id="busuanzi_container_site_uv">
-                ❤️感谢 <span id="busuanzi_value_site_uv">99+</span> 小伙伴的 
+                ❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 
                 </span>
-                 <span id="busuanzi_value_site_pv">99+</span> 次光临 ❤️
+                 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临 ❤️
                  
                 </p>
             </div>

@@ -97,7 +97,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="部署Redis主从服务器--Windows篇" height="28">
+                <img src="/images/2018.png" alt="部署Redis主从服务器--Windows篇" height="28">
             
             </a>
         </div>
@@ -178,7 +178,7 @@
                 <time class="level-item has-text-grey" datetime="2019-04-03T04:58:37.000Z">2019-04-03</time>
                 
                     <span class="display-none-class">e49d827032f6cb93e7c8810434cb3e78</span>
-                    <img class="not-gallery-item" src="/images/chat.svg">&nbsp;<span class="level-item has-text-grey" id=e49d827032f6cb93e7c8810434cb3e78>99+</span></img>
+                    <img class="not-gallery-item" src="/images/chat.svg">&nbsp;<a href="/2019/04/03/%E9%83%A8%E7%BD%B2Redis%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1%E5%99%A8-Windows/#comment-container"><span id=e49d827032f6cb93e7c8810434cb3e78>99+</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</img>
                 
                 
                 <div class="level-item">
@@ -257,6 +257,17 @@
 <h2 id="切换服务器bat"><a href="#切换服务器bat" class="headerlink" title="切换服务器bat"></a>切换服务器bat</h2><h3 id="其实redis的指向就只是根据redis-windows-conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis-windows-test-conf，把里面的直线ip和密码等更换了"><a href="#其实redis的指向就只是根据redis-windows-conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis-windows-test-conf，把里面的直线ip和密码等更换了" class="headerlink" title="其实redis的指向就只是根据redis.windows.conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis.windows.test.conf，把里面的直线ip和密码等更换了"></a>其实redis的指向就只是根据redis.windows.conf来执行，同理，在项目需要多个指向（测试和正式）我们就可以利用批处理来切换，或者可以使用局域网来配置，下面的批处理就是在Redis的目录下复制了一份配置文件命名为redis.windows.test.conf，把里面的直线ip和密码等更换了</h3><figure class="highlight ruby hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">@echo off  </span><br><span class="line"><span class="hljs-symbol">:</span>: BatchGotAdmin  </span><br><span class="line"><span class="hljs-symbol">:-------------------------------------</span>  </span><br><span class="line">REM  --&gt; Check <span class="hljs-keyword">for</span> permissions  </span><br><span class="line">&gt;nul <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> <span class="hljs-string">"%SYSTEMROOT%\system32\cacls.exe"</span> <span class="hljs-string">"%SYSTEMROOT%\system32\config\system"</span>  </span><br><span class="line"></span><br><span class="line">REM --&gt; If error flag set, we <span class="hljs-keyword">do</span> <span class="hljs-keyword">not</span> have admin.  </span><br><span class="line"><span class="hljs-keyword">if</span> <span class="hljs-string">'%errorlevel%'</span> NEQ <span class="hljs-string">'0'</span> (  </span><br><span class="line">    echo Requesting administrative privileges...  </span><br><span class="line">    goto UACPrompt  </span><br><span class="line">) <span class="hljs-keyword">else</span> ( goto gotAdmin )  </span><br><span class="line"></span><br><span class="line"><span class="hljs-symbol">:UACPrompt</span>  </span><br><span class="line">    echo Set UAC = CreateObject^(<span class="hljs-string">"Shell.Application"</span>^) &gt; <span class="hljs-string">"%temp%\getadmin.vbs"</span>  </span><br><span class="line">    echo UAC.ShellExecute <span class="hljs-string">"%~s0"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"runas"</span>, <span class="hljs-number">1</span> <span class="hljs-meta">&gt;&gt; </span><span class="hljs-string">"%temp%\getadmin.vbs"</span>  </span><br><span class="line"></span><br><span class="line">    <span class="hljs-string">"%temp%\getadmin.vbs"</span>  </span><br><span class="line">    exit /B  </span><br><span class="line"></span><br><span class="line"><span class="hljs-symbol">:gotAdmin</span>  </span><br><span class="line">    <span class="hljs-keyword">if</span> exist <span class="hljs-string">"%temp%\getadmin.vbs"</span> ( del <span class="hljs-string">"%temp%\getadmin.vbs"</span> )  </span><br><span class="line">    pushd <span class="hljs-string">"%CD%"</span>  </span><br><span class="line">    CD /D <span class="hljs-string">"%~dp0"</span>  </span><br><span class="line"><span class="hljs-symbol">:--------------------------------------</span>  </span><br><span class="line">@echo off</span><br><span class="line">cd <span class="hljs-symbol">C:</span>\Program Files\Redis</span><br><span class="line">redis-server --service-stop </span><br><span class="line"></span><br><span class="line">redis-server --service-uninstall</span><br><span class="line">redis-server --service-install redis.windows.test.conf --loglevel verbose</span><br><span class="line"></span><br><span class="line">redis-server --service-start</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
 <h3 id="精简后的Redis配置文件"><a href="#精简后的Redis配置文件" class="headerlink" title="精简后的Redis配置文件"></a>精简后的Redis配置文件</h3><figure class="highlight clean hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">############################## REDIS CONFIG BY NINE ################################</span><br><span class="line"></span><br><span class="line"># 地址</span><br><span class="line">bind <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span></span><br><span class="line"># 端口</span><br><span class="line">port <span class="hljs-number">6379</span></span><br><span class="line"># 数据文件保存地址</span><br><span class="line">dir ./</span><br><span class="line"># 数据文件名称</span><br><span class="line">dbfilename dump6379.rdb</span><br><span class="line"># 日志文件保存地址</span><br><span class="line">logfile ./redis_log_6379.txt</span><br><span class="line"># 数据库数量</span><br><span class="line">databases <span class="hljs-number">1</span></span><br><span class="line"># Redis访问密码</span><br><span class="line">requirepass @#Xyhis</span><br><span class="line"># 从缓存需要释放以下两句配置</span><br><span class="line"># slaveof <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span> <span class="hljs-number">6375</span></span><br><span class="line"># masterauth @#Xyhis</span><br><span class="line">tcp-backlog <span class="hljs-number">511</span></span><br><span class="line">timeout <span class="hljs-number">0</span></span><br><span class="line">tcp-keepalive <span class="hljs-number">0</span></span><br><span class="line">loglevel notice</span><br><span class="line">save <span class="hljs-number">900</span> <span class="hljs-number">1</span></span><br><span class="line">save <span class="hljs-number">300</span> <span class="hljs-number">10</span></span><br><span class="line">save <span class="hljs-number">60</span> <span class="hljs-number">10000</span></span><br><span class="line">stop-writes-on-bgsave-error yes</span><br><span class="line">rdbcompression yes</span><br><span class="line">rdbchecksum yes</span><br><span class="line"></span><br><span class="line">slave-serve-stale-data yes</span><br><span class="line">slave-read-only yes</span><br><span class="line">repl-diskless-sync no</span><br><span class="line">repl-diskless-sync-delay <span class="hljs-number">5</span></span><br><span class="line">repl-disable-tcp-nodelay no</span><br><span class="line">slave-priority <span class="hljs-number">100</span></span><br><span class="line">appendonly no</span><br><span class="line">appendfilename <span class="hljs-string">"appendonly.aof"</span></span><br><span class="line">appendfsync everysec</span><br><span class="line">no-appendfsync-on-rewrite no</span><br><span class="line">auto-aof-rewrite-percentage <span class="hljs-number">100</span></span><br><span class="line">auto-aof-rewrite-min-size <span class="hljs-number">64</span>mb</span><br><span class="line">aof-load-truncated yes</span><br><span class="line">lua-time-limit <span class="hljs-number">5000</span></span><br><span class="line">slowlog-log-slower-than <span class="hljs-number">10000</span></span><br><span class="line">slowlog-max-len <span class="hljs-number">128</span></span><br><span class="line">latency-monitor-threshold <span class="hljs-number">0</span></span><br><span class="line">notify-keyspace-events <span class="hljs-string">""</span></span><br><span class="line">hash-max-ziplist-entries <span class="hljs-number">512</span></span><br><span class="line">hash-max-ziplist-value <span class="hljs-number">64</span></span><br><span class="line">list-max-ziplist-entries <span class="hljs-number">512</span></span><br><span class="line">list-max-ziplist-value <span class="hljs-number">64</span></span><br><span class="line">set-max-intset-entries <span class="hljs-number">512</span></span><br><span class="line">zset-max-ziplist-entries <span class="hljs-number">128</span></span><br><span class="line">zset-max-ziplist-value <span class="hljs-number">64</span></span><br><span class="line">hll-sparse-max-bytes <span class="hljs-number">3000</span></span><br><span class="line">activerehashing yes</span><br><span class="line">client-output-buffer-limit normal <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span></span><br><span class="line">client-output-buffer-limit slave <span class="hljs-number">256</span>mb <span class="hljs-number">64</span>mb <span class="hljs-number">60</span></span><br><span class="line">client-output-buffer-limit pubsub <span class="hljs-number">32</span>mb <span class="hljs-number">8</span>mb <span class="hljs-number">60</span></span><br><span class="line">hz <span class="hljs-number">10</span></span><br><span class="line">aof-rewrite-incremental-fsync yes</span><br><span class="line"></span><br><span class="line">############################## REDIS CONFIG BY NINE ################################</span><br></pre></td></tr></table></figure>
         </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Redis/" rel="tag">Redis</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" rel="tag">实用教程</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag">软件安装</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%96%BD/" rel="tag">部署实施</a>
+                </div>
+            </div>
+        </div>
+        
+        
         <!-- 部分参考自https://www.alphalxy.com/2019/03/customize-icarus/ -->
         
             <ul class="post-copyright">
@@ -267,17 +278,10 @@
             </li>
             </ul>
             <br>
-        
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Redis/" rel="tag">Redis</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/" rel="tag">实用教程</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" rel="tag">软件安装</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E9%83%A8%E7%BD%B2%E5%AE%9E%E6%96%BD/" rel="tag">部署实施</a>
-                </div>
-            </div>
-        </div>
-        
+            <span class="is-size-6 has-text-grey has-mr-7">#&nbsp;本站推荐文章</span>
+<br>
+
+            <br>
         
         
         <div class="social-share"></div>
@@ -343,10 +347,11 @@
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
+    <div class="card">
+        <div class="card-content">
+            
+                <h3 class="title is-5 has-text-weight-normal">评论</h3>
+                
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
@@ -364,8 +369,9 @@
     gitalk.render('comment-container')
 </script>
 
+            
+        </div>
     </div>
-</div>
 </div>
                 
 
@@ -397,7 +403,7 @@
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>China,GuangDong</span>
+                        <span>China , GuangDong</span>
                     </p>
                     
                 </div>
@@ -1224,7 +1230,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="部署Redis主从服务器--Windows篇" height="28">
+                    <img src="/images/2018.png" alt="部署Redis主从服务器--Windows篇" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -1235,10 +1241,13 @@
                 <br>
                 &copy; 版权说明：[本网站所有内容均收集于互联网或自己创作,<br>&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="https://removeif.github.io/message/" target="_blank">留言</a>，立即处理]
                 <br>
+                <script type="text/javascript" src="/js/statistics.js"></script>
+                <span id="statistic-times"></span>
+                <br>
                 <span id="busuanzi_container_site_uv">
-                ❤️感谢 <span id="busuanzi_value_site_uv">99+</span> 小伙伴的 
+                ❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 
                 </span>
-                 <span id="busuanzi_value_site_pv">99+</span> 次光临 ❤️
+                 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临 ❤️
                  
                 </p>
             </div>

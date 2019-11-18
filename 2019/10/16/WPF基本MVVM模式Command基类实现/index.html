@@ -97,7 +97,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="WPF基本MVVM模式Command基类实现" height="28">
+                <img src="/images/2018.png" alt="WPF基本MVVM模式Command基类实现" height="28">
             
             </a>
         </div>
@@ -172,7 +172,7 @@
                 <time class="level-item has-text-grey" datetime="2019-10-16T06:11:52.000Z">2019-10-16</time>
                 
                     <span class="display-none-class">0dfd182d7a49549f7809123a06e9c330</span>
-                    <img class="not-gallery-item" src="/images/chat.svg">&nbsp;<span class="level-item has-text-grey" id=0dfd182d7a49549f7809123a06e9c330>99+</span></img>
+                    <img class="not-gallery-item" src="/images/chat.svg">&nbsp;<a href="/2019/10/16/WPF%E5%9F%BA%E6%9C%ACMVVM%E6%A8%A1%E5%BC%8FCommand%E5%9F%BA%E7%B1%BB%E5%AE%9E%E7%8E%B0/#comment-container"><span id=0dfd182d7a49549f7809123a06e9c330>99+</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</img>
                 
                 
                 <div class="level-item">
@@ -211,6 +211,17 @@
 <h2 id="本文主要介绍实现基本的WPF-MVVM的命令实现"><a href="#本文主要介绍实现基本的WPF-MVVM的命令实现" class="headerlink" title="本文主要介绍实现基本的WPF MVVM的命令实现"></a>本文主要介绍实现基本的WPF MVVM的命令实现</h2><h3 id="Viewmodel"><a href="#Viewmodel" class="headerlink" title="Viewmodel"></a>Viewmodel</h3><figure class="highlight cs hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MainViewModel</span> : <span class="hljs-title">DelegateCommand</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MainViewModel</span>(<span class="hljs-params"></span>)</span></span><br><span class="line"><span class="hljs-function"></span>    &#123;</span><br><span class="line">        Init();</span><br><span class="line">        InitCommand();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">//声明命令</span></span><br><span class="line">    <span class="hljs-keyword">public</span> ICommand ReleaseCommand &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">InitCommand</span>(<span class="hljs-params"></span>)</span></span><br><span class="line"><span class="hljs-function"></span>    &#123;</span><br><span class="line">        <span class="hljs-comment">//绑定命令，初始化</span></span><br><span class="line">        <span class="hljs-keyword">this</span>.ReleaseCommand = <span class="hljs-keyword">new</span> DelegateCommand((obj) =&gt; &#123; <span class="hljs-keyword">this</span>.ReleaseExecute(obj); &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">//命令实现</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">ReleaseExecute</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> obj</span>)</span></span><br><span class="line"><span class="hljs-function"></span>    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="命令双向绑定基类"><a href="#命令双向绑定基类" class="headerlink" title="命令双向绑定基类"></a>命令双向绑定基类</h3><figure class="highlight cs hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">using</span> System;</span><br><span class="line"><span class="hljs-keyword">using</span> System.Windows.Input;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">namespace</span> <span class="hljs-title">Nine.UnitlLibrary</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">DelegateCommand</span> : <span class="hljs-title">ICommand</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="hljs-keyword">private</span> Action&lt;<span class="hljs-keyword">object</span>&gt; executeAction;</span><br><span class="line">        <span class="hljs-keyword">private</span> Func&lt;<span class="hljs-keyword">object</span>, <span class="hljs-keyword">bool</span>&gt; canExecuteFunc;</span><br><span class="line">        <span class="hljs-keyword">public</span> <span class="hljs-keyword">event</span> EventHandler CanExecuteChanged;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DelegateCommand</span>(<span class="hljs-params">Action&lt;<span class="hljs-keyword">object</span>&gt; execute</span>)</span></span><br><span class="line"><span class="hljs-function">            : <span class="hljs-title">this</span>(<span class="hljs-params">execute, <span class="hljs-literal">null</span></span>)</span></span><br><span class="line"><span class="hljs-function"></span>        &#123; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DelegateCommand</span>(<span class="hljs-params">Action&lt;<span class="hljs-keyword">object</span>&gt; execute, Func&lt;<span class="hljs-keyword">object</span>, <span class="hljs-keyword">bool</span>&gt; canExecute</span>)</span></span><br><span class="line"><span class="hljs-function"></span>        &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (execute == <span class="hljs-literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            executeAction = execute;</span><br><span class="line">            canExecuteFunc = canExecute;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">CanExecute</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> parameter</span>)</span></span><br><span class="line"><span class="hljs-function"></span>        &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (canExecuteFunc == <span class="hljs-literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">return</span> canExecuteFunc(parameter);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Execute</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> parameter</span>)</span></span><br><span class="line"><span class="hljs-function"></span>        &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (executeAction == <span class="hljs-literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            executeAction(parameter);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/C/" rel="tag">C#</a>,&nbsp;<a class="has-link-grey -link" href="/tags/MVVM/" rel="tag">MVVM</a>,&nbsp;<a class="has-link-grey -link" href="/tags/WPF/" rel="tag">WPF</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" rel="tag">编程开发</a>
+                </div>
+            </div>
+        </div>
+        
+        
         <!-- 部分参考自https://www.alphalxy.com/2019/03/customize-icarus/ -->
         
             <ul class="post-copyright">
@@ -221,17 +232,10 @@
             </li>
             </ul>
             <br>
-        
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/C/" rel="tag">C#</a>,&nbsp;<a class="has-link-grey -link" href="/tags/MVVM/" rel="tag">MVVM</a>,&nbsp;<a class="has-link-grey -link" href="/tags/WPF/" rel="tag">WPF</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" rel="tag">编程开发</a>
-                </div>
-            </div>
-        </div>
-        
+            <span class="is-size-6 has-text-grey has-mr-7">#&nbsp;本站推荐文章</span>
+<br>
+
+            <br>
         
         
         <div class="social-share"></div>
@@ -297,10 +301,11 @@
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
+    <div class="card">
+        <div class="card-content">
+            
+                <h3 class="title is-5 has-text-weight-normal">评论</h3>
+                
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
@@ -318,8 +323,9 @@
     gitalk.render('comment-container')
 </script>
 
+            
+        </div>
     </div>
-</div>
 </div>
                 
 
@@ -351,7 +357,7 @@
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>China,GuangDong</span>
+                        <span>China , GuangDong</span>
                     </p>
                     
                 </div>
@@ -1030,7 +1036,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="WPF基本MVVM模式Command基类实现" height="28">
+                    <img src="/images/2018.png" alt="WPF基本MVVM模式Command基类实现" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -1041,10 +1047,13 @@
                 <br>
                 &copy; 版权说明：[本网站所有内容均收集于互联网或自己创作,<br>&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="https://removeif.github.io/message/" target="_blank">留言</a>，立即处理]
                 <br>
+                <script type="text/javascript" src="/js/statistics.js"></script>
+                <span id="statistic-times"></span>
+                <br>
                 <span id="busuanzi_container_site_uv">
-                ❤️感谢 <span id="busuanzi_value_site_uv">99+</span> 小伙伴的 
+                ❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 
                 </span>
-                 <span id="busuanzi_value_site_pv">99+</span> 次光临 ❤️
+                 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临 ❤️
                  
                 </p>
             </div>

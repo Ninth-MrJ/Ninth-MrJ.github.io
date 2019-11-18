@@ -97,7 +97,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="C#反射调用Demo" height="28">
+                <img src="/images/2018.png" alt="C#反射调用Demo" height="28">
             
             </a>
         </div>
@@ -172,7 +172,7 @@
                 <time class="level-item has-text-grey" datetime="2019-09-28T16:21:43.000Z">2019-09-29</time>
                 
                     <span class="display-none-class">5ea68d1592a809d0559ad0b488c6bf4f</span>
-                    <img class="not-gallery-item" src="/images/chat.svg">&nbsp;<span class="level-item has-text-grey" id=5ea68d1592a809d0559ad0b488c6bf4f>99+</span></img>
+                    <img class="not-gallery-item" src="/images/chat.svg">&nbsp;<a href="/2019/09/29/C-%E5%8F%8D%E5%B0%84%E8%B0%83%E7%94%A8Demo/#comment-container"><span id=5ea68d1592a809d0559ad0b488c6bf4f>99+</span></a>&nbsp;&nbsp;&nbsp;&nbsp;</img>
                 
                 
                 <div class="level-item">
@@ -206,6 +206,17 @@
 <h3 id="上一段是单个DLL反射使用，由于项目需要，更改了一下可以实现遍历所有的dll，文章中用字符串数组代替了"><a href="#上一段是单个DLL反射使用，由于项目需要，更改了一下可以实现遍历所有的dll，文章中用字符串数组代替了" class="headerlink" title="上一段是单个DLL反射使用，由于项目需要，更改了一下可以实现遍历所有的dll，文章中用字符串数组代替了"></a>上一段是单个DLL反射使用，由于项目需要，更改了一下可以实现遍历所有的dll，文章中用字符串数组代替了</h3><figure class="highlight pgsql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">ThreadPool.QueueUserWorkItem(delegate</span><br><span class="line">                &#123;</span><br><span class="line">                    SynchronizationContext.SetSynchronizationContext(<span class="hljs-built_in">new</span></span><br><span class="line">                    DispatcherSynchronizationContext(<span class="hljs-keyword">System</span>.Windows.Application.<span class="hljs-keyword">Current</span>.Dispatcher));</span><br><span class="line">                    SynchronizationContext.<span class="hljs-keyword">Current</span>.Post(pl =&gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        try</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="hljs-type">int</span> Success = <span class="hljs-number">0</span>;</span><br><span class="line">                            string[] classNameAll = <span class="hljs-built_in">new</span> string[<span class="hljs-number">3</span>];</span><br><span class="line">                            classNameAll[<span class="hljs-number">0</span>] = "XYHis.BusinessRedis.InRedisCacheService";</span><br><span class="line">                            classNameAll[<span class="hljs-number">1</span>] = "XYHis.BusinessRedis.RmRedisCacheService";</span><br><span class="line">                            classNameAll[<span class="hljs-number">2</span>] = "XYHis.BusinessRedis.OuRedisCacheService";</span><br><span class="line">                            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x = <span class="hljs-number">0</span>; x &lt; classNameAll.Length; x++)</span><br><span class="line">                            &#123;</span><br><span class="line">                                //获取类型，参数（名称空间+类）   </span><br><span class="line">                                string dllClassName = classNameAll[x];</span><br><span class="line">                                //使用Assembly类加载程序集(dll文件地址)，</span><br><span class="line">                                Assembly assembly = Assembly.LoadFile(AppDomain.CurrentDomain.BaseDirectory + "XYHis.BusinessRedis.dll");</span><br><span class="line">                                //获取类型，参数（名称空间+类）   </span><br><span class="line">                                <span class="hljs-keyword">Type</span> <span class="hljs-keyword">type</span> = assembly.GetType(dllClassName);</span><br><span class="line">                                //获取所有的公共方法</span><br><span class="line">                                MethodInfo[] methodsInfo = <span class="hljs-keyword">type</span>.GetMethods();</span><br><span class="line">                                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> n = <span class="hljs-number">0</span>; n &lt; methodsInfo.Length; n++)</span><br><span class="line">                                &#123;</span><br><span class="line">                                    <span class="hljs-keyword">if</span> (methodsInfo[n].Name == tableName.Text.Trim())</span><br><span class="line">                                    &#123;</span><br><span class="line">                                        Success = <span class="hljs-number">1</span>;</span><br><span class="line">                                        ConsleLogInfo("状态信息", "查找结果："+tableName.Text.Trim() + "()为His业务数据缓存");</span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="hljs-keyword">if</span> (Success==<span class="hljs-number">1</span>)</span><br><span class="line">                                &#123;</span><br><span class="line">                                    //创建该对象的实例，<span class="hljs-keyword">object</span>类型，参数（名称空间+类）   </span><br><span class="line">                                    <span class="hljs-keyword">object</span> instance = assembly.CreateInstance(dllClassName);</span><br><span class="line">                                    ConsleLogInfo("状态信息", "开始更新" + tableName.Text.Trim());</span><br><span class="line">                                    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; methodsInfo.Length; i++)//遍历所有的方法</span><br><span class="line">                                    &#123;</span><br><span class="line">                                        <span class="hljs-keyword">if</span> (methodsInfo[i].Name == tableName.Text.Trim())//如果名字等于输入的方法名</span><br><span class="line">                                        &#123;</span><br><span class="line">                                            ParameterInfo[] arrayParamsInfo = methodsInfo[i].GetParameters();//获取方法的所有参数</span><br><span class="line">                                            <span class="hljs-keyword">if</span> (arrayParamsInfo.Length == <span class="hljs-number">0</span>)//无参执行</span><br><span class="line">                                            &#123;</span><br><span class="line">                                                <span class="hljs-keyword">object</span> returnValer = <span class="hljs-keyword">type</span>.GetMethod(tableName.Text.Trim()).Invoke(instance, <span class="hljs-keyword">null</span>);//执行方法</span><br><span class="line">                                            &#125;</span><br><span class="line">                                            <span class="hljs-keyword">else</span></span><br><span class="line">                                            &#123;</span><br><span class="line">                                                //参数类型 设置方法中的参数类型，<span class="hljs-keyword">Type</span>[]类型；如有多个参数可以追加多个   </span><br><span class="line">                                                <span class="hljs-keyword">Type</span>[] arrayParamsType = <span class="hljs-built_in">new</span> <span class="hljs-keyword">Type</span>[arrayParamsInfo.Length];</span><br><span class="line">                                                //参数值</span><br><span class="line">                                                <span class="hljs-keyword">object</span>[] arrayParamsValue = <span class="hljs-built_in">new</span> <span class="hljs-keyword">object</span>[arrayParamsInfo.Length];</span><br><span class="line">                                                //添加参数，参数赋默认值</span><br><span class="line">                                                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; arrayParamsInfo.Length; j++)</span><br><span class="line">                                                &#123;</span><br><span class="line">                                                    //获取参数类型设置，等同于//params_type[j] = <span class="hljs-keyword">Type</span>.GetType("System.String");</span><br><span class="line">                                                    arrayParamsType[j] = <span class="hljs-keyword">Type</span>.GetType(arrayParamsInfo[j].ParameterType.ToString());</span><br><span class="line">                                                    //参数赋默认值</span><br><span class="line">                                                    arrayParamsValue[j] = GetDefaultValueForType(arrayParamsType[j]);</span><br><span class="line">                                                &#125;</span><br><span class="line">                                                //执行方法</span><br><span class="line">                                                <span class="hljs-keyword">object</span> returnValer = <span class="hljs-keyword">type</span>.GetMethod(tableName.Text.Trim(), arrayParamsType).Invoke(instance, arrayParamsValue);</span><br><span class="line">                                            &#125;</span><br><span class="line">                                        &#125;</span><br><span class="line">                                    &#125;</span><br><span class="line">                                    ConsleLogInfo("状态信息", "更新成功" + tableName.Text.Trim());</span><br><span class="line">                                    Lith.<span class="hljs-keyword">Value</span> = <span class="hljs-number">100</span>;</span><br><span class="line">                                    <span class="hljs-keyword">return</span>;</span><br><span class="line">                                &#125;</span><br><span class="line">                                <span class="hljs-keyword">else</span></span><br><span class="line">                                &#123;</span><br><span class="line">                                    ConsleLogInfo("状态信息", classNameAll[x]+"找不到" +tableName.Text.Trim() + "()方法，继续往下查找");</span><br><span class="line">                                    <span class="hljs-keyword">continue</span>;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        catch (<span class="hljs-keyword">Exception</span> err)</span><br><span class="line">                        &#123;</span><br><span class="line"></span><br><span class="line">                            //<span class="hljs-keyword">System</span>.Windows.MessageBox.<span class="hljs-keyword">Show</span>(err.Message);</span><br><span class="line">                            ConsleLogInfo("更新失败", "更新失败" + tableName.Text.Trim());</span><br><span class="line">                            ConsleLogInfo("=========更新失败=========", err.Message.ToString());</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;, <span class="hljs-keyword">null</span>);</span><br></pre></td></tr></table></figure>
 
         </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/C/" rel="tag">C#</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" rel="tag">编程开发</a>
+                </div>
+            </div>
+        </div>
+        
+        
         <!-- 部分参考自https://www.alphalxy.com/2019/03/customize-icarus/ -->
         
             <ul class="post-copyright">
@@ -216,17 +227,10 @@
             </li>
             </ul>
             <br>
-        
-        
-        <div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/C/" rel="tag">C#</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" rel="tag">编程开发</a>
-                </div>
-            </div>
-        </div>
-        
+            <span class="is-size-6 has-text-grey has-mr-7">#&nbsp;本站推荐文章</span>
+<br>
+
+            <br>
         
         
         <div class="social-share"></div>
@@ -292,10 +296,11 @@
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
+    <div class="card">
+        <div class="card-content">
+            
+                <h3 class="title is-5 has-text-weight-normal">评论</h3>
+                
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
@@ -313,8 +318,9 @@
     gitalk.render('comment-container')
 </script>
 
+            
+        </div>
     </div>
-</div>
 </div>
                 
 
@@ -346,7 +352,7 @@
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>China,GuangDong</span>
+                        <span>China , GuangDong</span>
                     </p>
                     
                 </div>
@@ -1025,7 +1031,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="C#反射调用Demo" height="28">
+                    <img src="/images/2018.png" alt="C#反射调用Demo" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -1036,10 +1042,13 @@
                 <br>
                 &copy; 版权说明：[本网站所有内容均收集于互联网或自己创作,<br>&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="https://removeif.github.io/message/" target="_blank">留言</a>，立即处理]
                 <br>
+                <script type="text/javascript" src="/js/statistics.js"></script>
+                <span id="statistic-times"></span>
+                <br>
                 <span id="busuanzi_container_site_uv">
-                ❤️感谢 <span id="busuanzi_value_site_uv">99+</span> 小伙伴的 
+                ❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 
                 </span>
-                 <span id="busuanzi_value_site_pv">99+</span> 次光临 ❤️
+                 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临 ❤️
                  
                 </p>
             </div>

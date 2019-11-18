@@ -32,6 +32,38 @@ textarea {
   .level-end {
     margin-right: -1.5%;
   }
+  .img-x {
+    position: relative;
+    overflow-y: hidden;
+    height: 100%;
+    white-space: nowrap;
+  }
+  .img-x a {
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: 10px 10px;
+    vertical-align: top;
+    height: 100%;
+    width: 40%;
+  }
+  .img-y {
+    position: relative;
+    overflow-y: hidden;
+    height: 100%;
+    white-space: nowrap;
+  }
+  .img-y a {
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding: 10px 10px;
+    vertical-align: top;
+    height: 100%;
+    width: 30%;
+  }
 }
 @media screen and (min-width: 1920px) {
   .is-1-column .container,
@@ -844,11 +876,35 @@ figure.highlight .section {
   display: flex;
   flex-wrap: wrap;
 }
-#index_hot_div .tag:not(:last-child) {
-  margin-right: 0.5rem;
+#index_hot_div .item {
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  color: #4a4a4a;
+  display: inline-flex;
+  font-size: 0.75rem;
+  height: 2.1rem;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  white-space: nowrap;
+  margin-bottom: 0.75rem;
+  box-shadow: 0px 0px 2px 1px #b5b5b5;
 }
-#index_hot_div .tag {
-  margin-bottom: 0.5rem;
+#index_hot_div .level0 {
+  background-color: #d9e6fd;
+}
+#index_hot_div .level1 {
+  background-color: #8fb8fb;
+}
+#index_hot_div .level2 {
+  background-color: #5593f7;
+  color: #fff;
+}
+#index_hot_div .level3 {
+  background-color: #3273dc;
+  color: #fff;
 }
 #body_hot_comment {
   display: flex;
