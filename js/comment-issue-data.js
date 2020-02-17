@@ -1,51 +1,21 @@
 // 评论issues仓库 by.removeif https://removeif.github.io/
-var repoIssuesUrl = "https://api.github.com/repos/Ninth-MrJ/Nineblog_comment/issues";
+var repoIssuesUrl = "https://api.github.com/repos/removeif/blog_comment/issues";
 // 对应仓库 clientId、clientSecret 关于这两个参数的安全问题，查看 https://removeif.github.io/2019/09/19/博客源码分享.html#1-热门推荐，最新评论：
-var clientId = "9cc5a5cf31e3db7b19a3";
-var clientSecret = "5f4df72600dd23acd4b3bf9bc3e0c4d477075540";
-
-function getDateDiff(dateTimeStamp) {
-    var minute = 1000 * 60;
-    var hour = minute * 60;
-    var day = hour * 24;
-    var halfamonth = day * 15;
-    var month = day * 30;
-    var now = new Date().getTime();
-    var diffValue = now - dateTimeStamp;
-    if (diffValue < 0) {
-        return;
-    }
-    var monthC = diffValue / month;
-    var weekC = diffValue / (7 * day);
-    var dayC = diffValue / day;
-    var hourC = diffValue / hour;
-    var minC = diffValue / minute;
-    if (monthC >= 1) {
-        result = " " + parseInt(monthC) + "月前";
-    }
-    else if (weekC >= 1) {
-        result = " " + parseInt(weekC) + "周前";
-    }
-    else if (dayC >= 1) {
-        result = " " + parseInt(dayC) + "天前";
-    }
-    else if (hourC >= 1) {
-        result = " " + parseInt(hourC) + "小时前";
-    }
-    else if (minC >= 1) {
-        result = " " + parseInt(minC) + "分钟前";
-    } else
-        result = " 刚刚";
-    return result;
-}
-
+var clientId = "46a9f3481b46ea0129d8";
+var clientSecret = "79c7c9cb847e141757d7864453bcbf89f0655b24";
 // 写comment count值
 var reqCommentCountUrl = repoIssuesUrl + "?client_id=" + clientId + "&client_secret=" + clientSecret + "&t=" + new Date().getTime() + "&labels=Gitalk,";
+// 评论缓存key
+var COMMENT_CACHE_KEY = "commentKey";
+// 管理员名称,评论时添加 [博主] 后缀
+var ADMIN_NAME = "removeif";
 
 function writeHtmlCommentCountValueById(id) {
     $.getJSON(reqCommentCountUrl + id, function (result) {
         try {
-            $("#" + id).html(result[0].comments);
+            if(result.length>0){
+                $("#" + id).html(result[0].comments);
+            }
         } catch (e) {
             console.error(e);
         }
@@ -53,29 +23,44 @@ function writeHtmlCommentCountValueById(id) {
 }
 
 // 加载最新评论数据
-function loadCommentData(resultArr) {
+function loadCommentDataAndRender() {
     // sort=comments可以按评论数排序，此处更适合按更新时间排序,可以根据updated排序，但是0条评论的也会出来，所以此处还是全部查出来，内存排序
     // per_page 每页数量，根据需求配置
-    $.ajaxSettings.async = false;
+    var resultArr = [];
     $.getJSON(repoIssuesUrl + "/comments?sort=created&direction=desc&per_page=7&page=1&client_id=" + clientId + "&client_secret=" + clientSecret, function (result) {
+        var endIndex = result.length - 1;
         $.each(result, function (i, item) {
             var contentStr = item.body.trim();
             var isSubStr = true;
             contentStr = contentStr.replace(" ", "");
             contentStr = contentStr.replace("&nbsp;", "");
-            while (isSubStr) {
-                if (contentStr.lastIndexOf(">") != -1) {
-                    var temp = contentStr.substr(contentStr.lastIndexOf(">") + 1);
-                    if (temp == undefined || temp == "") {
-                        isSubStr = true;
-                        contentStr = contentStr.substr(0, contentStr.lastIndexOf(">") - 1);
+            // 第一次进来就有空格的情况
+            let splitStr = "\n\n";
+            let firstComm = contentStr.indexOf(">") > -1;
+            let conArr = contentStr.split(splitStr);
+
+            if (conArr.length == 2 && firstComm) {
+                contentStr = conArr[1];
+            } else if (conArr.length > 2 && firstComm) {
+                contentStr = contentStr.substr(contentStr.indexOf(splitStr) + 4);
+            } else {
+
+                contentStr = contentStr.replace(/(-)+>/g, " to ");
+                while (isSubStr) {
+                    if (contentStr.lastIndexOf(">") != -1) {
+                        var temp = contentStr.substr(contentStr.lastIndexOf(">") + 1);
+                        if (temp == undefined || temp == "") {
+                            isSubStr = true;
+                            contentStr = contentStr.substr(0, contentStr.lastIndexOf(">") - 1);
+                        } else {
+                            isSubStr = false;
+                            contentStr = temp;
+                        }
                     } else {
                         isSubStr = false;
-                        contentStr = temp;
                     }
-                } else {
-                    isSubStr = false;
                 }
+
             }
 
             if (contentStr == undefined || contentStr == "") {
@@ -87,29 +72,64 @@ function loadCommentData(resultArr) {
 
             // 替换网址
             contentStr = contentStr.replace(/(?:http(s)?:\/\/)+[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\*\+,;=.]+/g, "[网址]");
-            if (contentStr.length > 50) {
-                contentStr = contentStr.substr(0, 60);
+            if (contentStr.length > 28) {
+                contentStr = contentStr.substr(0, 28);
                 contentStr += "...";
 
             }
 
             // 获取跳转url
             var itemUrl = "";
-            $.ajaxSettings.async = false;
             $.getJSON(item.issue_url + "?client_id=" + clientId + "&client_secret=" + clientSecret, function (result) {
                 itemUrl = result.body.substr(0, result.body.indexOf("\n") - 1);
+                // 放入
+                let userName = item["user"].login;
+                if(userName != undefined && userName != '' && userName == ADMIN_NAME){
+                    userName += '[博主]';
+                }
+                resultArr.push({
+                    "content": contentStr,
+                    "date": item.created_at,
+                    "userName": userName,
+                    "userUrl": item["user"].html_url,
+                    "userAvatar": item["user"].avatar_url,
+                    "url": itemUrl
+                });
+                // 请求完之后渲染
+                if(endIndex == i){
+                    renderCommentData(resultArr);
+                    // 存入缓存
+                    var resultMap = {};
+                    resultMap["date"] = new Date().getTime();
+                    resultMap["data"] = resultArr;
+                    if (resultArr.length > 0) {
+                        localStorage.setItem(COMMENT_CACHE_KEY, JSON.stringify(resultMap));
+                    }
+                }
             });
-            // 放入
-            resultArr.push({
-                "content": contentStr,
-                "date": item.created_at,
-                "userName": item["user"].login,
-                "userUrl": item["user"].html_url,
-                "userAvatar": item["user"].avatar_url,
-                "url": itemUrl
-            });
+
         });
     });
+}
+
+// 渲染评论数据
+function renderCommentData(COMMENT_ARR) {
+    if (COMMENT_ARR.length > 0) {
+        // 热门评论内容
+        var htmlContentWidget = "<div class='comment-content'>";
+        for (var i = 0; i < COMMENT_ARR.length; i++) {
+            var item = COMMENT_ARR[i];
+            var contentStr = item.content;
+            htmlContentWidget +=
+                "<div class='card-comment-item'>" + "<a href=\"" + item.userUrl + "\"target=\"_blank\">" + "<img class='ava' src='" + item.userAvatar + "'/></a>" +
+                "<div class='item-header-text'><a href='"+item.userUrl+"' target='_blank'>" + item.userName + "</a>&nbsp;发表于" + getDateDiff(new Date(item.date).getTime()) + "</div>" + "<div class=\"item-text\"><a href =\"" + item.url + '#comment-container' + "\"target=\"_blank\">" + contentStr + "</a></div>" +
+                "</div>";
+        }
+        htmlContentWidget += "</div>"
+        $(".body_hot_comment").html(htmlContentWidget);
+    } else {
+        $(".body_hot_comment").html("无数据记录！");
+    }
 }
 
 // 加载热门推荐数据
@@ -144,13 +164,11 @@ function loadIndexHotData() {
 }
 
 $(document).ready(setTimeout(function () { // 延迟1s执行，保证其余的先加载
-
-        var COMMENT_CACHE_KEY = "commentKey";
         var COMMENT_ARR = {};
         var COMMENT_CACHE = localStorage.getItem(COMMENT_CACHE_KEY);
         var COMMENT = {};
 
-        if (COMMENT_CACHE != '') {
+        if (COMMENT_CACHE != '' || COMMENT_CACHE != null) {
             // 异常不影响结果，继续往下执行
             try {
                 COMMENT = JSON.parse(COMMENT_CACHE);
@@ -162,39 +180,16 @@ $(document).ready(setTimeout(function () { // 延迟1s执行，保证其余的�
         }
 
 
-        if (COMMENT_CACHE == '' || new Date().getTime() - COMMENT["date"] > 60 * 1000 * 10) { // request per 10 minutes
+        if (COMMENT_CACHE == '' || COMMENT_CACHE == null || new Date().getTime() - COMMENT["date"] > 60 * 1000) { // request per 10 minutes
             console.log("req data...");
-            var resultMap = {};
-            var resultArr = [];
-            loadCommentData(resultArr);
-            resultMap["date"] = new Date().getTime();
-            resultMap["data"] = resultArr;
-            COMMENT_ARR = resultArr;
-            if (COMMENT_ARR.length > 0) {
-                localStorage.setItem(COMMENT_CACHE_KEY, JSON.stringify(resultMap));
-            }
+            loadCommentDataAndRender();
         } else {
             console.log("load cache data...");
+            // 渲染评论数据
+            renderCommentData(COMMENT_ARR);
         }
 
-
-        if (COMMENT_ARR.length > 0) {
-            // 热门评论内容
-            var htmlContentWidget ="<div class='comment-content'>";
-            for (var i = 0; i < COMMENT_ARR.length; i++) {
-                var item = COMMENT_ARR[i];
-                var contentStr = item.content;
-                htmlContentWidget +=
-                    "<div class='card-comment-item'>" + "<a href=\"" + item.userUrl + "\"target=\"_blank\">" + "<img class='ava' src='" + item.userAvatar + "'>" +
-                    "<div class=\"tag is-success item\">" + item.userName + "</a>&nbsp;发表于" + getDateDiff(new Date(item.date).getTime()) + "<br>" + "<a href =\"" + item.url + '#comment-container' + "\"target=\"_blank\">" + contentStr + "</a></div>" +
-                    "</div><br>";
-            }
-            htmlContentWidget += "</div>"
-            $("#body_hot_comment").html(htmlContentWidget);
-        } else {
-            $("#body_hot_comment").html("无数据记录！");
-        }
-
+        // 首页热门推荐
         loadIndexHotData();
 
         // 装载评论数到文章对应位置
@@ -206,12 +201,12 @@ $(document).ready(setTimeout(function () { // 延迟1s执行，保证其余的�
             }
         }
 
-        console.clear();
+        // console.clear();
         console.log("~~~~xiu xiu xiu 欢迎光临~~~");
         console.log("~~~~唉，控制台太多报错了，呜呜呜呜~~~");
         console.log("~~~~记得有时间多来看看哦，https://removeif.github.io/")
     }
     ,
-    1000
+    500
 ))
 ;
