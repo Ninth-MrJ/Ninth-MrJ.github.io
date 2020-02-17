@@ -8,7 +8,7 @@ if (isNight == null || isNight == undefined) {
     if (isNightRange("19:00", "23:59") || isNightRange("00:00", "07:00")) {
         isNight = 'true';
     } else {
-        isNight = 'false';
+        isNight = 'true';
     }
     localStorage.setExpire("night", isNight, expireTime1H);
 }
